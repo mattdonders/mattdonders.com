@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { projects, type ProjectStatus } from '../data/projects';
+
+const statusOrder: ProjectStatus[] = ['live', 'beta', 'development', 'planned'];
+
+const grouped = statusOrder.reduce<Record<ProjectStatus, typeof projects>>((acc, status) => {
+  acc[status] = projects.filter(p => p.status === status);
+  return acc;
+}, {} as Record<ProjectStatus, typeof projects>);
+
+const statusHeadings: Record<ProjectStatus, string> = {
+  live: 'Live',
+  beta: 'Beta',
+  development: 'In Development',
+  planned: 'Planned',
+};
+---
+
+<BaseLayout
+  title="Projects"
+  description="Apps and projects built by Matt Donders — iOS apps, Cloudflare Workers, and more."
+>
+  <div class="container section">
+    <div class="section-header">
+      <span class="section-label">// projects</span>
+      <h1>Projects</h1>
+      <p class="page-description">
+        Things I'm building — iOS apps, web tools, bots, and experiments.
+        Some are live, some are in progress.
+      </p>
+    </div>
+
+    {statusOrder.map(status => grouped[status].length > 0 && (
+      <div class="status-group">
+        <h2 class="status-heading">{statusHeadings[status]}</h2>
+        <div class="grid-cards">
+          {grouped[status].map(project => (
+            <ProjectCard project={project} />
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</BaseLayout>
+
+<style>
+  .page-description {
+    font-size: 1.05rem;
+    max-width: 55ch;
+    margin-top: 0.75rem;
+  }
+
+  .status-group {
+    margin-bottom: 3.5rem;
+  }
+
+  .status-heading {
+    font-size: 0.875rem;
+    font-family: var(--font-mono);
+    color: var(--text-subtle);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+</style>

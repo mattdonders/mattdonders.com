@@ -1,0 +1,77 @@
+---
+const year = new Date().getFullYear();
+
+const links = [
+  { href: 'https://github.com/mattdonders', label: 'GitHub' },
+  { href: 'https://twitter.com/mattdonders', label: 'Twitter / X' },
+  { href: '/blog', label: 'Blog' },
+];
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span class="footer-copy">
+      &copy; {year} Matt Donders. Built with
+      <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>
+      &amp; hosted on
+      <a href="https://pages.cloudflare.com" target="_blank" rel="noopener noreferrer">Cloudflare Pages</a>.
+    </span>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      {links.map(({ href, label }) => (
+        <a
+          href={href}
+          class="footer-link"
+          target={href.startsWith('http') ? '_blank' : undefined}
+          rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+        >
+          {label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--border);
+    margin-top: auto;
+    padding: 2rem 0;
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-copy {
+    font-size: 0.825rem;
+    color: var(--text-subtle);
+  }
+
+  .footer-copy a {
+    color: var(--text-muted);
+  }
+
+  .footer-copy a:hover {
+    color: var(--accent);
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-link {
+    font-size: 0.825rem;
+    color: var(--text-subtle);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .footer-link:hover {
+    color: var(--text-muted);
+  }
+</style>

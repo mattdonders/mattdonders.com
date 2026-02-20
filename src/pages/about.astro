@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const skills = [
+  { category: 'Mobile', items: ['Swift', 'SwiftUI', 'Kotlin', 'Jetpack Compose'] },
+  { category: 'Backend / Workers', items: ['TypeScript', 'Cloudflare Workers', 'Python', 'Node.js'] },
+  { category: 'Infrastructure', items: ['Cloudflare Pages', 'Cloudflare D1', 'Firebase', 'Git'] },
+];
+---
+
+<BaseLayout
+  title="About"
+  description="A bit about Matt Donders — software developer, app builder."
+>
+  <div class="container section">
+    <div class="about-grid">
+      <div class="about-main">
+        <span class="section-label">// about</span>
+        <h1>Hey, I'm Matt.</h1>
+
+        <div class="prose about-prose">
+          <p>
+            I'm a software developer based in the US, primarily building iOS apps and
+            Cloudflare-powered backend services. I write Swift, TypeScript, and
+            Python depending on what I'm making.
+          </p>
+          <p>
+            I started coding [add your story here] and have been building things
+            ever since. Right now I'm focused on shipping a few apps that have been
+            rattling around in my head for a while.
+          </p>
+          <p>
+            When I'm not writing code I'm probably [add personal details here].
+          </p>
+          <p>
+            This site is where I'll post about projects as they launch, and occasionally
+            write about things I've learned or found interesting.
+          </p>
+        </div>
+
+        <div class="about-links">
+          <a href="https://github.com/mattdonders" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+          <a href="https://twitter.com/mattdonders" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+            Twitter / X
+          </a>
+          <a href="/blog" class="btn btn-outline">Blog</a>
+        </div>
+      </div>
+
+      <aside class="about-sidebar">
+        <div class="skills-card">
+          <h3 class="skills-heading">Stack</h3>
+          {skills.map(({ category, items }) => (
+            <div class="skill-group">
+              <h4 class="skill-category">{category}</h4>
+              <div class="skill-tags">
+                {items.map(item => <span class="tag">{item}</span>)}
+              </div>
+            </div>
+          ))}
+        </div>
+      </aside>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-prose p {
+    margin-bottom: 1.25rem;
+  }
+
+  .about-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  .skills-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    position: sticky;
+    top: calc(var(--nav-height) + 2rem);
+  }
+
+  .skills-heading {
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-subtle);
+    margin-bottom: 1.25rem;
+  }
+
+  .skill-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .skill-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .skill-category {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  @media (max-width: 768px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .skills-card {
+      position: static;
+    }
+  }
+</style>
