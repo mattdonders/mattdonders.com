@@ -6,7 +6,7 @@ import { projects, type ProjectStatus } from '../data/projects';
 const statusOrder: ProjectStatus[] = ['live', 'beta', 'development', 'planned'];
 
 const grouped = statusOrder.reduce<Record<ProjectStatus, typeof projects>>((acc, status) => {
-  acc[status] = projects.filter(p => p.status === status);
+  acc[status] = projects.filter(p => p.status === status && !p.draft);
   return acc;
 }, {} as Record<ProjectStatus, typeof projects>);
 

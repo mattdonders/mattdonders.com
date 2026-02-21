@@ -4,7 +4,7 @@ import ProjectCard from '../components/ProjectCard.astro';
 import { projects } from '../data/projects';
 import { getCollection } from 'astro:content';
 
-const featuredProjects = projects.filter(p => p.featured);
+const featuredProjects = projects.filter(p => p.featured && !p.draft);
 
 const allPosts = await getCollection('blog', ({ data }) => !data.draft);
 const recentPosts = allPosts
