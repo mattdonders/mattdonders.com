@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Privacy Policy — Tooth Fairy Tracker"
+  description="Privacy Policy for Tooth Fairy Tracker iOS app."
+>
+  <div class="container section">
+    <span class="section-label">// tooth fairy tracker</span>
+    <h1>Privacy Policy</h1>
+    <p class="last-updated">Last Updated: March 5, 2026</p>
+
+    <div class="prose privacy-prose">
+      <div class="highlight-box">
+        <strong>Summary:</strong> Tooth Fairy Tracker does not collect, store, or transmit any personal data. Everything stays on your device.
+      </div>
+
+      <h2>Introduction</h2>
+      <p>
+        Tooth Fairy Tracker ("we", "our", or "the app") is a mobile application developed by Matt Donders.
+        This Privacy Policy explains how the app handles your information.
+      </p>
+
+      <h2>Information We Collect</h2>
+      <p><strong>None.</strong> Tooth Fairy Tracker does not collect any personal information. The app:</p>
+      <ul>
+        <li>Does not require an account or login</li>
+        <li>Does not connect to the internet</li>
+        <li>Does not use analytics or tracking</li>
+        <li>Does not display advertisements</li>
+        <li>Does not access your contacts, location, camera, or microphone</li>
+      </ul>
+
+      <h2>Data Storage</h2>
+      <p>
+        All data you create in the app (child profiles, tooth records, and visit history) is stored
+        locally on your device using Apple's SwiftData framework. This data is never transmitted to any
+        server or third party.
+      </p>
+      <p>
+        If you delete the app, all associated data is permanently removed from your device.
+      </p>
+
+      <h2>Notifications</h2>
+      <p>
+        Tooth Fairy Tracker can send optional local notifications to remind you about Tooth Fairy visits.
+        These notifications are scheduled entirely on your device and do not involve any external server
+        or push notification service. You can disable notifications at any time in your device settings.
+      </p>
+
+      <h2>Face ID / Touch ID</h2>
+      <p>
+        The app may use Face ID or Touch ID to protect parent settings. Biometric data is handled
+        entirely by Apple's LocalAuthentication framework on your device. We never receive, store,
+        or have access to your biometric data.
+      </p>
+
+      <h2>In-App Purchases</h2>
+      <p>
+        Tooth Fairy Tracker offers a one-time in-app purchase to unlock support for multiple children.
+        All payment processing is handled entirely by Apple through the App Store. We do not collect,
+        store, or have access to any payment information such as credit card numbers or billing details.
+      </p>
+      <p>
+        For information on how Apple handles your payment data, please refer to
+        <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple's Privacy Policy</a>.
+      </p>
+
+      <h2>Children's Privacy</h2>
+      <p>
+        Tooth Fairy Tracker does not collect any data from anyone, including children. Child names
+        entered in the app are stored only on your device and are never transmitted anywhere. The app
+        is safe for users of all ages.
+      </p>
+
+      <h2>Third-Party Services</h2>
+      <p>
+        Tooth Fairy Tracker does not integrate with any third-party services, SDKs, or APIs. The app
+        functions entirely offline with no external dependencies.
+      </p>
+
+      <h2>Changes to This Policy</h2>
+      <p>
+        We may update this Privacy Policy from time to time. Any changes will be reflected on this
+        page with an updated "Last Updated" date.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        If you have questions about this Privacy Policy, please contact us at:
+      </p>
+      <p>
+        <strong>Email:</strong> <a href="mailto:matt@mattdonders.com">matt@mattdonders.com</a>
+      </p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .last-updated {
+    font-size: 0.85rem;
+    color: var(--text-subtle);
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .privacy-prose h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.35rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .privacy-prose p {
+    margin-bottom: 1rem;
+  }
+
+  .privacy-prose ul {
+    margin-bottom: 1.25rem;
+  }
+
+  .privacy-prose li {
+    margin-bottom: 0.35rem;
+  }
+
+  .highlight-box {
+    background: var(--accent-dim);
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius);
+    margin: 1.5rem 0 2rem;
+    color: var(--text-muted);
+  }
+
+  .highlight-box strong {
+    color: var(--text);
+  }
+</style>
