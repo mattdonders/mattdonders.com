@@ -24,7 +24,7 @@ export const projects: Project[] = [
     status: 'live',
     platforms: ['Web'],
     tags: ['Python', 'NHL API', 'Cloudflare D1', 'FFmpeg'],
-    url: 'https://x.com/hockey_gamebot',
+    url: '/apps/hockey-game-bot',
     featured: true,
   },
   {

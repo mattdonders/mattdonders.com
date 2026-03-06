@@ -1,0 +1,416 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Hockey Game Bot"
+  description="Real-time NHL game updates posted automatically across 9 platforms simultaneously — goals, penalties, animated GIFs, and game recaps."
+>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-content">
+      <span class="section-label">// hockey game bot</span>
+      <h1>Real-time NHL updates,<br />across 9 platforms.</h1>
+      <p class="hero-sub">
+        A production bot that monitors every live NHL game and automatically posts
+        goals, penalties, period updates, and animated goal GIFs — simultaneously,
+        to every major platform.
+      </p>
+      <div class="hero-actions">
+        <a href="https://hockeygamebot.com" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
+          Visit hockeygamebot.com
+        </a>
+        <a href="https://bsky.app/profile/hockeygamebot.bsky.social" class="btn btn-outline btn-lg" target="_blank" rel="noopener noreferrer">
+          Follow on Bluesky
+        </a>
+        <a href="https://x.com/hockey_gamebot" class="btn btn-outline btn-lg" target="_blank" rel="noopener noreferrer">
+          Follow on X
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- What it posts -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">// coverage</span>
+        <h2>Every moment, every game</h2>
+        <p class="section-sub">
+          The bot watches every NHL game simultaneously and posts automatically — no manual intervention required.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🚨</div>
+          <h3>Goals</h3>
+          <p>
+            Instant goal alerts with scorer, assists, time, period, and updated score.
+            Animated goal GIFs generated and attached automatically.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🟨</div>
+          <h3>Penalties</h3>
+          <p>
+            Every penalty posted with player, infraction type, duration, and team.
+            Power play and shorthanded situations tracked in real time.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🏒</div>
+          <h3>Period Updates</h3>
+          <p>
+            End-of-period summaries with shots, score, and key stats.
+            Overtime and shootout coverage included.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Pre-game & Recaps</h3>
+          <p>
+            Pre-game lineups and matchup cards before puck drop.
+            Final score recaps with stats posted when the game ends.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🎬</div>
+          <h3>Animated GIFs</h3>
+          <p>
+            Goal GIFs generated with FFmpeg and posted alongside every goal alert.
+            Visual scoring summaries that stand out in any feed.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🔔</div>
+          <h3>Milestones</h3>
+          <p>
+            Notable milestones flagged automatically — hat tricks, shutouts,
+            career goals, and other significant moments.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Platforms -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">// platforms</span>
+        <h2>9 platforms, one bot</h2>
+        <p class="section-sub">Every post goes out simultaneously — no copy-paste, no scheduling.</p>
+      </div>
+
+      <div class="platforms-grid">
+        <div class="platform-chip">𝕏 &nbsp;X / Twitter</div>
+        <div class="platform-chip">🦋 &nbsp;Bluesky</div>
+        <div class="platform-chip">🧵 &nbsp;Threads</div>
+        <div class="platform-chip">🐘 &nbsp;Mastodon</div>
+        <div class="platform-chip">💬 &nbsp;Discord</div>
+        <div class="platform-chip">✈️ &nbsp;Telegram</div>
+        <div class="platform-chip">▶️ &nbsp;YouTube</div>
+        <div class="platform-chip">🎵 &nbsp;TikTok</div>
+        <div class="platform-chip">📸 &nbsp;Instagram</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">// how it works</span>
+        <h2>Built to run unattended</h2>
+      </div>
+
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <h3>Poll the NHL API</h3>
+            <p>The Python bot polls the NHL Stats API every 5 seconds during live games, detecting new play-by-play events as they happen.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <h3>Generate assets</h3>
+            <p>For goal events, animated GIFs are generated with FFmpeg and uploaded to Backblaze B2 storage for attachment to posts.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <h3>Publish everywhere</h3>
+            <p>Formatted posts go out simultaneously to all 9 platforms via their respective APIs. One event, nine posts, under a second.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="step-num">04</div>
+          <div class="step-content">
+            <h3>Feed the apps</h3>
+            <p>Events are also published to a Cloudflare Workers API backed by D1, powering companion iOS and Android apps with live push notifications.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stack -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">// tech stack</span>
+        <h2>What's under the hood</h2>
+      </div>
+
+      <div class="stack-grid">
+        <div class="stack-item">
+          <span class="stack-layer">Bot</span>
+          <span class="stack-tech">Python 3.11 on DigitalOcean</span>
+        </div>
+        <div class="stack-item">
+          <span class="stack-layer">API</span>
+          <span class="stack-tech">Cloudflare Workers + D1</span>
+        </div>
+        <div class="stack-item">
+          <span class="stack-layer">Media</span>
+          <span class="stack-tech">FFmpeg + Backblaze B2</span>
+        </div>
+        <div class="stack-item">
+          <span class="stack-layer">Push</span>
+          <span class="stack-tech">Firebase Cloud Messaging</span>
+        </div>
+        <div class="stack-item">
+          <span class="stack-layer">iOS</span>
+          <span class="stack-tech">SwiftUI + Combine</span>
+        </div>
+        <div class="stack-item">
+          <span class="stack-layer">Android</span>
+          <span class="stack-tech">Kotlin + Jetpack Compose</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="section">
+    <div class="container bottom-cta">
+      <h2>Follow the bot</h2>
+      <p>Pick your platform — updates are posted to all of them.</p>
+      <div class="cta-links">
+        <a href="https://hockeygamebot.com" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
+          hockeygamebot.com
+        </a>
+        <a href="https://bsky.app/profile/hockeygamebot.bsky.social" class="btn btn-outline btn-lg" target="_blank" rel="noopener noreferrer">
+          Bluesky
+        </a>
+        <a href="https://x.com/hockey_gamebot" class="btn btn-outline btn-lg" target="_blank" rel="noopener noreferrer">
+          X / Twitter
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .hero {
+    padding: 6rem 0 5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-content {
+    max-width: 720px;
+  }
+
+  .hero h1 {
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    max-width: 55ch;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-lg {
+    padding: 0.75rem 1.75rem;
+    font-size: 1rem;
+  }
+
+  .section-sub {
+    font-size: 1rem;
+    max-width: 52ch;
+    margin-top: 0.5rem;
+  }
+
+  /* Section alt */
+  .section-alt {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Features */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .feature-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .feature-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .feature-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .feature-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-card p {
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  /* Platforms */
+  .platforms-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .platform-chip {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.9rem;
+    color: var(--text);
+    font-family: var(--font-mono);
+  }
+
+  /* How it works */
+  .how-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .how-step {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+    line-height: 1;
+    padding-top: 0.2rem;
+  }
+
+  .step-content h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .step-content p {
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  /* Stack */
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .stack-item {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .stack-layer {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+  }
+
+  .stack-tech {
+    font-size: 0.9rem;
+    color: var(--text);
+  }
+
+  /* Bottom CTA */
+  .bottom-cta {
+    text-align: center;
+  }
+
+  .bottom-cta h2 {
+    margin-bottom: 0.75rem;
+  }
+
+  .bottom-cta p {
+    margin-bottom: 1.75rem;
+  }
+
+  .cta-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    .hero { padding: 3rem 0 3rem; }
+    .features-grid { grid-template-columns: 1fr; }
+    .how-grid { grid-template-columns: 1fr; }
+    .stack-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 860px) {
+    .features-grid { grid-template-columns: repeat(2, 1fr); }
+    .stack-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
