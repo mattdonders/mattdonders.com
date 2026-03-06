@@ -10,40 +10,42 @@ const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.
   title="Blog"
   description="Writing by Matt Donders — dev notes, app launches, and occasional thoughts."
 >
-  <div class="container section">
-    <div class="section-header">
-      <span class="section-label">// writing</span>
-      <h1>Blog</h1>
-      <p class="page-description">
-        Dev notes, app launch write-ups, and occasional thoughts.
-      </p>
-    </div>
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">// writing</span>
+        <h1>Blog</h1>
+        <p class="page-description">
+          Dev notes, app launch write-ups, and occasional thoughts.
+        </p>
+      </div>
 
-    {posts.length === 0 ? (
-      <div class="empty-state">
-        <p>No posts yet — check back soon.</p>
-      </div>
-    ) : (
-      <div class="post-list">
-        {posts.map(post => (
-          <a href={`/blog/${post.slug}`} class="post-row">
-            <div class="post-row-main">
-              <h2 class="post-title">{post.data.title}</h2>
-              <p class="post-description">{post.data.description}</p>
-              {post.data.tags.length > 0 && (
-                <div class="post-tags">
-                  {post.data.tags.map(tag => <span class="tag">{tag}</span>)}
-                </div>
-              )}
-            </div>
-            <time class="post-date" datetime={post.data.pubDate.toISOString()}>
-              {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
-            </time>
-          </a>
-        ))}
-      </div>
-    )}
-  </div>
+      {posts.length === 0 ? (
+        <div class="empty-state">
+          <p>No posts yet — check back soon.</p>
+        </div>
+      ) : (
+        <div class="post-list">
+          {posts.map(post => (
+            <a href={`/blog/${post.slug}`} class="post-row">
+              <div class="post-row-main">
+                <h2 class="post-title">{post.data.title}</h2>
+                <p class="post-description">{post.data.description}</p>
+                {post.data.tags.length > 0 && (
+                  <div class="post-tags">
+                    {post.data.tags.map(tag => <span class="tag">{tag}</span>)}
+                  </div>
+                )}
+              </div>
+              <time class="post-date" datetime={post.data.pubDate.toISOString()}>
+                {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+              </time>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
