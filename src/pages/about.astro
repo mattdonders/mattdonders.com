@@ -12,58 +12,60 @@ const skills = [
   title="About"
   description="A bit about Matt Donders — software developer, app builder."
 >
-  <div class="container section">
-    <div class="about-grid">
-      <div class="about-main">
-        <span class="section-label">// about</span>
-        <h1>Hey, I'm Matt.</h1>
+  <section class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-main">
+          <span class="section-label">// about</span>
+          <h1>Hey, I'm Matt.</h1>
 
-        <div class="prose about-prose">
-          <p>
-            I'm a software developer based in the US, primarily building iOS apps and
-            Cloudflare-powered backend services. I write Swift, TypeScript, and
-            Python depending on what I'm making.
-          </p>
-          <p>
-            I started coding [add your story here] and have been building things
-            ever since. Right now I'm focused on shipping a few apps that have been
-            rattling around in my head for a while.
-          </p>
-          <p>
-            When I'm not writing code I'm probably [add personal details here].
-          </p>
-          <p>
-            This site is where I'll post about projects as they launch, and occasionally
-            write about things I've learned or found interesting.
-          </p>
+          <div class="prose about-prose">
+            <p>
+              I'm a software developer based in the US, primarily building iOS apps and
+              Cloudflare-powered backend services. I write Swift, TypeScript, and
+              Python depending on what I'm making.
+            </p>
+            <p>
+              I started coding [add your story here] and have been building things
+              ever since. Right now I'm focused on shipping a few apps that have been
+              rattling around in my head for a while.
+            </p>
+            <p>
+              When I'm not writing code I'm probably [add personal details here].
+            </p>
+            <p>
+              This site is where I'll post about projects as they launch, and occasionally
+              write about things I've learned or found interesting.
+            </p>
+          </div>
+
+          <div class="about-links">
+            <a href="https://github.com/mattdonders" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+            <a href="https://twitter.com/mattdonders" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+              Twitter / X
+            </a>
+            <a href="/blog" class="btn btn-outline">Blog</a>
+          </div>
         </div>
 
-        <div class="about-links">
-          <a href="https://github.com/mattdonders" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
-            GitHub
-          </a>
-          <a href="https://twitter.com/mattdonders" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
-            Twitter / X
-          </a>
-          <a href="/blog" class="btn btn-outline">Blog</a>
-        </div>
-      </div>
-
-      <aside class="about-sidebar">
-        <div class="skills-card">
-          <h3 class="skills-heading">Stack</h3>
-          {skills.map(({ category, items }) => (
-            <div class="skill-group">
-              <h4 class="skill-category">{category}</h4>
-              <div class="skill-tags">
-                {items.map(item => <span class="tag">{item}</span>)}
+        <aside class="about-sidebar">
+          <div class="skills-card">
+            <h3 class="skills-heading">Stack</h3>
+            {skills.map(({ category, items }) => (
+              <div class="skill-group">
+                <h4 class="skill-category">{category}</h4>
+                <div class="skill-tags">
+                  {items.map(item => <span class="tag">{item}</span>)}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </aside>
+            ))}
+          </div>
+        </aside>
+      </div>
     </div>
-  </div>
+  </section>
 </BaseLayout>
 
 <style>

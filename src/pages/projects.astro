@@ -22,27 +22,29 @@ const statusHeadings: Record<ProjectStatus, string> = {
   title="Projects"
   description="Apps and projects built by Matt Donders — iOS apps, Cloudflare Workers, and more."
 >
-  <div class="container section">
-    <div class="section-header">
-      <span class="section-label">// projects</span>
-      <h1>Projects</h1>
-      <p class="page-description">
-        Things I'm building — iOS apps, web tools, bots, and experiments.
-        Some are live, some are in progress.
-      </p>
-    </div>
-
-    {statusOrder.map(status => grouped[status].length > 0 && (
-      <div class="status-group">
-        <h2 class="status-heading">{statusHeadings[status]}</h2>
-        <div class="grid-cards">
-          {grouped[status].map(project => (
-            <ProjectCard project={project} />
-          ))}
-        </div>
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">// projects</span>
+        <h1>Projects</h1>
+        <p class="page-description">
+          Things I'm building — iOS apps, web tools, bots, and experiments.
+          Some are live, some are in progress.
+        </p>
       </div>
-    ))}
-  </div>
+
+      {statusOrder.map(status => grouped[status].length > 0 && (
+        <div class="status-group">
+          <h2 class="status-heading">{statusHeadings[status]}</h2>
+          <div class="grid-cards">
+            {grouped[status].map(project => (
+              <ProjectCard project={project} />
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
@@ -66,5 +68,4 @@ const statusHeadings: Record<ProjectStatus, string> = {
     padding-bottom: 0.75rem;
     border-bottom: 1px solid var(--border);
   }
-
 </style>
