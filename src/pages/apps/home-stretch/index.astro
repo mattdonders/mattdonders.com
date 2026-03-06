@@ -1,0 +1,270 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Home Stretch: Moving Checklist"
+  description="A timeline-based moving checklist built around your move date. No ads, no account, no bloat."
+>
+  <div class="container section">
+    <div class="hero">
+      <span class="section-label">// home stretch</span>
+      <h1>Your Move,<br />Phase by Phase</h1>
+      <p class="hero-sub">
+        A timeline-based moving checklist that organizes every task around your move date.
+        No ads, no account, no bloat — just every task you need, exactly when you need it.
+      </p>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-primary btn-lg">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+          Download on the App Store
+        </a>
+        <a href="/apps/home-stretch/privacy" class="btn btn-outline">Privacy Policy</a>
+      </div>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">&#128197;</div>
+        <h3>Timeline-Based Phases</h3>
+        <p>
+          Tasks organized into 6 phases: 8 weeks out, 6 weeks out, 4 weeks out,
+          2 weeks out, moving day, and after the move.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">&#128198;</div>
+        <h3>Move Date Driven</h3>
+        <p>
+          Set your move date once. Phases sort by urgency automatically —
+          overdue and upcoming tasks always surface first.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">&#9989;</div>
+        <h3>Satisfying to Use</h3>
+        <p>
+          Check off tasks with haptic feedback. Watch progress build
+          phase by phase with visual progress bars.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">&#128221;</div>
+        <h3>Custom Tasks</h3>
+        <p>
+          Add your own tasks to any phase. Every move is different —
+          handle whatever your situation requires.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">&#128196;</div>
+        <h3>PDF Export</h3>
+        <p>
+          Export your full checklist as a PDF to share with a partner,
+          a moving company, or keep a paper backup.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">&#128274;</div>
+        <h3>Private by Design</h3>
+        <p>
+          No account, no internet required. All data stored locally on your device.
+          No analytics, no tracking, no ads.
+        </p>
+      </div>
+    </div>
+
+    <div class="pricing-section">
+      <h2>Simple Pricing</h2>
+      <p class="pricing-sub">Start planning for free. Upgrade once if you want everything.</p>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Free</h3>
+          <p class="price">$0</p>
+          <ul>
+            <li>First 2 timeline phases</li>
+            <li>8 Weeks Out + 6 Weeks Out</li>
+            <li>Full task list with tips</li>
+            <li>Progress tracking</li>
+          </ul>
+        </div>
+        <div class="pricing-card pricing-card-premium">
+          <h3>Full Checklist</h3>
+          <p class="price">$2.99 <span class="price-note">one-time</span></p>
+          <ul>
+            <li>All 6 timeline phases</li>
+            <li>Custom tasks in any phase</li>
+            <li>PDF export</li>
+            <li>No subscription — ever</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-cta">
+      <p>Available on iPhone and iPad. Requires iOS 17 or later.</p>
+      <a href="#" class="btn btn-primary btn-lg">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+        </svg>
+        Download on the App Store
+      </a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .hero {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+
+  .hero h1 {
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    max-width: 52ch;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-lg {
+    padding: 0.75rem 1.75rem;
+    font-size: 1rem;
+  }
+
+  /* Features */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 5rem;
+  }
+
+  .feature-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .feature-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .feature-icon {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .feature-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-card p {
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  /* Pricing */
+  .pricing-section {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+
+  .pricing-sub {
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .pricing-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    text-align: left;
+  }
+
+  .pricing-card-premium {
+    border-color: var(--accent);
+    background: var(--accent-dim);
+  }
+
+  .pricing-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .price {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+  }
+
+  .price-note {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--text-muted);
+  }
+
+  .pricing-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .pricing-card li {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    padding: 0.35rem 0;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .pricing-card li::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    color: var(--success);
+    font-weight: 600;
+  }
+
+  /* Bottom CTA */
+  .bottom-cta {
+    text-align: center;
+    padding-bottom: 2rem;
+  }
+
+  .bottom-cta p {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+</style>

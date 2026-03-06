@@ -18,6 +18,16 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    name: 'Home Stretch',
+    tagline: 'A timeline-based moving checklist built around your move date.',
+    description: 'Set your move date and get every task organized into 6 phases — from 8 weeks out through after the move. Custom tasks, PDF export, progress tracking, and zero internet required.',
+    status: 'live',
+    platforms: ['iOS'],
+    tags: ['SwiftUI', 'SwiftData', 'StoreKit 2'],
+    url: '/apps/home-stretch',
+    featured: true,
+  },
+  {
     name: 'Hockey Game Bot',
     tagline: 'Real-time NHL game updates across 9 social platforms simultaneously.',
     description: 'A production bot that monitors live NHL games and auto-posts goals, penalties, milestones, and animated goal GIFs to Bluesky, X, Threads, Mastodon, Telegram, Discord, and more. Feeds a backend API powering companion iOS and Android apps.',
