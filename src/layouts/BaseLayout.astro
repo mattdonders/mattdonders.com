@@ -8,16 +8,19 @@ interface Props {
   description?: string;
   canonicalURL?: string;
   ogImage?: string;
+  ogType?: 'website' | 'article';
 }
 
 const {
   title,
   description = 'Matt Donders — Software developer building iOS apps, Cloudflare Workers, and other things.',
   canonicalURL = Astro.url.href,
-  ogImage = '/og-default.png',
+  ogImage = '/og-default.svg',
+  ogType = 'website',
 } = Astro.props;
 
 const siteTitle = title === 'Matt Donders' ? title : `${title} — Matt Donders`;
+const ogImageURL = new URL(ogImage, Astro.site).toString();
 ---
 
 <!doctype html>
@@ -28,19 +31,22 @@ const siteTitle = title === 'Matt Donders' ? title : `${title} — Matt Donders`
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title="Matt Donders" href="/rss.xml" />
 
     <!-- Open Graph -->
     <meta property="og:title" content={siteTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content="Matt Donders" />
+    <meta property="og:image" content={ogImageURL} />
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:creator" content="@mattdonders" />
     <meta name="twitter:title" content={siteTitle} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
 
     <title>{siteTitle}</title>
   </head>
