@@ -18,6 +18,16 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    name: 'Hockey Game Bot',
+    tagline: 'Real-time NHL game updates across 9 social platforms simultaneously.',
+    description: 'A production bot that monitors live NHL games and auto-posts goals, penalties, milestones, and animated goal GIFs to Bluesky, X, Threads, Mastodon, Telegram, Discord, and more. Feeds a backend API powering companion iOS and Android apps.',
+    status: 'live',
+    platforms: ['Web'],
+    tags: ['Python', 'NHL API', 'Cloudflare D1', 'FFmpeg'],
+    url: 'https://x.com/hockey_gamebot',
+    featured: true,
+  },
+  {
     name: 'Home Stretch',
     tagline: 'A timeline-based moving checklist built around your move date.',
     description: 'Set your move date and get every task organized into 6 phases — from 8 weeks out through after the move. Custom tasks, PDF export, progress tracking, and zero internet required.',
@@ -35,16 +45,6 @@ export const projects: Project[] = [
     platforms: ['iOS'],
     tags: ['SwiftUI', 'SwiftData', 'StoreKit 2'],
     url: '/apps/tooth-fairy-tracker',
-    featured: true,
-  },
-  {
-    name: 'Hockey Game Bot',
-    tagline: 'Real-time NHL game updates across 9 social platforms simultaneously.',
-    description: 'A production bot that monitors live NHL games and auto-posts goals, penalties, milestones, and animated goal GIFs to Bluesky, X, Threads, Mastodon, Telegram, Discord, and more. Feeds a backend API powering companion iOS and Android apps.',
-    status: 'live',
-    platforms: ['Web'],
-    tags: ['Python', 'NHL API', 'Cloudflare D1', 'FFmpeg'],
-    url: 'https://x.com/hockey_gamebot',
     featured: true,
   },
   {
