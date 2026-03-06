@@ -3,10 +3,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { projects } from '../data/projects';
 import { getCollection } from 'astro:content';
+import { SHOW_DRAFTS } from '../utils/env';
 
-const featuredProjects = projects.filter(p => p.featured && !p.draft);
+const featuredProjects = projects.filter(p => p.featured && (SHOW_DRAFTS || !p.draft));
 
-const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const allPosts = await getCollection('blog', ({ data }) => SHOW_DRAFTS || !data.draft);
 const recentPosts = allPosts
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
