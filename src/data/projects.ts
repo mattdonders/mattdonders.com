@@ -19,8 +19,8 @@ export interface Project {
 export const projects: Project[] = [
   {
     name: 'Hockey Game Bot',
-    tagline: 'Real-time NHL game updates across 9 social platforms simultaneously.',
-    description: 'A production bot that monitors live NHL games and auto-posts goals, penalties, milestones, and animated goal GIFs to Bluesky, X, Threads, Mastodon, Telegram, Discord, and more. Feeds a backend API powering companion iOS and Android apps.',
+    tagline: 'Live NHL updates on X & Bluesky. Recap videos on YouTube, TikTok & Instagram.',
+    description: 'A production bot that monitors live NHL games and posts goals, penalties, and animated GIFs to X, Bluesky, and Discord in real time. Recap videos go to YouTube, TikTok, and Instagram — linked back from the live feeds. Backs a Cloudflare Workers API powering companion iOS and Android apps.',
     status: 'live',
     platforms: ['Web'],
     tags: ['Python', 'NHL API', 'Cloudflare D1', 'FFmpeg'],
