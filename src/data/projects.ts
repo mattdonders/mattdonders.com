@@ -28,6 +28,16 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    name: 'Tooth Fairy Tracker',
+    tagline: 'Track every lost tooth, every visit, and every payout.',
+    description: 'A family app for recording lost teeth with an interactive mouth diagram, visit history, customizable payouts, and support for multiple children. No account, no internet, no subscriptions.',
+    status: 'live',
+    platforms: ['iOS'],
+    tags: ['SwiftUI', 'SwiftData', 'StoreKit 2'],
+    url: '/apps/tooth-fairy-tracker',
+    featured: true,
+  },
+  {
     name: 'Hockey Game Bot',
     tagline: 'Real-time NHL game updates across 9 social platforms simultaneously.',
     description: 'A production bot that monitors live NHL games and auto-posts goals, penalties, milestones, and animated goal GIFs to Bluesky, X, Threads, Mastodon, Telegram, Discord, and more. Feeds a backend API powering companion iOS and Android apps.',
