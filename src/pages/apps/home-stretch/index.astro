@@ -6,8 +6,9 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
   title="Home Stretch: Moving Checklist"
   description="A timeline-based moving checklist built around your move date. No ads, no account, no bloat."
 >
-  <div class="container section">
-    <div class="hero">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-content">
       <span class="section-label">// home stretch</span>
       <h1>Your Move,<br />Phase by Phase</h1>
       <p class="hero-sub">
@@ -24,66 +25,83 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
         <a href="/apps/home-stretch/privacy" class="btn btn-outline">Privacy Policy</a>
       </div>
     </div>
+  </section>
 
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">&#128197;</div>
-        <h3>Timeline-Based Phases</h3>
-        <p>
-          Tasks organized into 6 phases: 8 weeks out, 6 weeks out, 4 weeks out,
-          2 weeks out, moving day, and after the move.
-        </p>
+  <!-- Features -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">// features</span>
+        <h2>Everything you need for a stress-free move</h2>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon">&#128198;</div>
-        <h3>Move Date Driven</h3>
-        <p>
-          Set your move date once. Phases sort by urgency automatically —
-          overdue and upcoming tasks always surface first.
-        </p>
-      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">&#128197;</div>
+          <h3>Timeline-Based Phases</h3>
+          <p>
+            Tasks organized into 6 phases: 8 weeks out, 6 weeks out, 4 weeks out,
+            2 weeks out, moving day, and after the move.
+          </p>
+        </div>
 
-      <div class="feature-card">
-        <div class="feature-icon">&#9989;</div>
-        <h3>Satisfying to Use</h3>
-        <p>
-          Check off tasks with haptic feedback. Watch progress build
-          phase by phase with visual progress bars.
-        </p>
-      </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128198;</div>
+          <h3>Move Date Driven</h3>
+          <p>
+            Set your move date once. Phases sort by urgency automatically —
+            overdue and upcoming tasks always surface first.
+          </p>
+        </div>
 
-      <div class="feature-card">
-        <div class="feature-icon">&#128221;</div>
-        <h3>Custom Tasks</h3>
-        <p>
-          Add your own tasks to any phase. Every move is different —
-          handle whatever your situation requires.
-        </p>
-      </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#9989;</div>
+          <h3>Satisfying to Use</h3>
+          <p>
+            Check off tasks with haptic feedback. Watch progress build
+            phase by phase with visual progress bars.
+          </p>
+        </div>
 
-      <div class="feature-card">
-        <div class="feature-icon">&#128196;</div>
-        <h3>PDF Export</h3>
-        <p>
-          Export your full checklist as a PDF to share with a partner,
-          a moving company, or keep a paper backup.
-        </p>
-      </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128221;</div>
+          <h3>Custom Tasks</h3>
+          <p>
+            Add your own tasks to any phase. Every move is different —
+            handle whatever your situation requires.
+          </p>
+        </div>
 
-      <div class="feature-card">
-        <div class="feature-icon">&#128274;</div>
-        <h3>Private by Design</h3>
-        <p>
-          No account, no internet required. All data stored locally on your device.
-          No analytics, no tracking, no ads.
-        </p>
+        <div class="feature-card">
+          <div class="feature-icon">&#128196;</div>
+          <h3>PDF Export</h3>
+          <p>
+            Export your full checklist as a PDF to share with a partner,
+            a moving company, or keep a paper backup.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">&#128274;</div>
+          <h3>Private by Design</h3>
+          <p>
+            No account, no internet required. All data stored locally on your device.
+            No analytics, no tracking, no ads.
+          </p>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="pricing-section">
-      <h2>Simple Pricing</h2>
-      <p class="pricing-sub">Start planning for free. Upgrade once if you want everything.</p>
+  <!-- Pricing -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header" style="text-align: center;">
+        <span class="section-label">// pricing</span>
+        <h2>Simple Pricing</h2>
+        <p class="pricing-sub">Start planning for free. Upgrade once if you want everything.</p>
+      </div>
+
       <div class="pricing-grid">
         <div class="pricing-card">
           <h3>Free</h3>
@@ -107,8 +125,11 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="bottom-cta">
+  <!-- Bottom CTA -->
+  <section class="section">
+    <div class="container bottom-cta">
       <p>Available on iPhone and iPad. Requires iOS 17 or later.</p>
       <a href="#" class="btn btn-primary btn-lg">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -117,13 +138,18 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
         Download on the App Store
       </a>
     </div>
-  </div>
+  </section>
 </BaseLayout>
 
 <style>
+  /* Hero */
   .hero {
-    text-align: center;
-    margin-bottom: 5rem;
+    padding: 6rem 0 5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-content {
+    max-width: 680px;
   }
 
   .hero h1 {
@@ -133,14 +159,13 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
   .hero-sub {
     font-size: 1.1rem;
     max-width: 52ch;
-    margin: 0 auto 2rem;
+    margin-bottom: 2rem;
     line-height: 1.7;
   }
 
   .hero-actions {
     display: flex;
     gap: 1rem;
-    justify-content: center;
     flex-wrap: wrap;
   }
 
@@ -152,9 +177,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
   /* Features */
   .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
   }
 
   .feature-card {
@@ -171,7 +195,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
   }
 
   .feature-icon {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     margin-bottom: 0.75rem;
   }
 
@@ -185,31 +209,32 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
     line-height: 1.6;
   }
 
-  /* Pricing */
-  .pricing-section {
-    text-align: center;
-    margin-bottom: 5rem;
+  /* Section alt (matches home page) */
+  .section-alt {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
   }
 
+  /* Pricing */
   .pricing-sub {
     margin-top: 0.5rem;
-    margin-bottom: 2rem;
     font-size: 1rem;
   }
 
   .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1.5rem;
-    max-width: 600px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    max-width: 560px;
     margin: 0 auto;
   }
 
   .pricing-card {
-    background: var(--surface);
+    background: var(--bg);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-    padding: 2rem;
+    padding: 1.75rem;
     text-align: left;
   }
 
@@ -219,7 +244,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
   }
 
   .pricing-card h3 {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     margin-bottom: 0.5rem;
   }
 
@@ -242,7 +267,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
   }
 
   .pricing-card li {
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     color: var(--text-muted);
     padding: 0.35rem 0;
     padding-left: 1.25rem;
@@ -260,11 +285,17 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
   /* Bottom CTA */
   .bottom-cta {
     text-align: center;
-    padding-bottom: 2rem;
   }
 
   .bottom-cta p {
     font-size: 0.875rem;
     margin-bottom: 1rem;
+  }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    .hero { padding: 3rem 0 3rem; }
+    .features-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
   }
 </style>
