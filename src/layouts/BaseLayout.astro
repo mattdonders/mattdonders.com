@@ -13,13 +13,16 @@ interface Props {
 
 const {
   title,
-  description = 'Matt Donders — Software developer building iOS apps, Cloudflare Workers, and other things.',
+  description = 'Matt Donders — Software developer building iOS apps, Cloudflare Workers, and whatever else seems interesting. Projects, dev notes, and app launches.',
   canonicalURL = Astro.url.href,
   ogImage = '/og-default.png',
   ogType = 'website',
 } = Astro.props;
 
 const siteTitle = title === 'Matt Donders' ? title : `${title} — Matt Donders`;
+const ogTitle = title === 'Matt Donders'
+  ? 'Matt Donders — iOS Developer & Software Engineer'
+  : siteTitle;
 const ogImageURL = new URL(ogImage, Astro.site).toString();
 ---
 
@@ -34,7 +37,7 @@ const ogImageURL = new URL(ogImage, Astro.site).toString();
     <link rel="alternate" type="application/rss+xml" title="Matt Donders" href="/rss.xml" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content={siteTitle} />
+    <meta property="og:title" content={ogTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:type" content={ogType} />
@@ -44,7 +47,7 @@ const ogImageURL = new URL(ogImage, Astro.site).toString();
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:creator" content="@mattdonders" />
-    <meta name="twitter:title" content={siteTitle} />
+    <meta name="twitter:title" content={ogTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageURL} />
 
