@@ -1,1 +1,1 @@
-export const SHOW_DRAFTS = import.meta.env.SHOW_DRAFTS === 'true';
+export const SHOW_DRAFTS = process.env.SHOW_DRAFTS === 'true';
