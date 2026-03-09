@@ -32,9 +32,10 @@ export const projects: Project[] = [
     tagline: 'A timeline-based moving checklist built around your move date.',
     description: 'Set your move date and get every task organized into 6 phases — from 8 weeks out through after the move. Custom tasks, PDF export, progress tracking, and zero internet required.',
     status: 'live',
-    platforms: ['iOS'],
+    platforms: ['iOS', 'Android'],
     tags: ['SwiftUI', 'SwiftData', 'StoreKit 2'],
     url: '/apps/home-stretch',
+    playStore: 'https://play.google.com/store/apps/details?id=com.mattdonders.movingchecklist',
     featured: true,
   },
   {
