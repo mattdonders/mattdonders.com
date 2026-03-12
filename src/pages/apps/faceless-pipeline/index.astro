@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Faceless Pipeline"
+  description="A private developer tool for automated YouTube video uploads."
+>
+  <section class="section">
+    <div class="container">
+      <span class="section-label">// faceless pipeline</span>
+      <h1>Faceless Pipeline</h1>
+
+      <div class="prose">
+        <p>
+          Faceless Pipeline is a private, automated tool that uploads daily short-form videos
+          to the developer's own YouTube channels. It uses the YouTube Data API to handle
+          scheduling and uploading without manual intervention.
+        </p>
+        <p>
+          This tool is for personal developer use only. It is not a public application and
+          has no end users — only the developer's own Google account is accessed.
+        </p>
+
+        <div class="links">
+          <a href="/apps/faceless-pipeline/privacy">Privacy Policy</a>
+          <span class="divider">·</span>
+          <a href="mailto:matt@mattdonders.com">matt@mattdonders.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+  }
+
+  .divider {
+    color: var(--text-subtle);
+  }
+</style>
