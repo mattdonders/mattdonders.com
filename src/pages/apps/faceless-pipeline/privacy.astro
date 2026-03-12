@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Privacy Policy — Faceless Pipeline"
+  description="Privacy Policy for Faceless Pipeline, a private YouTube upload automation tool."
+>
+  <div class="container section">
+    <span class="section-label">// faceless pipeline</span>
+    <h1>Privacy Policy</h1>
+    <p class="last-updated">Last Updated: March 12, 2026</p>
+
+    <div class="prose privacy-prose">
+      <div class="highlight-box">
+        <strong>Summary:</strong> Faceless Pipeline does not collect any personal data from users.
+        It uses Google OAuth solely to upload videos to the owner's own YouTube channels.
+      </div>
+
+      <h2>Overview</h2>
+      <p>
+        Faceless Pipeline is a private, server-side automation tool developed and operated by Matt Donders.
+        It is not a public-facing application — no end users interact with it. This Privacy Policy
+        describes how the application handles Google OAuth credentials and data in order to satisfy
+        Google's OAuth app verification requirements.
+      </p>
+
+      <h2>Data Collected</h2>
+      <p>
+        Faceless Pipeline does not collect personal data from any users. The application uses Google
+        OAuth 2.0 solely to authenticate requests to the YouTube Data API (<code>youtube.upload</code> scope)
+        for the purpose of uploading videos to the owner's own YouTube channels.
+      </p>
+      <p>No user-facing data is collected, stored, or processed.</p>
+
+      <h2>How OAuth Tokens Are Used</h2>
+      <p>
+        Google OAuth access and refresh tokens are stored locally on a private, self-hosted server
+        controlled by the application owner. These tokens are used exclusively to authenticate
+        YouTube Data API upload requests. They are never shared, transmitted to third parties,
+        or used for any purpose other than video uploads.
+      </p>
+
+      <h2>Data Sharing</h2>
+      <p>
+        No data of any kind is shared with third parties. The application communicates only with
+        Google's YouTube Data API on behalf of the owner's own Google account.
+      </p>
+
+      <h2>Data Retention</h2>
+      <p>
+        OAuth tokens are stored on a private server for as long as needed to operate the upload
+        pipeline. They can be revoked at any time via
+        <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">
+          Google Account permissions settings
+        </a>.
+        Revoking access immediately invalidates all stored tokens.
+      </p>
+
+      <h2>Security</h2>
+      <p>
+        OAuth credentials are stored on a private server with restricted access. They are not
+        exposed in any public repository, frontend application, or third-party service.
+      </p>
+
+      <h2>Changes to This Policy</h2>
+      <p>
+        This Privacy Policy may be updated from time to time. Any changes will be reflected on
+        this page with an updated "Last Updated" date.
+      </p>
+
+      <h2>Contact</h2>
+      <p>If you have questions about this Privacy Policy, please contact:</p>
+      <p><strong>Email:</strong> <a href="mailto:matt@mattdonders.com">matt@mattdonders.com</a></p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .last-updated {
+    font-size: 0.85rem;
+    color: var(--text-subtle);
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .privacy-prose h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.35rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .privacy-prose p {
+    margin-bottom: 1rem;
+  }
+
+  .privacy-prose ul {
+    margin-bottom: 1.25rem;
+  }
+
+  .privacy-prose li {
+    margin-bottom: 0.35rem;
+  }
+
+  .highlight-box {
+    background: var(--accent-dim);
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius);
+    margin: 1.5rem 0 2rem;
+    color: var(--text-muted);
+  }
+
+  .highlight-box strong {
+    color: var(--text);
+  }
+</style>
