@@ -3,7 +3,7 @@ title: "Launching two iOS apps in one week"
 description: "I built and shipped Home Stretch and Tooth Fairy Tracker — two native iOS apps — in a single sprint. Here's how it went."
 pubDate: 2026-03-06
 tags: ["ios", "swiftui", "apps", "launch"]
-draft: true
+draft: false
 ---
 
 I just submitted two iOS apps to the App Store in the same week. Neither is a todo app clone or a calculator tutorial — they're real apps solving real problems, built with SwiftUI and SwiftData, with in-app purchases and App Store listings.
