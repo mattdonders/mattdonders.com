@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Interval: Spacing Calculator"
+  description="A native iPhone utility for evenly spacing repeated objects across a measured span and getting exact mark positions."
+>
+  <section class="hero">
+    <div class="container hero-content">
+      <span class="section-label">// interval</span>
+      <h1>Measure Once.<br />Mark Every Position.</h1>
+      <p class="hero-sub">
+        Interval is a native iPhone utility for evenly spacing repeated objects across a measured span and giving you exact mark positions.
+      </p>
+      <div class="hero-actions">
+        <a href="mailto:matt@mattdonders.com?subject=Interval%20Support" class="btn btn-primary btn-lg">Contact Support</a>
+        <a href="/apps/interval/privacy" class="btn btn-outline btn-lg">Privacy Policy</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">// how it works</span>
+        <h2>Get consistent spacing without the guesswork</h2>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">&#128207;</div>
+          <h3>Enter the span</h3>
+          <p>Start with the total measured distance you need to cover.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#8596;&#65039;</div>
+          <h3>Set the repeated objects</h3>
+          <p>Choose the number of objects to space across that span.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128205;</div>
+          <h3>Mark exact positions</h3>
+          <p>Use the calculated positions to make each mark accurately and evenly.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128736;&#65039;</div>
+          <h3>Built for practical layouts</h3>
+          <p>Useful for shelves, hooks, picture spacing, fence posts, trim, and other repeated layouts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container support-content">
+      <span class="section-label">// support</span>
+      <h2>Need help with Interval?</h2>
+      <p>Send a note and include any details that will help us understand the question.</p>
+      <a href="mailto:matt@mattdonders.com?subject=Interval%20Support" class="btn btn-primary">Email Support</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 6rem 0 5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-content {
+    max-width: 680px;
+  }
+
+  .hero h1 {
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    max-width: 52ch;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-lg {
+    padding: 0.75rem 1.75rem;
+    font-size: 1rem;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .feature-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+  }
+
+  .feature-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .feature-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-card p {
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  .section-alt {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .support-content {
+    max-width: 680px;
+  }
+
+  .support-content h2 {
+    margin-bottom: 0.75rem;
+  }
+
+  .support-content p {
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 3rem 0; }
+    .features-grid { grid-template-columns: 1fr; }
+  }
+</style>
