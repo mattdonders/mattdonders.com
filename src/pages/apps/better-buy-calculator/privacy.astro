@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Privacy Policy — Better Buy Calculator"
+  description="Privacy Policy for Better Buy Calculator."
+>
+  <div class="container section">
+    <span class="section-label">// better buy calculator</span>
+    <h1>Privacy Policy</h1>
+    <p class="last-updated">Last Updated: September 7, 2026</p>
+
+    <div class="prose privacy-prose">
+      <div class="highlight-box">
+        <strong>Summary:</strong> Better Buy Calculator does not collect, transmit, store, or share user data.
+      </div>
+
+      <h2>Information We Collect</h2>
+      <p><strong>None.</strong> Better Buy Calculator does not require an account and does not collect personal information or any other user data.</p>
+
+      <h2>How the App Works</h2>
+      <p>Better Buy Calculator performs package-price calculations on your iPhone. It has no backend and does not connect to the internet. It does not retain your comparisons or other user data.</p>
+
+      <h2>Tracking, Analytics, and Third Parties</h2>
+      <p>Better Buy Calculator does not use analytics, tracking, advertising, third-party runtime SDKs, or third-party services. It does not transmit or share data with anyone.</p>
+
+      <h2>Device Access</h2>
+      <p>Better Buy Calculator does not request device permissions.</p>
+
+      <h2>Changes to This Policy</h2>
+      <p>Any future changes to this policy will be posted on this page with an updated date.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about this policy can be sent to <a href="mailto:matt@mattdonders.com?subject=Better%20Buy%20Calculator%20Privacy">matt@mattdonders.com</a>.</p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .last-updated { font-size: 0.85rem; color: var(--text-subtle); margin-top: 0.5rem; margin-bottom: 2rem; }
+  .privacy-prose h2 { margin-top: 2.5rem; margin-bottom: 0.75rem; font-size: 1.35rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+  .privacy-prose p { margin-bottom: 1rem; }
+  .highlight-box { background: var(--accent-dim); border-left: 3px solid var(--accent); padding: 1rem 1.25rem; border-radius: var(--radius); margin: 1.5rem 0 2rem; color: var(--text-muted); }
+  .highlight-box strong { color: var(--text); }
+</style>
