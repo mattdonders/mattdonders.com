@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Worked — Weekly Work Hours Calculator"
+  description="Worked is a private, offline iPhone utility for adding up shifts, unpaid breaks, and weekly hours."
+>
+  <section class="hero">
+    <div class="container hero-content">
+      <span class="section-label">// worked</span>
+      <h1>See what your week adds up to.</h1>
+      <p class="hero-sub">
+        Worked is a native iPhone utility for entering shifts and unpaid breaks, then seeing daily and weekly hours, decimal hours, and an optional estimated gross.
+      </p>
+      <div class="hero-actions">
+        <a href="mailto:matt@mattdonders.com?subject=Worked%20Support" class="btn btn-primary btn-lg">Contact Support</a>
+        <a href="/apps/worked/privacy" class="btn btn-outline btn-lg">Privacy Policy</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container support-content">
+      <span class="section-label">// support</span>
+      <h2>Need help with Worked?</h2>
+      <p>Send a note and include any details that will help us understand the question.</p>
+      <a href="mailto:matt@mattdonders.com?subject=Worked%20Support" class="btn btn-primary">Email Support</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero { padding: 6rem 0 5rem; border-bottom: 1px solid var(--border); }
+  .hero-content { max-width: 680px; }
+  .hero h1 { margin-bottom: 1.25rem; }
+  .hero-sub { font-size: 1.1rem; max-width: 52ch; margin-bottom: 2rem; line-height: 1.7; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-lg { padding: 0.75rem 1.75rem; font-size: 1rem; }
+  .support-content { max-width: 680px; }
+</style>

@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Privacy Policy — Worked" description="Privacy Policy for Worked.">
+  <div class="container section">
+    <span class="section-label">// worked</span>
+    <h1>Privacy Policy</h1>
+    <p class="last-updated">Last Updated: September 8, 2026</p>
+
+    <div class="prose privacy-prose">
+      <div class="highlight-box">
+        <strong>Summary:</strong> Worked does not collect, transmit, store, or share your information outside your device.
+      </div>
+
+      <h2>Information We Collect</h2>
+      <p><strong>None.</strong> Worked does not require an account and does not collect personal information or other user data.</p>
+
+      <h2>How Worked Uses Your Information</h2>
+      <p>
+        Shift times, unpaid breaks, hourly rate, and current-week information that you enter stay on your device.
+        Worked stores that current-week information locally so it is available when you reopen the app. It does not send that information to us or anyone else.
+      </p>
+
+      <h2>Tracking, Analytics, and Sharing</h2>
+      <p>
+        Worked does not use analytics, crash-reporting services, advertising, tracking, third-party SDKs, or third-party services.
+        Because Worked does not collect your information, it does not sell or share it.
+      </p>
+
+      <h2>Device Access and Data Management</h2>
+      <p>Worked does not request device permissions. You can remove its locally stored information by deleting the app or using your device’s normal app-data management controls.</p>
+
+      <h2>Changes to This Policy</h2>
+      <p>Any future changes to this policy will be posted on this page with an updated date.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about this policy can be sent to <a href="mailto:matt@mattdonders.com?subject=Worked%20Privacy">matt@mattdonders.com</a>.</p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .last-updated { font-size: 0.85rem; color: var(--text-subtle); margin-top: 0.5rem; margin-bottom: 2rem; }
+  .privacy-prose h2 { margin-top: 2.5rem; margin-bottom: 0.75rem; font-size: 1.35rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+  .privacy-prose p { margin-bottom: 1rem; }
+  .highlight-box { background: var(--accent-dim); border-left: 3px solid var(--accent); padding: 1rem 1.25rem; border-radius: var(--radius); margin: 1.5rem 0 2rem; color: var(--text-muted); }
+  .highlight-box strong { color: var(--text); }
+</style>
