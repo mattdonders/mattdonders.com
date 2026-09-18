@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Privacy Policy — Below" description="Privacy Policy for Below, the video compressor for iPhone and iPad.">
+  <div class="container section">
+    <span class="section-label">// below</span>
+    <h1>Privacy Policy</h1>
+    <p class="last-updated">Last Updated: September 18, 2026</p>
+
+    <div class="prose privacy-prose">
+      <div class="highlight-box">
+        <strong>Summary:</strong> Below compresses your videos entirely on your device. It has no account, no server, and no video upload, and it does not collect, transmit, or share your information.
+      </div>
+
+      <h2>Information We Collect</h2>
+      <p><strong>None.</strong> Below does not require an account, does not ask you to sign in, and does not collect personal information or other user data.</p>
+
+      <h2>Your Videos</h2>
+      <p>
+        Every video Below reads and every video Below writes stays on your device. Compression runs locally using the video framework built into iOS. Below operates no server and performs no upload, so your video is never sent to us or to anyone else.
+      </p>
+      <p>
+        Below never modifies or deletes your original video. It writes a new, smaller file alongside it.
+      </p>
+
+      <h2>Tracking, Analytics, and Advertising</h2>
+      <p>
+        Below does not use analytics, crash-reporting services, advertising, tracking, third-party SDKs, or third-party services. It does not track you across apps or websites. Because Below does not collect your information, it does not sell or share it.
+      </p>
+
+      <h2>Purchases</h2>
+      <p>
+        Below Pro is a one-time in-app purchase processed by Apple through the App Store. Apple handles the transaction and tells Below only whether the purchase is active. We do not receive your payment details or any other personal information from that transaction. Apple's handling of purchase data is covered by Apple's own privacy policy.
+      </p>
+
+      <h2>Device Access and Data Management</h2>
+      <p>
+        Below asks for permission to add a video to your photo library only when you choose to save a result. Choosing a video through the system photo picker or the system file picker requires no permission, because those pickers hand Below only the single item you select.
+      </p>
+      <p>
+        Below stores a small amount of information on your device: the sizes you save for reuse, a count of how many free compressions you have used, and whether Below Pro is unlocked. That information is shared only between Below, its share extension, and its Shortcuts action on the same device. You can remove it by deleting the app.
+      </p>
+
+      <h2>Children</h2>
+      <p>Below is not directed at children and collects no information from anyone, including children.</p>
+
+      <h2>Changes to This Policy</h2>
+      <p>Any future changes to this policy will be posted on this page with an updated date.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about this policy can be sent to <a href="mailto:matt@mattdonders.com?subject=Below%20Privacy">matt@mattdonders.com</a>.</p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .last-updated { font-size: 0.85rem; color: var(--text-subtle); margin-top: 0.5rem; margin-bottom: 2rem; }
+  .privacy-prose h2 { margin-top: 2.5rem; margin-bottom: 0.75rem; font-size: 1.35rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+  .privacy-prose p { margin-bottom: 1rem; }
+  .highlight-box { background: var(--accent-dim); border-left: 3px solid var(--accent); padding: 1rem 1.25rem; border-radius: var(--radius); margin: 1.5rem 0 2rem; color: var(--text-muted); }
+  .highlight-box strong { color: var(--text); }
+</style>

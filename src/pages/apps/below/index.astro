@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Below — Video Compressor"
+  description="Below is a private, on-device iPhone utility that compresses a video to fit under a maximum file size you choose."
+>
+  <section class="hero">
+    <div class="container hero-content">
+      <span class="section-label">// below</span>
+      <h1>Choose the maximum file size. Below makes the video fit.</h1>
+      <p class="hero-sub">
+        Below is a native iPhone and iPad utility for target-size video compression. Enter a limit in megabytes and Below picks the resolution, frame rate, and bitrate for you, then checks the finished file byte for byte.
+      </p>
+      <div class="hero-actions">
+        <a href="mailto:matt@mattdonders.com?subject=Below%20Support" class="btn btn-primary btn-lg">Contact Support</a>
+        <a href="/apps/below/privacy" class="btn btn-outline btn-lg">Privacy Policy</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container support-content">
+      <span class="section-label">// support</span>
+      <h2>Need help with Below?</h2>
+      <p>Send a note and include your device model, iOS version, and what you were trying to compress. That is usually enough to work out what happened.</p>
+      <a href="mailto:matt@mattdonders.com?subject=Below%20Support" class="btn btn-primary">Email Support</a>
+
+      <h2>Common questions</h2>
+
+      <h3>My video will not go under the limit I asked for.</h3>
+      <p>
+        Very short clips and very small limits sometimes leave no room for a watchable result. Below tells you when that happens instead of producing something unusable. Raise the limit slightly and try again.
+      </p>
+
+      <h3>Below says my video is already small enough.</h3>
+      <p>
+        If the original is already under your limit, Below keeps the original quality and tells you so rather than re-encoding it for no reason.
+      </p>
+
+      <h3>The result is a different size than I expected.</h3>
+      <p>
+        Sizes use decimal megabytes, where 1 MB is 1,000,000 bytes. That is the same unit Photos and most messaging and email services use. Below measures the real output file after encoding, so the size it reports is the size on disk.
+      </p>
+
+      <h3>I bought Below Pro and it is not unlocked.</h3>
+      <p>
+        Open Below, reach the Below Pro screen, and tap <strong>Restore Purchases</strong>. Make sure you are signed in to the same Apple Account you used for the purchase. Below Pro is a one-time purchase, not a subscription, so it restores on any device signed in to that account.
+      </p>
+
+      <h3>How many free compressions do I get?</h3>
+      <p>
+        The first three successful compressions are free, at full quality and with no watermark. After that, Below Pro unlocks unlimited compressions for a single one-time purchase.
+      </p>
+
+      <h3>Where did my original video go?</h3>
+      <p>
+        Nowhere. Below never changes or deletes your original. It writes a new, smaller file and leaves the source untouched.
+      </p>
+
+      <h3>Can I use Below from Photos, Files, or Shortcuts?</h3>
+      <p>
+        Yes. Share a video from Photos or Files and choose Below to compress inside the share sheet. In Shortcuts, use the <strong>Compress Video Below Size</strong> action with a video and a target in megabytes.
+      </p>
+
+      <h3>Refunds</h3>
+      <p>
+        Purchases are handled by Apple. Refund requests go through <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero { padding: 6rem 0 5rem; border-bottom: 1px solid var(--border); }
+  .hero-content { max-width: 680px; }
+  .hero h1 { margin-bottom: 1.25rem; }
+  .hero-sub { font-size: 1.1rem; max-width: 52ch; margin-bottom: 2rem; line-height: 1.7; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-lg { padding: 0.75rem 1.75rem; font-size: 1rem; }
+  .support-content { max-width: 680px; }
+  .support-content h2 { margin-top: 3rem; }
+  .support-content h3 { margin-top: 2rem; margin-bottom: 0.5rem; font-size: 1.05rem; }
+  .support-content p { margin-bottom: 1rem; line-height: 1.7; }
+</style>
