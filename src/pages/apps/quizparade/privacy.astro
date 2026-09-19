@@ -1,0 +1,166 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Privacy Policy — Quiz Parade"
+  description="Privacy Policy for Quiz Parade, the family trivia game for iPhone, and the Quiz Parade Publisher that posts its daily videos."
+>
+  <div class="container section">
+    <span class="section-label">// quiz parade</span>
+    <h1>Privacy Policy</h1>
+    <p class="last-updated">Last Updated: September 19, 2026</p>
+
+    <div class="prose privacy-prose">
+      <div class="highlight-box">
+        <strong>Summary:</strong> Quiz Parade has no account and collects no personal information. Your
+        scores and stats stay on your device. The app sends a small number of anonymous usage and crash
+        events, with no identifiers and none of your answers, to help keep it working.
+      </div>
+
+      <h2>Introduction</h2>
+      <p>
+        This policy covers two things operated by Matt Donders: the <strong>Quiz Parade</strong> app for
+        iPhone, and the <strong>Quiz Parade Publisher</strong>, a private server-side tool that uploads
+        Quiz Parade's daily videos to its own YouTube channel.
+      </p>
+
+      <h2>Information We Collect</h2>
+      <p>
+        <strong>No personal information.</strong> Quiz Parade does not ask you to sign up or sign in, and
+        does not collect your name, email address, contacts, location, photos, or any identifier for you
+        or your device.
+      </p>
+      <p>
+        The app sends anonymous events such as "quiz started", "quiz completed", "Daily Quiz completed",
+        and whether a question pack downloaded successfully. Each event contains only the event name, the
+        app version, the pack it relates to, and a number such as a score or a count. Events are not linked to
+        each other, to a device, or to a person, and they never include your individual answers.
+      </p>
+      <p>
+        If the app crashes, iOS provides a crash summary through Apple's MetricKit framework. Quiz Parade
+        sends only the type of crash and the app version: no stack traces, device identifiers, or
+        personal data.
+      </p>
+
+      <h2>Data Storage</h2>
+      <p>
+        Your scores, statistics, settings and downloaded question packs are stored on your
+        device. They are not uploaded. Deleting the app removes them.
+      </p>
+
+      <h2>Downloaded Content</h2>
+      <p>
+        New question packs and the Daily Quiz are downloaded from <code>quizparade.mattdonders.com</code>,
+        which is hosted on Cloudflare. Like any website, Cloudflare necessarily processes your device's IP
+        address to deliver the request. Quiz Parade does not store IP addresses or use them to identify
+        you.
+      </p>
+
+      <h2>Game Center</h2>
+      <p>
+        Leaderboards use Apple Game Center and are optional. If you are signed in to Game Center, your
+        score is submitted to Apple under your Game Center profile. That data is handled by Apple under
+        Apple's privacy policy. Quiz Parade does not receive your Apple Account details.
+      </p>
+
+      <h2>Notifications</h2>
+      <p>
+        The daily reminder is off by default. If you turn it on, the reminder is scheduled on your device
+        by iOS. No push service or server is involved.
+      </p>
+
+      <h2>Tracking, Advertising, and Purchases</h2>
+      <p>
+        Quiz Parade has no advertising, does not track you across apps or websites, contains no
+        third-party analytics or advertising SDKs, and has no in-app purchases. We do not sell or share
+        any data.
+      </p>
+
+      <h2>Children's Privacy</h2>
+      <p>
+        Quiz Parade is family-friendly trivia intended for grown-ups and kids to enjoy together. It does
+        not knowingly collect personal information from anyone, including children under 13, because it
+        collects no personal information at all.
+      </p>
+
+      <h2>Quiz Parade Publisher and Google User Data</h2>
+      <p>
+        The Quiz Parade Publisher is a private automation tool used only by its owner. It is not offered
+        to the public and no other users sign in to it. It uses Google OAuth to access the owner's own
+        Quiz Parade YouTube channel with two permissions:
+      </p>
+      <ul>
+        <li><code>youtube.upload</code>: to upload and schedule Quiz Parade's daily videos.</li>
+        <li><code>youtube.readonly</code>: to confirm which channel it is connected to and to check the
+          processing and publishing status of the videos it uploaded.</li>
+      </ul>
+      <p>
+        OAuth tokens are stored on a private server with restricted access and are used only for these
+        purposes. They are never shared with third parties, placed in a public repository, or used for
+        advertising. No data from any other person's Google account is accessed. Access can be revoked at
+        any time from
+        <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">Google Account permissions</a>.
+      </p>
+      <p>
+        The Publisher's use and transfer of information received from Google APIs adheres to the
+        <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">Google API Services User Data Policy</a>,
+        including the Limited Use requirements. Uploaded videos are subject to the
+        <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener noreferrer">YouTube Terms of Service</a>
+        and the
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.
+      </p>
+
+      <h2>Changes to This Policy</h2>
+      <p>Any changes to this policy will be posted on this page with an updated date.</p>
+
+      <h2>Contact</h2>
+      <p>
+        Questions about this policy can be sent to
+        <a href="mailto:matt@mattdonders.com?subject=Quiz%20Parade%20Privacy">matt@mattdonders.com</a>.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .last-updated {
+    font-size: 0.85rem;
+    color: var(--text-subtle);
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .privacy-prose h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.35rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .privacy-prose p {
+    margin-bottom: 1rem;
+  }
+
+  .privacy-prose ul {
+    margin-bottom: 1.25rem;
+  }
+
+  .privacy-prose li {
+    margin-bottom: 0.35rem;
+  }
+
+  .highlight-box {
+    background: var(--accent-dim);
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius);
+    margin: 1.5rem 0 2rem;
+    color: var(--text-muted);
+  }
+
+  .highlight-box strong {
+    color: var(--text);
+  }
+</style>
