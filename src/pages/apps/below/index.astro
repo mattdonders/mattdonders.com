@@ -4,22 +4,139 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 <BaseLayout
   title="Below — Video Compressor"
-  description="Below is a private, on-device iPhone utility that compresses a video to fit under a maximum file size you choose."
+  description="Below is a private, on-device iPhone and iPad utility that compresses a video to fit under a maximum file size you choose."
 >
+  <!-- Hero -->
   <section class="hero">
     <div class="container hero-content">
       <span class="section-label">// below</span>
-      <h1>Choose the maximum file size. Below makes the video fit.</h1>
+      <h1>Pick the Limit.<br />Below Makes It Fit.</h1>
       <p class="hero-sub">
-        Below is a native iPhone and iPad utility for target-size video compression. Enter a limit in megabytes and Below picks the resolution, frame rate, and bitrate for you, then checks the finished file byte for byte.
+        Enter a maximum file size in megabytes. Below picks the resolution, frame rate,
+        and bitrate for you, then checks the finished file byte for byte. No bitrate
+        maths, no quality sliders — just a number.
       </p>
       <div class="hero-actions">
-        <a href="mailto:matt@mattdonders.com?subject=Below%20Support" class="btn btn-primary btn-lg">Contact Support</a>
-        <a href="/apps/below/privacy" class="btn btn-outline btn-lg">Privacy Policy</a>
+        <span class="btn btn-outline btn-lg btn-soon" aria-disabled="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+          App Store
+          <span class="soon-tag">Coming Soon</span>
+        </span>
+        <span class="btn btn-outline btn-lg btn-soon" aria-disabled="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3.18 23.76c.3.17.65.19.97.08l11.53-6.66-2.45-2.45-10.05 9.03zM.5 1.12C.18 1.46 0 1.96 0 2.6v18.8c0 .64.18 1.14.51 1.48l.08.07L10.46 12 .58 1.05.5 1.12zM19.37 10.2L16.8 8.7 14.06 11.5l2.75 2.75 2.58-1.49c.74-.42.74-1.12-.02-1.56zM4.15.25L15.67 6.9l-2.45 2.45L3.18.32a1.16 1.16 0 01-.03-.07z"/>
+          </svg>
+          Google Play
+          <span class="soon-tag">Coming Soon</span>
+        </span>
+        <a href="/apps/below/privacy" class="btn btn-outline">Privacy Policy</a>
       </div>
     </div>
   </section>
 
+  <!-- Features -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">// features</span>
+        <h2>One number in, a video that fits out</h2>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">&#127919;</div>
+          <h3>Target Size, Not Guesswork</h3>
+          <p>
+            Tell Below the limit you actually care about — 10 MB for an email,
+            25 MB for a chat app. It works out every encoding setting for you.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">&#128207;</div>
+          <h3>Presets and My Sizes</h3>
+          <p>
+            10, 25, 50 and 100 MB are one tap away, plus three custom slots you
+            can save for the limits you hit again and again.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">&#9989;</div>
+          <h3>Checked Byte for Byte</h3>
+          <p>
+            Below measures the real output file after encoding, in decimal
+            megabytes — the same unit Photos, email and messaging apps use.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">&#128274;</div>
+          <h3>Private by Design</h3>
+          <p>
+            Everything happens on your iPhone. No account, no upload, no
+            analytics, no ads. Your video never leaves the device.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">&#128228;</div>
+          <h3>Photos, Files, Share Sheet, Shortcuts</h3>
+          <p>
+            Compress from wherever the video lives. There is a Shortcuts action
+            too, so it can run inside your own automations.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">&#128451;</div>
+          <h3>Your Original Is Untouched</h3>
+          <p>
+            Below writes a new, smaller file and never modifies or deletes the
+            source video. Nothing is overwritten.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header" style="text-align: center;">
+        <span class="section-label">// pricing</span>
+        <h2>Simple Pricing</h2>
+        <p class="pricing-sub">Try it free. Unlock it once. No subscription, ever.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Free</h3>
+          <p class="price">$0</p>
+          <ul>
+            <li>Three compressions</li>
+            <li>Full quality, no watermark</li>
+            <li>All presets and My Sizes</li>
+            <li>Share Sheet and Shortcuts</li>
+          </ul>
+        </div>
+        <div class="pricing-card pricing-card-premium">
+          <h3>Below Pro</h3>
+          <p class="price">$9.99 <span class="price-note">one-time</span></p>
+          <ul>
+            <li>Unlimited compressions</li>
+            <li>No subscription — ever</li>
+            <li>No ads, no accounts</li>
+            <li>Restores on your Apple Account</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Support -->
   <section class="section">
     <div class="container support-content">
       <span class="section-label">// support</span>
@@ -70,17 +187,224 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
       </p>
     </div>
   </section>
+
+  <!-- Bottom CTA -->
+  <section class="section section-alt">
+    <div class="container bottom-cta">
+      <p>Below is on the way to iPhone, iPad, and Android.</p>
+      <div class="cta-btns">
+        <span class="btn btn-outline btn-lg btn-soon" aria-disabled="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+          App Store
+          <span class="soon-tag">Coming Soon</span>
+        </span>
+        <span class="btn btn-outline btn-lg btn-soon" aria-disabled="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3.18 23.76c.3.17.65.19.97.08l11.53-6.66-2.45-2.45-10.05 9.03zM.5 1.12C.18 1.46 0 1.96 0 2.6v18.8c0 .64.18 1.14.51 1.48l.08.07L10.46 12 .58 1.05.5 1.12zM19.37 10.2L16.8 8.7 14.06 11.5l2.75 2.75 2.58-1.49c.74-.42.74-1.12-.02-1.56zM4.15.25L15.67 6.9l-2.45 2.45L3.18.32a1.16 1.16 0 01-.03-.07z"/>
+          </svg>
+          Google Play
+          <span class="soon-tag">Coming Soon</span>
+        </span>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
-  .hero { padding: 6rem 0 5rem; border-bottom: 1px solid var(--border); }
-  .hero-content { max-width: 680px; }
-  .hero h1 { margin-bottom: 1.25rem; }
-  .hero-sub { font-size: 1.1rem; max-width: 52ch; margin-bottom: 2rem; line-height: 1.7; }
-  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-lg { padding: 0.75rem 1.75rem; font-size: 1rem; }
+  /* Hero */
+  .hero {
+    padding: 6rem 0 5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-content {
+    max-width: 680px;
+  }
+
+  .hero h1 {
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    max-width: 52ch;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-lg {
+    padding: 0.75rem 1.75rem;
+    font-size: 1rem;
+  }
+
+  /* Coming-soon buttons: look like store buttons, do nothing */
+  .btn-soon {
+    cursor: default;
+    color: var(--text-muted);
+    border-style: dashed;
+  }
+
+  .btn-soon:hover {
+    border-color: var(--border);
+    color: var(--text-muted);
+    background: transparent;
+  }
+
+  .soon-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--warning);
+    border: 1px solid var(--warning);
+    border-radius: 100px;
+    padding: 0.1rem 0.5rem;
+    margin-left: 0.15rem;
+  }
+
+  /* Features */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .feature-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .feature-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .feature-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .feature-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-card p {
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  /* Section alt */
+  .section-alt {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Pricing */
+  .pricing-sub {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .pricing-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    text-align: left;
+  }
+
+  .pricing-card-premium {
+    border-color: var(--accent);
+    background: var(--accent-dim);
+  }
+
+  .pricing-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .price {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+  }
+
+  .price-note {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--text-muted);
+  }
+
+  .pricing-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .pricing-card li {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    padding: 0.35rem 0;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .pricing-card li::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    color: var(--success);
+    font-weight: 600;
+  }
+
+  /* Support */
   .support-content { max-width: 680px; }
   .support-content h2 { margin-top: 3rem; }
   .support-content h3 { margin-top: 2rem; margin-bottom: 0.5rem; font-size: 1.05rem; }
   .support-content p { margin-bottom: 1rem; line-height: 1.7; }
+
+  /* Bottom CTA */
+  .bottom-cta {
+    text-align: center;
+  }
+
+  .bottom-cta p {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-btns {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    .hero { padding: 3rem 0 3rem; }
+    .features-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+  }
 </style>
