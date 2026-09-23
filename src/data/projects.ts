@@ -52,6 +52,15 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    name: 'Good Trim',
+    tagline: 'Know what boat maintenance is due. Keep the service record.',
+    description: 'An offline iPhone maintenance log for boat owners. Track calendar and engine-hour intervals, preserve service history and attachments, and back up or export your records.',
+    status: 'development',
+    platforms: ['iOS'],
+    tags: ['SwiftUI', 'SwiftData', 'StoreKit 2'],
+    url: '/apps/good-trim',
+  },
+  {
     name: 'HGB App',
     tagline: 'Live NHL scores and goal replays for Hockey Game Bot fans.',
     description: 'A companion iOS and Android app for Hockey Game Bot. Follow live games, browse play-by-play events, watch goal replay clips, and get push notifications for your team. Powered by a Cloudflare Workers API with a D1 database.',

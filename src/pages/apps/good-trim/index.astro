@@ -1,0 +1,166 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Good Trim — Boat Maintenance Log"
+  description="Good Trim is an offline iPhone maintenance log for boats. Track due work by date and engine hours, keep service history, and export your records."
+>
+  <section class="hero">
+    <div class="container hero-content">
+      <span class="section-label">// good trim</span>
+      <h1>Know What Is Due.<br />Keep What Was Done.</h1>
+      <p class="hero-sub">
+        Good Trim keeps a serious maintenance record for your boat. See upcoming work,
+        log completed service, and keep the details together — even when you are offline.
+      </p>
+      <div class="hero-actions">
+        <span class="btn btn-outline btn-lg btn-soon" aria-disabled="true">App Store <span class="soon-tag">Coming Soon</span></span>
+        <a href="mailto:matt@mattdonders.com?subject=Good%20Trim%20Support" class="btn btn-primary btn-lg">Contact Support</a>
+        <a href="/apps/good-trim/privacy/" class="btn btn-outline">Privacy Policy</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">// features</span>
+        <h2>A maintenance record you can rely on</h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">&#128197;</div>
+          <h3>Know what is due</h3>
+          <p>See overdue and upcoming work in one place, with the date or engine-hour threshold behind each status.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">&#9201;</div>
+          <h3>Track both clocks</h3>
+          <p>Set intervals by calendar date, engine hours, or whichever comes first. Meter replacement keeps earlier readings in context.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">&#128203;</div>
+          <h3>Keep service history</h3>
+          <p>Log when work was done, the reading, provider, parts, cost, and notes. Browse the record later without an account.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">&#128206;</div>
+          <h3>Keep the evidence</h3>
+          <p>Attach receipts, manuals, photos, and other documents to the equipment or service entry they belong to.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">&#128230;</div>
+          <h3>Take your records with you</h3>
+          <p>Make a complete backup, restore it, and export linked CSV files. Boat Pro also creates PDF maintenance reports.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">&#128274;</div>
+          <h3>Private and offline</h3>
+          <p>Your maintenance data stays on your iPhone unless you choose to export it. No account, backend, analytics, or ads.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header pricing-header">
+        <span class="section-label">// pricing</span>
+        <h2>Start free. Unlock once.</h2>
+        <p>Good Trim is free to download. Boat Pro is one lifetime purchase, with no subscription.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Good Trim Free</h3>
+          <p class="price">$0</p>
+          <ul>
+            <li>One vessel</li>
+            <li>Unlimited equipment, schedules, and service records</li>
+            <li>Calendar and engine-hour intervals</li>
+            <li>Ten attachments</li>
+            <li>Backup, restore, and CSV export</li>
+          </ul>
+        </div>
+        <div class="pricing-card pricing-card-premium">
+          <h3>Boat Pro</h3>
+          <p class="price">$24.99 <span class="price-note">one-time in the US</span></p>
+          <ul>
+            <li>Unlimited vessels</li>
+            <li>Unlimited attachments</li>
+            <li>PDF maintenance reports</li>
+            <li>Richer history filters</li>
+            <li>No subscription</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container support-content">
+      <span class="section-label">// support</span>
+      <h2>Need help with Good Trim?</h2>
+      <p>Tell us your iPhone model and iOS version, what you were trying to do, and what happened. Please do not email private receipts or a full backup unless we ask for a specific example.</p>
+      <a href="mailto:matt@mattdonders.com?subject=Good%20Trim%20Support" class="btn btn-primary">Email Support</a>
+
+      <h2>Common questions</h2>
+      <h3>Why does a task say “baseline needed”?</h3>
+      <p>An engine-hour schedule needs a usable meter reading to calculate its next threshold. Update the reading for that engine, then check the schedule again.</p>
+
+      <h3>What if I replace an hour meter?</h3>
+      <p>Record the replacement in Good Trim. It keeps the earlier readings and accumulated hours in the history, so the new meter reading does not erase the old maintenance context.</p>
+
+      <h3>How do I protect or move my records?</h3>
+      <p>Open Settings and create a backup. Save the resulting file in Files, iCloud Drive, or another place you control. Backup and restore are available in Free. After a restore, check the vessel list and a few service entries before discarding an older copy.</p>
+
+      <h3>Can I export without Boat Pro?</h3>
+      <p>Yes. CSV export and complete backup/restore are free. Boat Pro adds printable PDF maintenance reports.</p>
+
+      <h3>I bought Boat Pro but it is not unlocked.</h3>
+      <p>Open Settings and choose Restore Purchase using the Apple Account that bought Boat Pro. An App Store connection is needed to restore. Your existing maintenance records stay readable while purchase status is checked.</p>
+
+      <h3>Can I use Good Trim without an internet connection?</h3>
+      <p>Yes. Your boat records, due dates, service history, attachments, exports, and local reminders work on the iPhone. Buying or restoring Boat Pro uses Apple's App Store.</p>
+
+      <h3>How do refunds work?</h3>
+      <p>Apple handles the purchase and refund process. Requests go through <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero { padding: 6rem 0 5rem; border-bottom: 1px solid var(--border); }
+  .hero-content { max-width: 700px; }
+  .hero h1 { margin-bottom: 1.25rem; }
+  .hero-sub { font-size: 1.1rem; max-width: 54ch; margin-bottom: 2rem; line-height: 1.7; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-lg { padding: 0.75rem 1.75rem; font-size: 1rem; }
+  .btn-soon { cursor: default; border-style: dashed; color: var(--text-muted); }
+  .soon-tag { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; color: var(--warning); border: 1px solid var(--warning); border-radius: 100px; padding: 0.1rem 0.5rem; }
+  .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+  .feature-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; }
+  .feature-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+  .feature-card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+  .feature-card p { font-size: 0.875rem; line-height: 1.6; }
+  .section-alt { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .pricing-header { text-align: center; }
+  .pricing-header p { margin-top: 0.5rem; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; max-width: 650px; margin: 0 auto; }
+  .pricing-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.75rem; }
+  .pricing-card-premium { border-color: var(--accent); background: var(--accent-dim); }
+  .pricing-card h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+  .price { font-size: 2rem; font-weight: 800; color: var(--text); margin: 0.5rem 0 1.25rem; }
+  .price-note { font-size: 0.875rem; font-weight: 400; color: var(--text-muted); }
+  .pricing-card ul { list-style: none; padding: 0; }
+  .pricing-card li { font-size: 0.875rem; padding: 0.35rem 0 0.35rem 1.25rem; position: relative; }
+  .pricing-card li::before { content: '\2713'; position: absolute; left: 0; color: var(--success); font-weight: 600; }
+  .support-content { max-width: 700px; }
+  .support-content h2 { margin-top: 3rem; }
+  .support-content h3 { margin: 2rem 0 0.5rem; font-size: 1.05rem; }
+  .support-content p { margin-bottom: 1rem; line-height: 1.7; }
+  @media (max-width: 600px) {
+    .hero { padding: 3rem 0; }
+    .features-grid, .pricing-grid { grid-template-columns: 1fr; }
+  }
+</style>
