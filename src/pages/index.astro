@@ -263,7 +263,7 @@ const isExternal = (url?: string) => !!url && /^https?:\/\//.test(url);
     .hero h1 { font-size: 42px; }
     .hero p { font-size: 17px; }
     .icon-grid { gap: 12px; }
-    .icon-tile { aspect-ratio: 1; padding: 12px 8px; font-size: 13px; gap: 8px; }
+    .icon-tile { aspect-ratio: auto; min-height: 128px; padding: 14px 8px; font-size: 13px; line-height: 1.25; gap: 8px; }
     .icon-tile .app-icon { width: 64px; height: 64px; }
     .spotlight { padding: 28px 24px; }
     .spotlight h2 { font-size: 34px; }
