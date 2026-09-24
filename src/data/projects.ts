@@ -61,6 +61,15 @@ export const projects: Project[] = [
     url: '/apps/good-trim',
   },
   {
+    name: 'Clear North: Aurora Alerts',
+    tagline: 'Only when you can see it.',
+    description: 'An iPhone aurora alert app that pings you only when it is dark, clear, and the aurora is strong enough for your latitude. Coming soon to the App Store.',
+    status: 'development',
+    platforms: ['iOS'],
+    tags: ['SwiftUI', 'StoreKit 2', 'Push Notifications'],
+    url: '/apps/clear-north',
+  },
+  {
     name: 'HGB App',
     tagline: 'Live NHL scores and goal replays for Hockey Game Bot fans.',
     description: 'A companion iOS and Android app for Hockey Game Bot. Follow live games, browse play-by-play events, watch goal replay clips, and get push notifications for your team. Powered by a Cloudflare Workers API with a D1 database.',
