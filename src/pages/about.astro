@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
 
 const skills = [
   { category: 'Mobile', items: ['Swift', 'SwiftUI', 'Kotlin', 'Jetpack Compose'] },
@@ -8,139 +8,79 @@ const skills = [
 ];
 ---
 
-<BaseLayout
+<SiteLayout
   title="About"
-  description="A bit about Matt Donders — software developer, app builder."
+  description="A bit about Matt Donders: software developer, app builder."
 >
-  <section class="section">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-main">
-          <span class="section-label">// about</span>
-          <h1>Hey, I'm Matt.</h1>
-
-          <div class="prose about-prose">
-            <p>
-              I'm a software developer based in the US, primarily building iOS apps and
-              Cloudflare-powered backend services. I write Swift, TypeScript, and
-              Python depending on what I'm making.
-            </p>
-            <p>
-              I started coding in my early years writing BASIC on a Windows computer,
-              and picked up Python almost ten years ago for fun and hobby projects. I've
-              been building things ever since. Right now I'm focused on shipping a few
-              apps that have been rattling around in my head for a while.
-            </p>
-            <p>
-              I lean heavily on Claude Code and AI coding agents to help me plan, iterate,
-              and ship faster. If you're not using these tools to write better code and
-              figure out what works faster than you ever could before, you're falling behind —
-              and that's just my honest take.
-            </p>
-            <p>
-              When I'm not at a keyboard I'm spending time with my family.
-            </p>
-            <p>
-              This site is where I post about projects as they launch, and occasionally
-              write about things I've learned or found interesting.
-            </p>
-          </div>
-
-          <div class="about-links">
-            <a href="https://github.com/mattdonders" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
-              GitHub
-            </a>
-            <a href="https://twitter.com/mattdonders" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
-              Twitter / X
-            </a>
-            <a href="/blog" class="btn btn-outline">Blog</a>
-          </div>
-        </div>
-
-        <aside class="about-sidebar">
-          <div class="skills-card">
-            <h3 class="skills-heading">Stack</h3>
-            {skills.map(({ category, items }) => (
-              <div class="skill-group">
-                <h4 class="skill-category">{category}</h4>
-                <div class="skill-tags">
-                  {items.map(item => <span class="tag">{item}</span>)}
-                </div>
-              </div>
-            ))}
-          </div>
-        </aside>
+  <section class="about" aria-labelledby="about-title">
+    <div class="tile about-main">
+      <span class="eyebrow">About</span>
+      <h1 id="about-title">Hey, I'm Matt.</h1>
+      <div class="prose">
+        <p>
+          I'm a software developer based in the US, primarily building iOS apps and
+          Cloudflare-powered backend services. I write Swift, TypeScript, and
+          Python depending on what I'm making.
+        </p>
+        <p>
+          I started coding in my early years writing BASIC on a Windows computer,
+          and picked up Python almost ten years ago for fun and hobby projects. I've
+          been building things ever since. Right now I'm focused on shipping a few
+          apps that have been rattling around in my head for a while.
+        </p>
+        <p>
+          I lean heavily on Claude Code and AI coding agents to help me plan, iterate,
+          and ship faster. If you're not using these tools to write better code and
+          figure out what works faster than you ever could before, you're falling behind,
+          and that's just my honest take.
+        </p>
+        <p>
+          When I'm not at a keyboard I'm spending time with my family.
+        </p>
+        <p>
+          This site is where I post about projects as they launch, and occasionally
+          write about things I've learned or found interesting.
+        </p>
+      </div>
+      <div class="about-links">
+        <a href="https://github.com/mattdonders" class="btn btn-outline" rel="noopener noreferrer">GitHub</a>
+        <a href="https://twitter.com/mattdonders" class="btn btn-outline" rel="noopener noreferrer">Twitter / X</a>
+        <a href="/blog" class="btn btn-outline">Writing</a>
       </div>
     </div>
+
+    <aside class="tile about-stack" aria-labelledby="stack-title">
+      <h2 id="stack-title" class="eyebrow">Stack</h2>
+      {skills.map(({ category, items }) => (
+        <div class="skill-group">
+          <h3>{category}</h3>
+          <ul class="tag-list" role="list">
+            {items.map(item => <li class="tag">{item}</li>)}
+          </ul>
+        </div>
+      ))}
+    </aside>
   </section>
-</BaseLayout>
+</SiteLayout>
 
 <style>
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 300px;
-    gap: 4rem;
-    align-items: start;
+  .about { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 20px; align-items: start; }
+  .about-main { grid-column: span 4; padding: 44px; display: flex; flex-direction: column; gap: 20px; }
+  .about-main h1 { margin: 0; font-size: clamp(40px, 6vw, 64px); font-weight: 800; letter-spacing: -0.035em; line-height: 1; }
+  .about-main .prose { margin-top: 8px; }
+  .about-main .prose p:last-child { margin-bottom: 0; }
+  .about-links { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  .about-stack { grid-column: span 2; display: flex; flex-direction: column; gap: 24px; }
+  .about-stack h2 { margin: 0; font-weight: 400; }
+  .skill-group { display: flex; flex-direction: column; gap: 10px; }
+  .skill-group h3 { margin: 0; font-size: 18px; font-weight: 600; }
+
+  @media (max-width: 1100px) {
+    .about-main, .about-stack { grid-column: 1 / -1; }
   }
 
-  .about-prose p {
-    margin-bottom: 1.25rem;
-  }
-
-  .about-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-top: 2rem;
-  }
-
-  .skills-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 1.5rem;
-    position: sticky;
-    top: calc(var(--nav-height) + 2rem);
-  }
-
-  .skills-heading {
-    font-size: 0.75rem;
-    font-family: var(--font-mono);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--text-subtle);
-    margin-bottom: 1.25rem;
-  }
-
-  .skill-group {
-    margin-bottom: 1.25rem;
-  }
-
-  .skill-group:last-child {
-    margin-bottom: 0;
-  }
-
-  .skill-category {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    margin-bottom: 0.5rem;
-  }
-
-  .skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-  }
-
-  @media (max-width: 768px) {
-    .about-grid {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    .skills-card {
-      position: static;
-    }
+  @media (max-width: 600px) {
+    .about-main { padding: 28px 24px; }
   }
 </style>

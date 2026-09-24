@@ -1,91 +1,59 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DocLayout from '../../../layouts/DocLayout.astro';
 ---
 
-<BaseLayout
-  title="Privacy Policy — Clear North"
+<DocLayout
+  title="Privacy Policy · Clear North"
   description="Privacy Policy for Clear North: Aurora Alerts, an iPhone aurora alert app."
+  eyebrow="Clear North: Aurora Alerts"
+  heading="Privacy Policy"
+  meta="Last updated: September 24, 2026"
+  back={{ href: '/apps/clear-north', label: 'Clear North: Aurora Alerts' }}
 >
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" />
-  <div class="cn">
-  <div class="container section">
-    <span class="section-label">// clear north</span>
-    <h1>Privacy Policy</h1>
-    <p class="last-updated">Last Updated: September 24, 2026</p>
-
-    <div class="prose privacy-prose">
-      <div class="highlight-box">
-        <strong>Summary:</strong> Clear North has no account, no tracking, no ads, and no analytics. To send alerts, our server stores your device&rsquo;s push token together with an approximate 0.5&deg; grid cell and your alert preferences, so that data is tied to your device. There is no name, email, account or precise location, the data is never sold, nothing is used for tracking, and it is deleted when you turn alerts off.
-      </div>
-
-      <h2>What Our Server Stores</h2>
-      <p>To deliver alerts, our server keeps one record per device with exactly these columns, and nothing else:</p>
-      <ul>
-        <li><strong>platform:</strong> always &ldquo;ios&rdquo;.</li>
-        <li><strong>token:</strong> the push (APNs) token. Apple issues it so we can send a notification to your device. It is a persistent identifier for your device, and everything else in the record is tied to it. It carries no name, email or account.</li>
-        <li><strong>cell:</strong> a 0.5&deg; grid-cell centre, an area roughly 55 km by 40&ndash;55 km. It is never a precise location. The app rounds your location to this cell on your device and never sends precise coordinates.</li>
-        <li><strong>env:</strong> whether the token is an Apple &ldquo;sandbox&rdquo; (test) or &ldquo;production&rdquo; token.</li>
-        <li><strong>prefs:</strong> your alert preferences: nightly limit, quiet hours (on/off, start, end), the major-storm toggle, the dusk toggle, and your time zone.</li>
-        <li><strong>created_at</strong> and <strong>updated_at:</strong> when the record was first created and when the app last registered (the app refreshes this whenever it registers).</li>
-      </ul>
-      <p>We also keep a short send log so the nightly limit and once-per-night rules work. Each row holds the push token, the local date of the night, the alert type (aurora, storm, or dusk), and the time it was sent. Log rows are deleted after 72 hours, and when your device record is deleted.</p>
-      <p>These two per-device records (the device record and the send log) are the only places our server holds anything tied to a device. In the App Store privacy details and in the app&rsquo;s privacy manifest they are declared as: Coarse Location (the grid cell), Device ID (the push token), and Other Data (your notification preferences and the send history). Because all of it is keyed to your device&rsquo;s push token, we declare all three as data linked to you. None of it is used for tracking.</p>
-      <p>Our server also keeps operational tables that hold <strong>no device or user data</strong>: cached space-weather data, cached cloud forecasts keyed by grid cell, and health records that note whether each data source was fetched successfully. They are keyed by data source or grid cell, never by device, and contain nothing that can be traced to you.</p>
-      <p>Our server does not store your name, email, account, IP address, precise location, or any analytics. Cloudflare&rsquo;s rate limiter uses the connecting IP address only as a temporary counter to stop abuse; we do not store it.</p>
-
-      <h2>Location</h2>
-      <p>Clear North uses coarse (approximate) location only. It is used on your device to compute the grid cell described above. Precise coordinates are never sent to us or to anyone else.</p>
-      <p>When you use your current location, the app asks Apple&rsquo;s geocoding service for a place name using the rounded 0.5&deg; cell centre, never your precise position.</p>
-
-      <h2>Account, Tracking, Ads, and Analytics</h2>
-      <p>There is no account and no sign-in. Clear North has no tracking, no advertising, and no analytics SDKs. Your data is never sold. The only identifier is your device&rsquo;s push token; there is no name, email or account.</p>
-
-      <h2>Data Sources</h2>
-      <p>Cloud forecasts come from <a href="https://api.met.no/">MET Norway</a> (licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>). Geomagnetic data comes from the <a href="https://www.swpc.noaa.gov/">NOAA Space Weather Prediction Center</a>. Clear North is not endorsed by MET Norway or NOAA.</p>
-
-      <h2>Retention</h2>
-      <p>A device record is deleted as soon as the deletion request reaches our server when you turn alerts off in the app or use &ldquo;Delete my alert registration&rdquo; in the app (available without Pro), and when Apple reports the push token as invalid. If your phone is offline at that moment, the app remembers the request and retries the next time you open it, so deletion is not instant in that case. If iOS gives the app a new push token, the app registers the new token and then deletes the old token&rsquo;s record, retrying on later launches until that succeeds. If you uninstall the app, the record is removed automatically after 90 days without the app registering. Send-log rows are deleted after 72 hours.</p>
-
-      <h2>Deleting Your Data</h2>
-      <p>Turn off alerts in the app, or use &ldquo;Delete my alert registration&rdquo;, and your device record is removed as soon as the request reaches our server (if you are offline, the app retries when you next open it). If you have uninstalled the app, the record is removed automatically after 90 days. Email cannot be used to delete a record: nothing on our server identifies you (no name, email or account), so we have no way to tell which record is yours. Only the push token held on your device can point to it.</p>
-
-      <h2>Purchases</h2>
-      <p>Subscriptions and purchases are handled by Apple through StoreKit. The developer receives no payment details. Apple&rsquo;s handling of purchase information is covered by <a href="https://www.apple.com/legal/privacy/">Apple&rsquo;s Privacy Policy</a>.</p>
-
-      <h2>Children</h2>
-      <p>Clear North is not directed at children.</p>
-
-      <h2>Changes to This Policy</h2>
-      <p>If this policy changes, the updated text and date will appear on this page.</p>
-
-      <h2>Contact</h2>
-      <p>Questions about this policy can be sent to <a href="mailto:matt@mattdonders.com?subject=Clear%20North%20Privacy">matt@mattdonders.com</a>.</p>
-    </div>
+  <div class="callout">
+    <strong>Summary:</strong> Clear North has no account, no tracking, no ads, and no analytics. To send alerts, our server stores your device&rsquo;s push token together with an approximate 0.5&deg; grid cell and your alert preferences, so that data is tied to your device. There is no name, email, account or precise location, the data is never sold, nothing is used for tracking, and it is deleted when you turn alerts off.
   </div>
-  </div>
-</BaseLayout>
 
-<style>
-  .cn {
-    --bg: #080b14;
-    --surface: #10141f;
-    --border: #232a3b;
-    --text: #ece6d8;
-    --text-muted: #b4aea0;
-    --accent: #86e8b0;
-    --accent-hover: #a8f0c6;
-    --accent-dim: rgba(134, 232, 176, 0.1);
-    background: var(--bg);
-    color: var(--text);
-  }
-  .cn h1, .cn h2 { font-family: 'Newsreader', Georgia, 'Times New Roman', serif; font-weight: 500; }
-  .last-updated { font-size: 0.85rem; color: var(--text-muted); margin: 0.5rem 0 2rem; }
-  .privacy-prose h2 { margin: 2.5rem 0 0.75rem; font-size: 1.35rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
-  .privacy-prose p { margin-bottom: 1rem; }
-  .privacy-prose ul { margin: 0 0 1rem 1.25rem; }
-  .privacy-prose li { margin-bottom: 0.6rem; line-height: 1.7; }
-  .highlight-box { background: var(--accent-dim); border-left: 3px solid var(--accent); padding: 1rem 1.25rem; border-radius: var(--radius); margin: 1.5rem 0 2rem; color: var(--text-muted); }
-  .highlight-box strong { color: var(--text); }
-</style>
+  <h2>What Our Server Stores</h2>
+  <p>To deliver alerts, our server keeps one record per device with exactly these columns, and nothing else:</p>
+  <ul>
+    <li><strong>platform:</strong> always &ldquo;ios&rdquo;.</li>
+    <li><strong>token:</strong> the push (APNs) token. Apple issues it so we can send a notification to your device. It is a persistent identifier for your device, and everything else in the record is tied to it. It carries no name, email or account.</li>
+    <li><strong>cell:</strong> a 0.5&deg; grid-cell centre, an area roughly 55 km by 40&ndash;55 km. It is never a precise location. The app rounds your location to this cell on your device and never sends precise coordinates.</li>
+    <li><strong>env:</strong> whether the token is an Apple &ldquo;sandbox&rdquo; (test) or &ldquo;production&rdquo; token.</li>
+    <li><strong>prefs:</strong> your alert preferences: nightly limit, quiet hours (on/off, start, end), the major-storm toggle, the dusk toggle, and your time zone.</li>
+    <li><strong>created_at</strong> and <strong>updated_at:</strong> when the record was first created and when the app last registered (the app refreshes this whenever it registers).</li>
+  </ul>
+  <p>We also keep a short send log so the nightly limit and once-per-night rules work. Each row holds the push token, the local date of the night, the alert type (aurora, storm, or dusk), and the time it was sent. Log rows are deleted after 72 hours, and when your device record is deleted.</p>
+  <p>These two per-device records (the device record and the send log) are the only places our server holds anything tied to a device. In the App Store privacy details and in the app&rsquo;s privacy manifest they are declared as: Coarse Location (the grid cell), Device ID (the push token), and Other Data (your notification preferences and the send history). Because all of it is keyed to your device&rsquo;s push token, we declare all three as data linked to you. None of it is used for tracking.</p>
+  <p>Our server also keeps operational tables that hold <strong>no device or user data</strong>: cached space-weather data, cached cloud forecasts keyed by grid cell, and health records that note whether each data source was fetched successfully. They are keyed by data source or grid cell, never by device, and contain nothing that can be traced to you.</p>
+  <p>Our server does not store your name, email, account, IP address, precise location, or any analytics. Cloudflare&rsquo;s rate limiter uses the connecting IP address only as a temporary counter to stop abuse; we do not store it.</p>
+
+  <h2>Location</h2>
+  <p>Clear North uses coarse (approximate) location only. It is used on your device to compute the grid cell described above. Precise coordinates are never sent to us or to anyone else.</p>
+  <p>When you use your current location, the app asks Apple&rsquo;s geocoding service for a place name using the rounded 0.5&deg; cell centre, never your precise position.</p>
+
+  <h2>Account, Tracking, Ads, and Analytics</h2>
+  <p>There is no account and no sign-in. Clear North has no tracking, no advertising, and no analytics SDKs. Your data is never sold. The only identifier is your device&rsquo;s push token; there is no name, email or account.</p>
+
+  <h2>Data Sources</h2>
+  <p>Cloud forecasts come from <a href="https://api.met.no/">MET Norway</a> (licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>). Geomagnetic data comes from the <a href="https://www.swpc.noaa.gov/">NOAA Space Weather Prediction Center</a>. Clear North is not endorsed by MET Norway or NOAA.</p>
+
+  <h2>Retention</h2>
+  <p>A device record is deleted as soon as the deletion request reaches our server when you turn alerts off in the app or use &ldquo;Delete my alert registration&rdquo; in the app (available without Pro), and when Apple reports the push token as invalid. If your phone is offline at that moment, the app remembers the request and retries the next time you open it, so deletion is not instant in that case. If iOS gives the app a new push token, the app registers the new token and then deletes the old token&rsquo;s record, retrying on later launches until that succeeds. If you uninstall the app, the record is removed automatically after 90 days without the app registering. Send-log rows are deleted after 72 hours.</p>
+
+  <h2>Deleting Your Data</h2>
+  <p>Turn off alerts in the app, or use &ldquo;Delete my alert registration&rdquo;, and your device record is removed as soon as the request reaches our server (if you are offline, the app retries when you next open it). If you have uninstalled the app, the record is removed automatically after 90 days. Email cannot be used to delete a record: nothing on our server identifies you (no name, email or account), so we have no way to tell which record is yours. Only the push token held on your device can point to it.</p>
+
+  <h2>Purchases</h2>
+  <p>Subscriptions and purchases are handled by Apple through StoreKit. The developer receives no payment details. Apple&rsquo;s handling of purchase information is covered by <a href="https://www.apple.com/legal/privacy/">Apple&rsquo;s Privacy Policy</a>.</p>
+
+  <h2>Children</h2>
+  <p>Clear North is not directed at children.</p>
+
+  <h2>Changes to This Policy</h2>
+  <p>If this policy changes, the updated text and date will appear on this page.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this policy can be sent to <a href="mailto:matt@mattdonders.com?subject=Clear%20North%20Privacy">matt@mattdonders.com</a>.</p>
+</DocLayout>

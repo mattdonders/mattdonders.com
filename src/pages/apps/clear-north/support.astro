@@ -1,75 +1,46 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DocLayout from '../../../layouts/DocLayout.astro';
 ---
 
-<BaseLayout
-  title="Support — Clear North"
-  description="Help with Clear North: Aurora Alerts — why you did or did not get an alert, stale data, notifications, red mode, and subscriptions."
+<DocLayout
+  title="Support · Clear North"
+  description="Help with Clear North: Aurora Alerts: why you did or did not get an alert, stale data, notifications, red mode, and subscriptions."
+  eyebrow="Clear North: Aurora Alerts"
+  heading="Support"
+  back={{ href: '/apps/clear-north', label: 'Clear North' }}
 >
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" />
-  <div class="cn">
-  <section class="section">
-    <div class="container support-content">
-      <span class="section-label">// clear north</span>
-      <h1>Support</h1>
-      <p>Send a note with your iPhone model, iOS version, roughly where you are, and the night in question. That is usually enough to work out what happened.</p>
-      <a href="mailto:matt@mattdonders.com?subject=Clear%20North%20Support" class="btn btn-primary">Email Support</a>
+  <p>Send a note with your iPhone model, iOS version, roughly where you are, and the night in question. That is usually enough to work out what happened.</p>
+  <p><a href="mailto:matt@mattdonders.com?subject=Clear%20North%20Support" class="btn btn-primary">Email support</a></p>
 
-      <h2>Common questions</h2>
+  <h2>Common questions</h2>
 
-      <h3>Why did I get an alert?</h3>
-      <p>Clear North alerts only when three things are true at once for your area: it is astronomical darkness, cloud cover is under 40% (MET Norway), and the Kp index is high enough for your latitude (NOAA SWPC), for example Kp 6+ at 45&deg;N. Every alert requires all three, and it must still be dark when it is sent. If you turned on &ldquo;wake me for major storms,&rdquo; a Kp 7+ storm can also come through as a time-sensitive notification even during quiet hours or after your nightly limit, but it still needs darkness, under 40% cloud and fresh data. If you turned on the optional dusk heads-up, you may get one note around sunset on a night whose forecast looks good; it is a forecast for after dark, not a report that aurora is visible.</p>
+  <h3>Why did I get an alert?</h3>
+  <p>Clear North alerts only when three things are true at once for your area: it is astronomical darkness, cloud cover is under 40% (MET Norway), and the Kp index is high enough for your latitude (NOAA SWPC), for example Kp 6+ at 45&deg;N. Every alert requires all three, and it must still be dark when it is sent. If you turned on &ldquo;wake me for major storms,&rdquo; a Kp 7+ storm can also come through as a time-sensitive notification even during quiet hours or after your nightly limit, but it still needs darkness, under 40% cloud and fresh data. If you turned on the optional dusk heads-up, you may get one note around sunset on a night whose forecast looks good; it is a forecast for after dark, not a report that aurora is visible.</p>
 
-      <h3>Why did I not get an alert when the aurora was out?</h3>
-      <p>Usually one of the three conditions was not met: it was not fully dark yet, the forecast showed 40% cloud or more, or Kp was below your latitude&rsquo;s threshold. Your nightly limit (default 2) may already have been used, and quiet hours suppress ordinary alerts. Also check that alerts are on, that you have Clear North Pro, and that notifications are allowed for the app. Forecasts can be wrong, and the aurora sometimes shows when the numbers say it should not; Clear North is a guide, not a guarantee.</p>
+  <h3>Why did I not get an alert when the aurora was out?</h3>
+  <p>Usually one of the three conditions was not met: it was not fully dark yet, the forecast showed 40% cloud or more, or Kp was below your latitude&rsquo;s threshold. Your nightly limit (default 2) may already have been used, and quiet hours suppress ordinary alerts. Also check that alerts are on, that you have Clear North Pro, and that notifications are allowed for the app. Forecasts can be wrong, and the aurora sometimes shows when the numbers say it should not; Clear North is a guide, not a guarantee.</p>
 
-      <h3>The data looks stale.</h3>
-      <p>Cloud forecasts come from MET Norway and Kp comes from NOAA SWPC, and both update on their own schedules. If the app cannot reach them it shows the last data it received. Check your connection, pull to refresh, and try again in a few minutes. Space weather can change quickly, so a forecast that is a few hours old may no longer be accurate.</p>
+  <h3>The data looks stale.</h3>
+  <p>Cloud forecasts come from MET Norway and Kp comes from NOAA SWPC, and both update on their own schedules. If the app cannot reach them it shows the last data it received. Check your connection, pull to refresh, and try again in a few minutes. Space weather can change quickly, so a forecast that is a few hours old may no longer be accurate.</p>
 
-      <h3>I am not getting any notifications.</h3>
-      <p>Open iOS Settings, then Notifications, then Clear North, and make sure notifications are allowed. Check that no Focus mode is silencing them, that alerts are turned on inside the app, and that the current time is not inside your quiet hours. Time-sensitive delivery for major storms also depends on your Focus settings.</p>
+  <h3>I am not getting any notifications.</h3>
+  <p>Open iOS Settings, then Notifications, then Clear North, and make sure notifications are allowed. Check that no Focus mode is silencing them, that alerts are turned on inside the app, and that the current time is not inside your quiet hours. Time-sensitive delivery for major storms also depends on your Focus settings.</p>
 
-      <h3>What is red mode?</h3>
-      <p>Red night-vision mode switches the display to red so it does not ruin your dark-adapted eyes while you are watching the sky.</p>
+  <h3>What is red mode?</h3>
+  <p>Red night-vision mode switches the display to red so it does not ruin your dark-adapted eyes while you are watching the sky.</p>
 
-      <h3>How do I cancel my subscription?</h3>
-      <p>Subscriptions are managed by Apple. Open iOS Settings, tap your name, then Subscriptions, choose Clear North Pro, and cancel. If you are in the 7-day free trial, cancel at least 24 hours before it ends to avoid being charged. Deleting the app does not cancel a subscription.</p>
+  <h3>How do I cancel my subscription?</h3>
+  <p>Subscriptions are managed by Apple. Open iOS Settings, tap your name, then Subscriptions, choose Clear North Pro, and cancel. If you are in the 7-day free trial, cancel at least 24 hours before it ends to avoid being charged. Deleting the app does not cancel a subscription.</p>
 
-      <h3>I bought Pro but it is not unlocked.</h3>
-      <p>Use Restore Purchases in the app, signed in to the same Apple Account you used to buy it.</p>
+  <h3>I bought Pro but it is not unlocked.</h3>
+  <p>Use Restore Purchases in the app, signed in to the same Apple Account you used to buy it.</p>
 
-      <h3>Refunds</h3>
-      <p>Purchases are handled by Apple. Refund requests go through <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
+  <h3>Refunds</h3>
+  <p>Purchases are handled by Apple. Refund requests go through <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
 
-      <h3>How do I delete my data?</h3>
-      <p>Turn alerts off in the app, or use &ldquo;Delete my alert registration&rdquo; (works without Pro), and your device record is removed as soon as the request reaches our server (if you are offline, the app retries the next time you open it). If you uninstalled the app, the record is removed automatically after 90 days. Email cannot delete it because our server holds no name, email or account, so we cannot tell which record is yours. Only the push token held on your device points to it. See the <a href="/apps/clear-north/privacy/">privacy policy</a>.</p>
+  <h3>How do I delete my data?</h3>
+  <p>Turn alerts off in the app, or use &ldquo;Delete my alert registration&rdquo; (works without Pro), and your device record is removed as soon as the request reaches our server (if you are offline, the app retries the next time you open it). If you uninstalled the app, the record is removed automatically after 90 days. Email cannot delete it because our server holds no name, email or account, so we cannot tell which record is yours. Only the push token held on your device points to it. See the <a href="/apps/clear-north/privacy/">privacy policy</a>.</p>
 
-      <h2>Data sources</h2>
-      <p>Cloud forecasts: <a href="https://api.met.no/">MET Norway</a>, licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Geomagnetic data: <a href="https://www.swpc.noaa.gov/">NOAA Space Weather Prediction Center</a>.</p>
-    </div>
-  </section>
-  </div>
-</BaseLayout>
-
-<style>
-  .cn {
-    --bg: #080b14;
-    --surface: #10141f;
-    --border: #232a3b;
-    --text: #ece6d8;
-    --text-muted: #b4aea0;
-    --accent: #86e8b0;
-    --accent-hover: #a8f0c6;
-    --accent-dim: rgba(134, 232, 176, 0.1);
-    background: var(--bg);
-    color: var(--text);
-  }
-  .cn h1, .cn h2 { font-family: 'Newsreader', Georgia, 'Times New Roman', serif; font-weight: 500; }
-  .cn .btn-primary { color: #080b14; }
-  .support-content { max-width: 700px; }
-  .support-content h2 { margin-top: 3rem; }
-  .support-content h3 { margin: 2rem 0 0.5rem; font-size: 1.05rem; }
-  .support-content p { margin-bottom: 1rem; line-height: 1.7; }
-</style>
+  <h2>Data sources</h2>
+  <p>Cloud forecasts: <a href="https://api.met.no/">MET Norway</a>, licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Geomagnetic data: <a href="https://www.swpc.noaa.gov/">NOAA Space Weather Prediction Center</a>.</p>
+</DocLayout>

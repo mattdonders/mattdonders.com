@@ -2,9 +2,10 @@
 import SiteLayout from '../../layouts/SiteLayout.astro';
 import AppList from '../../components/AppList.astro';
 import { appGroup, inWords, listedApps, listedServices } from '../../data/projects';
+import { catalog } from '../../data/catalog';
 
-const apps = listedApps();
-const services = listedServices();
+const apps = listedApps(catalog);
+const services = listedServices(catalog);
 const live = apps.filter(p => p.status === 'live');
 const inReview = apps.filter(p => p.status === 'review');
 const soon = apps.filter(p => appGroup(p.status) === 'soon');
@@ -14,7 +15,7 @@ const capitalized = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 const summaryParts = [
   `${capitalized(inWords(live.length))} on the App Store`,
-  inReview.length > 0 && `${inWords(inReview.length)} in App Review`,
+  inReview.length > 0 && `${inWords(inReview.length)} launching soon`,
   onTheWay > 0 && `${inWords(onTheWay)} on the way`,
 ].filter(Boolean) as string[];
 const summary = summaryParts.length > 1
@@ -44,7 +45,7 @@ const summary = summaryParts.length > 1
 
     {inReview.length > 0 && (
       <div class="tile intro-stat">
-        <span class="eyebrow">In App Review</span>
+        <span class="eyebrow">Launching soon</span>
         <div class="review-icons">
           {inReview.map(p => p.icon && (
             <img class="app-icon" src={p.icon} alt={p.name} width="56" height="56" />

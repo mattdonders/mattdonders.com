@@ -1,20 +1,21 @@
 ---
 // "Every app" list with Live / Coming soon filters. Shared by the homepage and /apps.
 import { appGroup, listedApps, statusLabel, type Project } from '../data/projects';
+import { catalog } from '../data/catalog';
 
 interface Props {
   heading?: string;
 }
 
 const { heading = 'Every app' } = Astro.props;
-const apps = listedApps();
+const apps = listedApps(catalog);
 const liveCount = apps.filter(p => appGroup(p.status) === 'live').length;
 const soonCount = apps.length - liveCount;
 const headingId = `list-${heading.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
 
 const statusClass = (p: Project) =>
   p.status === 'live' ? 'status-live' : p.status === 'review' ? 'status-review' : 'status-soon';
-const statusText = (p: Project) => (p.status === 'live' ? 'Live' : p.status === 'review' ? 'In review' : 'Soon');
+const statusText = (p: Project) => (p.status === 'live' ? 'Live' : p.status === 'review' ? 'Launching soon' : 'Soon');
 const isExternal = (url?: string) => !!url && /^https?:\/\//.test(url);
 ---
 
@@ -44,7 +45,7 @@ const isExternal = (url?: string) => !!url && /^https?:\/\//.test(url);
         </div>
         <div class="app-meta">
           <span class:list={['status', statusClass(app)]} title={statusLabel[app.status]}>{statusText(app)}</span>
-          {app.appStore && (
+          {app.status === 'live' && app.appStore && (
             <a class="store-link" href={app.appStore} rel="noopener noreferrer">App Store ↗</a>
           )}
         </div>

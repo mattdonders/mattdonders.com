@@ -1,21 +1,26 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
 ---
 
-<BaseLayout title="404 — Not Found" description="Page not found.">
-  <div class="container section not-found">
-    <span class="section-label">// 404</span>
-    <h1 class="font-mono">Not found.</h1>
+<SiteLayout title="404 · Not Found" description="Page not found.">
+  <section class="tile not-found" aria-labelledby="not-found-title">
+    <span class="eyebrow">404</span>
+    <h1 id="not-found-title">Not found.</h1>
     <p>That page doesn't exist. Maybe you followed a broken link.</p>
-    <a href="/" class="btn btn-outline">Go home &rarr;</a>
-  </div>
-</BaseLayout>
+    <div class="not-found-actions">
+      <a href="/" class="btn btn-primary">Go home</a>
+      <a href="/apps" class="btn btn-outline">See the apps</a>
+    </div>
+  </section>
+</SiteLayout>
 
 <style>
-  .not-found {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    padding-top: 8rem;
+  .not-found { padding: 56px 48px; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+  .not-found h1 { margin: 0; font-size: clamp(48px, 8vw, 96px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
+  .not-found p { margin: 0; font-size: 18px; color: var(--muted); }
+  .not-found-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+
+  @media (max-width: 600px) {
+    .not-found { padding: 32px 24px; }
   }
 </style>

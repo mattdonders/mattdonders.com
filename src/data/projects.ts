@@ -18,6 +18,8 @@ export interface Project {
   icon?: string;
   /** 'service' entries (bots, APIs) sit apart from the app list on /apps. */
   kind?: 'app' | 'service';
+  /** App Store Connect app ID. The build asks Apple whether it is live yet (src/data/store-status.ts). */
+  appStoreId?: string;
   /** Pitch for the homepage spotlight tile. Set it on one app at a time. */
   spotlight?: string;
 }
@@ -44,6 +46,7 @@ export const projects: Project[] = [
     tags: ['SwiftUI', 'SwiftData', 'StoreKit 2'],
     url: '/apps/home-stretch',
     appStore: 'https://apps.apple.com/app/home-stretch-moving-checklist/id6759578339',
+    appStoreId: '6759578339',
     playStore: 'https://play.google.com/store/apps/details?id=com.mattdonders.movingchecklist',
     featured: true,
     icon: '/apps/icons/home-stretch.png',
@@ -57,6 +60,7 @@ export const projects: Project[] = [
     tags: ['SwiftUI', 'SwiftData', 'StoreKit 2'],
     url: '/apps/tooth-fairy-tracker',
     appStore: 'https://apps.apple.com/app/tooth-fairy-tracker/id6759559834',
+    appStoreId: '6759559834',
     playStore: 'https://play.google.com/store/apps/details?id=com.toothfairytracker',
     featured: true,
     icon: '/apps/icons/tooth-fairy.png',
@@ -70,6 +74,7 @@ export const projects: Project[] = [
     tags: ['SwiftUI', 'AVFoundation'],
     url: '/apps/below',
     appStore: 'https://apps.apple.com/app/id6813295177',
+    appStoreId: '6813295177',
     icon: '/apps/icons/below.png',
   },
   {
@@ -81,6 +86,7 @@ export const projects: Project[] = [
     tags: ['SwiftUI'],
     url: '/apps/better-buy-calculator',
     appStore: 'https://apps.apple.com/app/id6809564592',
+    appStoreId: '6809564592',
     icon: '/apps/icons/better-buy.png',
   },
   {
@@ -92,6 +98,7 @@ export const projects: Project[] = [
     tags: ['SwiftUI'],
     url: '/apps/worked',
     appStore: 'https://apps.apple.com/app/id6809901231',
+    appStoreId: '6809901231',
     icon: '/apps/icons/worked.png',
   },
   {
@@ -103,6 +110,7 @@ export const projects: Project[] = [
     tags: ['SwiftUI'],
     url: '/apps/interval',
     appStore: 'https://apps.apple.com/app/id6809219678',
+    appStoreId: '6809219678',
     icon: '/apps/icons/interval.png',
   },
   {
@@ -112,7 +120,8 @@ export const projects: Project[] = [
     status: 'review',
     platforms: ['iOS', 'Web'],
     tags: ['SwiftUI', 'React Router', 'Cloudflare Workers'],
-    url: 'https://puckpassport.app',
+    url: '/apps/puck-passport',
+    appStoreId: '6811217979',
     icon: '/apps/icons/puck-passport.png',
     spotlight: 'Proof you were there. Log every NHL game you attend: rinks visited, teams seen, your record in the building.',
   },
@@ -124,6 +133,7 @@ export const projects: Project[] = [
     platforms: ['iOS'],
     tags: ['SwiftUI', 'Game Center'],
     url: '/apps/quizparade',
+    appStoreId: '6813103888',
     icon: '/apps/icons/quiz-parade.png',
   },
   {
@@ -134,6 +144,7 @@ export const projects: Project[] = [
     platforms: ['iOS'],
     tags: ['SwiftUI', 'SwiftData', 'StoreKit 2'],
     url: '/apps/good-trim',
+    appStoreId: '6815015765',
     icon: '/apps/icons/good-trim.png',
   },
   {
@@ -190,18 +201,10 @@ export const projects: Project[] = [
 
 export const statusLabel: Record<ProjectStatus, string> = {
   live: 'Live',
-  review: 'In App Review',
+  review: 'Launching soon',
   beta: 'Beta',
   development: 'In Development',
   planned: 'Planned',
-};
-
-export const statusBadgeClass: Record<ProjectStatus, string> = {
-  live: 'badge-live',
-  review: 'badge-beta',
-  beta: 'badge-beta',
-  development: 'badge-dev',
-  planned: 'badge-dev',
 };
 
 /** /apps filter group: anything not yet on a store counts as coming soon. */
@@ -229,3 +232,6 @@ export function spotlightApp(all: Project[] = projects): Project | undefined {
 
 const numberWords = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
 export const inWords = (n: number) => numberWords[n] ?? String(n);
+
+export const projectForSlug = (slug: string, all: Project[] = projects) =>
+  all.find(p => p.url === `/apps/${slug}`);

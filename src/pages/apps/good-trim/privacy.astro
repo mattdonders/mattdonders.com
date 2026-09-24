@@ -1,59 +1,47 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DocLayout from '../../../layouts/DocLayout.astro';
 ---
 
-<BaseLayout
-  title="Privacy Policy — Good Trim"
+<DocLayout
+  title="Privacy Policy · Good Trim"
   description="Privacy Policy for Good Trim, an offline boat maintenance log for iPhone."
+  eyebrow="Good Trim"
+  heading="Privacy Policy"
+  meta="Last updated: September 22, 2026"
+  back={{ href: '/apps/good-trim', label: 'Good Trim' }}
 >
-  <div class="container section">
-    <span class="section-label">// good trim</span>
-    <h1>Privacy Policy</h1>
-    <p class="last-updated">Last Updated: September 22, 2026</p>
-
-    <div class="prose privacy-prose">
-      <div class="highlight-box">
-        <strong>Summary:</strong> Good Trim keeps your boat maintenance records on your iPhone.
-        We do not operate an account or data server, and we do not collect your maintenance data.
-        Purchases and restores use Apple's App Store. Files leave the app only when you choose to export or share them.
-      </div>
-
-      <h2>Information We Collect</h2>
-      <p><strong>None.</strong> Good Trim does not require an account and does not collect your name, contact information, boat records, meter readings, service history, photos, or documents. We do not receive your backups or exports.</p>
-
-      <h2>Your Maintenance Records</h2>
-      <p>Vessels, equipment, schedules, meter readings, service entries, and attachments are stored locally in the app's space on your iPhone. Good Trim has no developer-operated backend or CloudKit sync. The app's records are available offline.</p>
-      <p>You can create a complete backup, restore one, or export linked CSV files. Boat Pro can also create PDF maintenance reports. When you use the iOS share sheet or Files picker, you choose where a file goes or which file to import. The destination you choose, such as iCloud Drive or another file provider, handles that copy under its own terms. Good Trim does not send it to us.</p>
-
-      <h2>Photos, Camera, and Reminders</h2>
-      <p>Good Trim accesses a photo or document only when you choose to attach it. It asks for camera access only when you choose to take a photo. Attachments are copied into the app's local storage.</p>
-      <p>Reminders are optional local iPhone notifications. Good Trim asks for notification permission when you enable reminders, not when you first open the app. Denying permission does not affect your maintenance record or the due list inside the app.</p>
-
-      <h2>Purchases</h2>
-      <p>Boat Pro is a one-time in-app purchase processed by Apple. Product lookup, purchase, and Restore Purchase communicate with Apple's App Store services. Apple tells the app whether the unlock is active; we do not receive your payment card or billing details. Apple's handling of purchase information is covered by <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</p>
-
-      <h2>Analytics, Advertising, and Tracking</h2>
-      <p>Good Trim has no analytics SDK, crash-reporting service, advertising SDK, telemetry, or tracking. We do not sell or share your information for advertising.</p>
-
-      <h2>Deleting Data</h2>
-      <p>You can delete individual records in the app. Deleting a vessel also removes its equipment, schedules, service history, and attached files, after a confirmation. Deleting the app removes its locally stored data from that iPhone. Backup files you saved elsewhere remain wherever you chose to keep them, and you control those copies.</p>
-
-      <h2>Children</h2>
-      <p>Good Trim is not directed at children and does not collect information from anyone, including children.</p>
-
-      <h2>Changes to This Policy</h2>
-      <p>If this policy changes, the updated text and date will appear on this page.</p>
-
-      <h2>Contact</h2>
-      <p>Questions about this policy can be sent to <a href="mailto:matt@mattdonders.com?subject=Good%20Trim%20Privacy">matt@mattdonders.com</a>.</p>
-    </div>
+  <div class="callout">
+    <strong>Summary:</strong> Good Trim keeps your boat maintenance records on your iPhone.
+    We do not operate an account or data server, and we do not collect your maintenance data.
+    Purchases and restores use Apple's App Store. Files leave the app only when you choose to export or share them.
   </div>
-</BaseLayout>
 
-<style>
-  .last-updated { font-size: 0.85rem; color: var(--text-subtle); margin: 0.5rem 0 2rem; }
-  .privacy-prose h2 { margin: 2.5rem 0 0.75rem; font-size: 1.35rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
-  .privacy-prose p { margin-bottom: 1rem; }
-  .highlight-box { background: var(--accent-dim); border-left: 3px solid var(--accent); padding: 1rem 1.25rem; border-radius: var(--radius); margin: 1.5rem 0 2rem; color: var(--text-muted); }
-  .highlight-box strong { color: var(--text); }
-</style>
+  <h2>Information We Collect</h2>
+  <p><strong>None.</strong> Good Trim does not require an account and does not collect your name, contact information, boat records, meter readings, service history, photos, or documents. We do not receive your backups or exports.</p>
+
+  <h2>Your Maintenance Records</h2>
+  <p>Vessels, equipment, schedules, meter readings, service entries, and attachments are stored locally in the app's space on your iPhone. Good Trim has no developer-operated backend or CloudKit sync. The app's records are available offline.</p>
+  <p>You can create a complete backup, restore one, or export linked CSV files. Boat Pro can also create PDF maintenance reports. When you use the iOS share sheet or Files picker, you choose where a file goes or which file to import. The destination you choose, such as iCloud Drive or another file provider, handles that copy under its own terms. Good Trim does not send it to us.</p>
+
+  <h2>Photos, Camera, and Reminders</h2>
+  <p>Good Trim accesses a photo or document only when you choose to attach it. It asks for camera access only when you choose to take a photo. Attachments are copied into the app's local storage.</p>
+  <p>Reminders are optional local iPhone notifications. Good Trim asks for notification permission when you enable reminders, not when you first open the app. Denying permission does not affect your maintenance record or the due list inside the app.</p>
+
+  <h2>Purchases</h2>
+  <p>Boat Pro is a one-time in-app purchase processed by Apple. Product lookup, purchase, and Restore Purchase communicate with Apple's App Store services. Apple tells the app whether the unlock is active; we do not receive your payment card or billing details. Apple's handling of purchase information is covered by <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</p>
+
+  <h2>Analytics, Advertising, and Tracking</h2>
+  <p>Good Trim has no analytics SDK, crash-reporting service, advertising SDK, telemetry, or tracking. We do not sell or share your information for advertising.</p>
+
+  <h2>Deleting Data</h2>
+  <p>You can delete individual records in the app. Deleting a vessel also removes its equipment, schedules, service history, and attached files, after a confirmation. Deleting the app removes its locally stored data from that iPhone. Backup files you saved elsewhere remain wherever you chose to keep them, and you control those copies.</p>
+
+  <h2>Children</h2>
+  <p>Good Trim is not directed at children and does not collect information from anyone, including children.</p>
+
+  <h2>Changes to This Policy</h2>
+  <p>If this policy changes, the updated text and date will appear on this page.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this policy can be sent to <a href="mailto:matt@mattdonders.com?subject=Good%20Trim%20Privacy">matt@mattdonders.com</a>.</p>
+</DocLayout>

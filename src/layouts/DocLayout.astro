@@ -1,0 +1,57 @@
+---
+// Long-form pages in the Home Screen design: privacy policies, support pages, blog posts.
+import SiteLayout from './SiteLayout.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogType?: 'website' | 'article';
+  /** Small label above the heading, usually the app name. */
+  eyebrow?: string;
+  heading: string;
+  /** e.g. "Last updated: March 5, 2026" */
+  meta?: string;
+  /** A sentence under the heading, e.g. a blog post's description. */
+  lede?: string;
+  tags?: string[];
+  back?: { href: string; label: string };
+}
+
+const { title, description, ogType, eyebrow, heading, meta, lede, tags = [], back } = Astro.props;
+---
+
+<SiteLayout title={title} description={description} ogType={ogType}>
+  <article class="doc">
+    <header class="doc-head">
+      {back && <a class="back-link" href={back.href}>← {back.label}</a>}
+      {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+      <h1>{heading}</h1>
+      {lede && <p class="doc-lede">{lede}</p>}
+      {meta && <p class="doc-meta">{meta}</p>}
+      {tags.length > 0 && (
+        <ul class="tag-list" role="list">
+          {tags.map(tag => <li class="tag">{tag}</li>)}
+        </ul>
+      )}
+    </header>
+    <div class="tile doc-body prose">
+      <slot />
+    </div>
+    <slot name="after" />
+  </article>
+</SiteLayout>
+
+<style>
+  .doc { display: flex; flex-direction: column; gap: 32px; max-width: 880px; width: 100%; margin: 0 auto; }
+  .doc-head { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+  .doc-head .back-link { margin-bottom: 12px; }
+  .doc-head h1 { margin: 0; font-size: clamp(40px, 6vw, 64px); font-weight: 800; letter-spacing: -0.035em; line-height: 1; }
+  .doc-lede { margin: 4px 0 0; font-size: 20px; line-height: 1.45; color: var(--muted); max-width: 720px; }
+  .doc-meta { margin: 0; font-family: var(--font-mono); font-size: 13px; color: var(--subtle); }
+  .doc-body { padding: 44px 48px; }
+
+  @media (max-width: 600px) {
+    .doc-body { padding: 28px 22px; }
+    .doc-lede { font-size: 18px; }
+  }
+</style>

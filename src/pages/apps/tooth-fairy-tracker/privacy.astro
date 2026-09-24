@@ -1,140 +1,113 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DocLayout from '../../../layouts/DocLayout.astro';
 ---
 
-<BaseLayout
-  title="Privacy Policy — Tooth Fairy Tracker"
-  description="Privacy Policy for Tooth Fairy Tracker iOS app."
+<DocLayout
+  title="Privacy Policy and Support · Tooth Fairy Tracker"
+  description="Privacy Policy and support for Tooth Fairy Tracker on iPhone, iPad, and Android."
+  eyebrow="Tooth Fairy Tracker"
+  heading="Privacy Policy"
+  meta="Last updated: September 24, 2026"
+  back={{ href: '/apps/tooth-fairy-tracker', label: 'Tooth Fairy Tracker' }}
 >
-  <div class="container section">
-    <span class="section-label">// tooth fairy tracker</span>
-    <h1>Privacy Policy</h1>
-    <p class="last-updated">Last Updated: March 5, 2026</p>
-
-    <div class="prose privacy-prose">
-      <div class="highlight-box">
-        <strong>Summary:</strong> Tooth Fairy Tracker does not collect, store, or transmit any personal data. Everything stays on your device.
-      </div>
-
-      <h2>Introduction</h2>
-      <p>
-        Tooth Fairy Tracker ("we", "our", or "the app") is a mobile application developed by Matt Donders.
-        This Privacy Policy explains how the app handles your information.
-      </p>
-
-      <h2>Information We Collect</h2>
-      <p><strong>None.</strong> Tooth Fairy Tracker does not collect any personal information. The app:</p>
-      <ul>
-        <li>Does not require an account or login</li>
-        <li>Does not connect to the internet</li>
-        <li>Does not use analytics or tracking</li>
-        <li>Does not display advertisements</li>
-        <li>Does not access your contacts, location, camera, or microphone</li>
-      </ul>
-
-      <h2>Data Storage</h2>
-      <p>
-        All data you create in the app (child profiles, tooth records, and visit history) is stored
-        locally on your device using Apple's SwiftData framework. This data is never transmitted to any
-        server or third party.
-      </p>
-      <p>
-        If you delete the app, all associated data is permanently removed from your device.
-      </p>
-
-      <h2>Notifications</h2>
-      <p>
-        Tooth Fairy Tracker can send optional local notifications to remind you about Tooth Fairy visits.
-        These notifications are scheduled entirely on your device and do not involve any external server
-        or push notification service. You can disable notifications at any time in your device settings.
-      </p>
-
-      <h2>Face ID / Touch ID</h2>
-      <p>
-        The app may use Face ID or Touch ID to protect parent settings. Biometric data is handled
-        entirely by Apple's LocalAuthentication framework on your device. We never receive, store,
-        or have access to your biometric data.
-      </p>
-
-      <h2>In-App Purchases</h2>
-      <p>
-        Tooth Fairy Tracker offers a one-time in-app purchase to unlock support for multiple children.
-        All payment processing is handled entirely by Apple through the App Store. We do not collect,
-        store, or have access to any payment information such as credit card numbers or billing details.
-      </p>
-      <p>
-        For information on how Apple handles your payment data, please refer to
-        <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple's Privacy Policy</a>.
-      </p>
-
-      <h2>Children's Privacy</h2>
-      <p>
-        Tooth Fairy Tracker does not collect any data from anyone, including children. Child names
-        entered in the app are stored only on your device and are never transmitted anywhere. The app
-        is safe for users of all ages.
-      </p>
-
-      <h2>Third-Party Services</h2>
-      <p>
-        Tooth Fairy Tracker does not integrate with any third-party services, SDKs, or APIs. The app
-        functions entirely offline with no external dependencies.
-      </p>
-
-      <h2>Changes to This Policy</h2>
-      <p>
-        We may update this Privacy Policy from time to time. Any changes will be reflected on this
-        page with an updated "Last Updated" date.
-      </p>
-
-      <h2>Contact</h2>
-      <p>
-        If you have questions about this Privacy Policy, please contact us at:
-      </p>
-      <p>
-        <strong>Email:</strong> <a href="mailto:matt@mattdonders.com">matt@mattdonders.com</a>
-      </p>
-    </div>
+  <div class="callout">
+    <strong>Summary:</strong> Tooth Fairy Tracker does not collect, store, or transmit any personal data, on iPhone, iPad, or Android. Everything stays on your device.
   </div>
-</BaseLayout>
 
-<style>
-  .last-updated {
-    font-size: 0.85rem;
-    color: var(--text-subtle);
-    margin-top: 0.5rem;
-    margin-bottom: 2rem;
-  }
+  <h2>Introduction</h2>
+  <p>
+    Tooth Fairy Tracker ("we", "our", or "the app") is a mobile app for iPhone, iPad, and Android,
+    developed by Matt Donders. This Privacy Policy explains how the app handles your information on each platform.
+  </p>
 
-  .privacy-prose h2 {
-    margin-top: 2.5rem;
-    margin-bottom: 0.75rem;
-    font-size: 1.35rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border);
-  }
+  <h2>Information We Collect</h2>
+  <p><strong>None.</strong> Tooth Fairy Tracker does not collect any personal information. On every platform, the app:</p>
+  <ul>
+    <li>Does not require an account or login</li>
+    <li>Does not send your records anywhere</li>
+    <li>Does not use analytics or tracking</li>
+    <li>Does not display advertisements</li>
+    <li>Does not access your contacts, location, camera, or microphone</li>
+  </ul>
 
-  .privacy-prose p {
-    margin-bottom: 1rem;
-  }
+  <h2>Data Storage</h2>
+  <p>
+    Everything you create in the app (child profiles, tooth records, and visit history) is stored
+    locally on your device: with Apple's SwiftData framework on iPhone and iPad, and in an on-device
+    database on Android. This data is never sent to us or to any third party.
+  </p>
+  <p>
+    Your device's own backup may include the app's data if you have it turned on: iCloud or computer
+    backups on iPhone and iPad, and Android's backup to your Google account. Those backups are handled
+    by Apple or Google, and we cannot access them.
+  </p>
+  <p>
+    If you delete the app, its data is removed from your device.
+  </p>
 
-  .privacy-prose ul {
-    margin-bottom: 1.25rem;
-  }
+  <h2>Notifications</h2>
+  <p>
+    Tooth Fairy Tracker can send optional local notifications to remind you about Tooth Fairy visits.
+    They are scheduled entirely on your device and do not use any external server or push service.
+    On Android, the app also reschedules them after your phone restarts. You can turn notifications
+    off at any time in your device settings.
+  </p>
 
-  .privacy-prose li {
-    margin-bottom: 0.35rem;
-  }
+  <h2>Face ID, Touch ID, and Android Biometrics</h2>
+  <p>
+    The app may use Face ID or Touch ID on iPhone and iPad, or your fingerprint or face unlock on
+    Android, to protect parent settings. Biometric checks are handled entirely by the operating
+    system on your device. We never receive, store, or have access to your biometric data.
+  </p>
 
-  .highlight-box {
-    background: var(--accent-dim);
-    border-left: 3px solid var(--accent);
-    padding: 1rem 1.25rem;
-    border-radius: var(--radius);
-    margin: 1.5rem 0 2rem;
-    color: var(--text-muted);
-  }
+  <h2>In-App Purchases</h2>
+  <p>
+    Tooth Fairy Tracker offers a one-time in-app purchase to unlock support for more than one child.
+    On iPhone and iPad, payment is handled by Apple through the App Store. On Android, payment is
+    handled by Google through Google Play. We do not collect, store, or have access to any payment
+    information such as card numbers or billing details. The app only asks the store whether the
+    purchase is active.
+  </p>
+  <p>
+    For how your payment data is handled, see
+    <a href="https://www.apple.com/legal/privacy/" rel="noopener noreferrer">Apple's Privacy Policy</a> or
+    <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google's Privacy Policy</a>.
+  </p>
 
-  .highlight-box strong {
-    color: var(--text);
-  }
-</style>
+  <h2>Children's Privacy</h2>
+  <p>
+    Tooth Fairy Tracker does not collect any data from anyone, including children. Child names
+    entered in the app are stored only on your device and are never sent anywhere. The app
+    is safe for users of all ages.
+  </p>
+
+  <h2>Third-Party Services</h2>
+  <p>
+    Tooth Fairy Tracker contains no third-party analytics, advertising, or tracking SDKs. The only
+    outside service it talks to is the App Store or Google Play, to check your purchase.
+  </p>
+
+  <h2>Changes to This Policy</h2>
+  <p>
+    We may update this Privacy Policy from time to time. Any changes will be reflected on this
+    page with an updated date.
+  </p>
+
+  <h2>Support and Contact</h2>
+  <p>
+    For help with Tooth Fairy Tracker or questions about this policy, email
+    <a href="mailto:matt@mattdonders.com?subject=Tooth%20Fairy%20Tracker%20Support">matt@mattdonders.com</a>.
+    Include your device, its iOS or Android version, and what happened. That is usually enough to work it out.
+  </p>
+  <h3>I bought Unlimited Children and it is not unlocked.</h3>
+  <p>
+    Open the app and tap <strong>Restore Purchases</strong>, signed in to the same Apple Account (iPhone and iPad)
+    or Google Play account (Android) that made the purchase.
+  </p>
+  <h3>Refunds</h3>
+  <p>
+    Apple and Google handle purchases and refunds. For the App Store, go to
+    <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>. For Google Play, see
+    <a href="https://support.google.com/googleplay/answer/2479637">Google Play's refund page</a>.
+  </p>
+</DocLayout>

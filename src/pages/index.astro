@@ -2,20 +2,21 @@
 import SiteLayout from '../layouts/SiteLayout.astro';
 import AppList from '../components/AppList.astro';
 import { appGroup, inWords, listedApps, spotlightApp } from '../data/projects';
+import { catalog } from '../data/catalog';
 import { getCollection } from 'astro:content';
 
-const apps = listedApps();
+const apps = listedApps(catalog);
 const live = apps.filter(p => p.status === 'live');
 const inReview = apps.filter(p => p.status === 'review');
 const building = apps.filter(p => p.status === 'development' || p.status === 'beta');
 const soonCount = apps.filter(p => appGroup(p.status) === 'soon').length;
-const spotlight = spotlightApp();
+const spotlight = spotlightApp(catalog);
 const reviewTile = inReview.filter(p => p !== spotlight);
 
 const capitalized = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 const subline = [
   'Swift, Kotlin, and Cloudflare Workers.',
-  `${capitalized(inWords(live.length))} apps on the App Store so far${inReview.length > 0 ? `, and ${inWords(inReview.length)} more in review.` : '.'}`,
+  `${capitalized(inWords(live.length))} apps on the App Store so far${inReview.length > 0 ? `, and ${inWords(inReview.length)} more launching soon.` : '.'}`,
 ].join(' ');
 
 const posts = await getCollection('blog', ({ data }) => !data.draft);
@@ -49,7 +50,7 @@ const isExternal = (url?: string) => !!url && /^https?:\/\//.test(url);
     {spotlight && (
       <div class="tile spotlight">
         <span class="eyebrow spotlight-eyebrow">
-          <span class="spotlight-dot" aria-hidden="true"></span>Next up · {spotlight.status === 'review' ? 'In App Review' : 'Coming soon'}
+          <span class="spotlight-dot" aria-hidden="true"></span>Next up · {spotlight.status === 'review' ? 'Launching soon' : 'Coming soon'}
         </span>
         <div class="spotlight-body">
           {spotlight.icon && <img class="app-icon" src={spotlight.icon} alt="" width="72" height="72" />}
@@ -81,7 +82,7 @@ const isExternal = (url?: string) => !!url && /^https?:\/\//.test(url);
 
     {reviewTile.length > 0 && (
       <div class="tile small-tile">
-        <span class="eyebrow">In App Review</span>
+        <span class="eyebrow">Launching soon</span>
         <div class="review-row">
           {reviewTile.map(app => app.icon && (
             <a href={app.url}><img class="app-icon" src={app.icon} alt={app.name} width="56" height="56" /></a>
