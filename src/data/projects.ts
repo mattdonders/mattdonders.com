@@ -1,8 +1,8 @@
 export type ProjectStatus = 'live' | 'review' | 'beta' | 'development' | 'planned';
 export type Platform = 'iOS' | 'Android' | 'Web' | 'macOS' | 'tvOS';
 
-/** Sections of the app list, in display order. */
-export const appCategories = ['Everyday tools', 'Home & family', 'Hockey', 'Outdoors'] as const;
+/** Sections of the app list, in display order. Hockey leads so Puck Passport tops the list. */
+export const appCategories = ['Hockey', 'Everyday tools', 'Home & family', 'Outdoors'] as const;
 export type AppCategory = (typeof appCategories)[number];
 
 export interface Project {

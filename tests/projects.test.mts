@@ -132,3 +132,7 @@ test('appsByCategory keeps category order, keeps list order inside a group, and 
   assert.deepEqual(groups.map(g => g.category), ['Everyday tools', 'Outdoors']);
   assert.deepEqual(groups[0].apps.map(p => p.name), ['Calc', 'Timer']);
 });
+
+test('Puck Passport tops the app list', () => {
+  assert.equal(appsByCategory(listedApps())[0].apps[0].name, 'Puck Passport');
+});
