@@ -18,13 +18,15 @@ export interface Project {
   icon?: string;
   /** 'service' entries (bots, APIs) sit apart from the app list on /apps. */
   kind?: 'app' | 'service';
+  /** Pitch for the homepage spotlight tile. Set it on one app at a time. */
+  spotlight?: string;
 }
 
 export const projects: Project[] = [
   {
     name: 'Hockey Game Bot',
-    tagline: 'The NHL data engine behind Puck Passport, plus next-morning recap videos.',
-    description: 'A Python service that follows every NHL game and turns it into data and video. Its Cloudflare Workers API supplies the hockey data behind Puck Passport, and it renders next-morning recap videos for YouTube, TikTok, and Instagram.',
+    tagline: 'The data behind Puck Passport.',
+    description: 'A Python service that follows every NHL game: schedules, rosters, scores, and play-by-play. Its Cloudflare Workers API is where Puck Passport gets its game data, and each morning it turns the night before into a recap video.',
     status: 'live',
     platforms: ['Web'],
     tags: ['Python', 'NHL API', 'Cloudflare D1', 'FFmpeg'],
@@ -112,6 +114,7 @@ export const projects: Project[] = [
     tags: ['SwiftUI', 'React Router', 'Cloudflare Workers'],
     url: 'https://puckpassport.app',
     icon: '/apps/icons/puck-passport.png',
+    spotlight: 'Proof you were there. Log every NHL game you attend: rinks visited, teams seen, your record in the building.',
   },
   {
     name: 'Quiz Parade',
@@ -219,3 +222,10 @@ export function listedApps(all: Project[] = projects): Project[] {
 export function listedServices(all: Project[] = projects): Project[] {
   return all.filter(p => !p.draft && p.kind === 'service');
 }
+
+export function spotlightApp(all: Project[] = projects): Project | undefined {
+  return listedApps(all).find(p => p.spotlight);
+}
+
+const numberWords = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
+export const inWords = (n: number) => numberWords[n] ?? String(n);

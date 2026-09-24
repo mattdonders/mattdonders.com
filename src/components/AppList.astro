@@ -1,0 +1,70 @@
+---
+// "Every app" list with Live / Coming soon filters. Shared by the homepage and /apps.
+import { appGroup, listedApps, statusLabel, type Project } from '../data/projects';
+
+interface Props {
+  heading?: string;
+}
+
+const { heading = 'Every app' } = Astro.props;
+const apps = listedApps();
+const liveCount = apps.filter(p => appGroup(p.status) === 'live').length;
+const soonCount = apps.length - liveCount;
+const headingId = `list-${heading.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+
+const statusClass = (p: Project) =>
+  p.status === 'live' ? 'status-live' : p.status === 'review' ? 'status-review' : 'status-soon';
+const statusText = (p: Project) => (p.status === 'live' ? 'Live' : p.status === 'review' ? 'In review' : 'Soon');
+const isExternal = (url?: string) => !!url && /^https?:\/\//.test(url);
+---
+
+<section class="catalog" aria-labelledby={headingId} data-app-list>
+  <div class="catalog-head">
+    <h2 id={headingId}>{heading}</h2>
+    <div class="pill-bar" role="group" aria-label="Filter apps" data-filters hidden>
+      <button type="button" data-filter="all" aria-pressed="true">All {apps.length}</button>
+      <button type="button" data-filter="live" aria-pressed="false">Live {liveCount}</button>
+      <button type="button" data-filter="soon" aria-pressed="false">Coming soon {soonCount}</button>
+    </div>
+  </div>
+
+  <ul class="app-list" role="list">
+    {apps.map(app => (
+      <li class="app-row" data-group={appGroup(app.status)}>
+        {app.icon && <img class="app-icon" src={app.icon} alt="" width="64" height="64" loading="lazy" />}
+        <div class="app-text">
+          <h3>
+            {app.url ? (
+              <a class="app-link" href={app.url} rel={isExternal(app.url) ? 'noopener' : undefined}>
+                {app.name}{isExternal(app.url) && <span aria-hidden="true"> ↗</span>}
+              </a>
+            ) : app.name}
+          </h3>
+          <p>{app.tagline}</p>
+        </div>
+        <div class="app-meta">
+          <span class:list={['status', statusClass(app)]} title={statusLabel[app.status]}>{statusText(app)}</span>
+          {app.appStore && (
+            <a class="store-link" href={app.appStore} rel="noopener noreferrer">App Store ↗</a>
+          )}
+        </div>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-app-list]').forEach(list => {
+    const bar = list.querySelector<HTMLElement>('[data-filters]');
+    const rows = list.querySelectorAll<HTMLElement>('.app-row[data-group]');
+    if (!bar) return;
+    bar.hidden = false;
+    bar.addEventListener('click', event => {
+      const button = (event.target as HTMLElement).closest<HTMLButtonElement>('button[data-filter]');
+      if (!button) return;
+      const filter = button.dataset.filter;
+      bar.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+      rows.forEach(row => { row.hidden = filter !== 'all' && row.dataset.group !== filter; });
+    });
+  });
+</script>

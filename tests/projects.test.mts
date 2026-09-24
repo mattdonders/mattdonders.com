@@ -53,3 +53,17 @@ test('live apps link to the App Store', () => {
     assert.match(p.appStore ?? '', /^https:\/\/apps\.apple\.com\//, `${p.name} is live without an App Store link`);
   }
 });
+
+test('spotlightApp returns the listed app carrying a pitch', async () => {
+  const { spotlightApp } = await import('../src/data/projects.ts');
+  assert.equal(spotlightApp([app('A', 'live'), app('B', 'review', { spotlight: 'Pitch' })])?.name, 'B');
+  assert.equal(spotlightApp([app('A', 'live'), app('C', 'review', { spotlight: 'Pitch', draft: true })]), undefined);
+  assert.ok(spotlightApp(), 'the real data has a spotlight app');
+});
+
+test('inWords spells small counts and falls back to digits', async () => {
+  const { inWords } = await import('../src/data/projects.ts');
+  assert.equal(inWords(0), 'no');
+  assert.equal(inWords(6), 'six');
+  assert.equal(inWords(40), '40');
+});
