@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { projects, type ProjectStatus } from '../data/projects';
 
-const statusOrder: ProjectStatus[] = ['live', 'beta', 'development', 'planned'];
+const statusOrder: ProjectStatus[] = ['live', 'review', 'beta', 'development', 'planned'];
 
 const grouped = statusOrder.reduce<Record<ProjectStatus, typeof projects>>((acc, status) => {
   acc[status] = projects.filter(p => p.status === status && !p.draft);
@@ -12,6 +12,7 @@ const grouped = statusOrder.reduce<Record<ProjectStatus, typeof projects>>((acc,
 
 const statusHeadings: Record<ProjectStatus, string> = {
   live: 'Live',
+  review: 'In App Review',
   beta: 'Beta',
   development: 'In Development',
   planned: 'Planned',

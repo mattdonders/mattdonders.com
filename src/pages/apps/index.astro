@@ -1,0 +1,255 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { appGroup, listedApps, listedServices, statusLabel, type Project } from '../../data/projects';
+
+const apps = listedApps();
+const services = listedServices();
+const live = apps.filter(p => p.status === 'live');
+const inReview = apps.filter(p => p.status === 'review');
+const soon = apps.filter(p => appGroup(p.status) === 'soon');
+const onTheWay = soon.length - inReview.length;
+
+const words = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
+const inWords = (n: number) => words[n] ?? String(n);
+const capitalized = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+
+const summaryParts = [
+  `${capitalized(inWords(live.length))} on the App Store`,
+  inReview.length > 0 && `${inWords(inReview.length)} in App Review`,
+  onTheWay > 0 && `${inWords(onTheWay)} on the way`,
+].filter(Boolean) as string[];
+const summary = summaryParts.length > 1
+  ? `${summaryParts.slice(0, -1).join(', ')}, and ${summaryParts.at(-1)}.`
+  : `${summaryParts[0]}.`;
+
+const statusClass = (p: Project) =>
+  p.status === 'live' ? 'status-live' : p.status === 'review' ? 'status-review' : 'status-soon';
+const statusText = (p: Project) => (p.status === 'live' ? 'Live' : p.status === 'review' ? 'In review' : 'Soon');
+const isExternal = (url?: string) => !!url && /^https?:\/\//.test(url);
+---
+
+<SiteLayout
+  title="Apps"
+  description={`Every app Matt Donders has built. ${summary}`}
+>
+  <section class="intro" aria-labelledby="apps-title">
+    <div class="tile intro-hero">
+      <span class="eyebrow">Apps</span>
+      <h1 id="apps-title">Small apps for <span class="accent">ordinary jobs.</span></h1>
+      <p>{summary} Built in Swift, Kotlin, and Cloudflare Workers.</p>
+    </div>
+
+    <div class="tile intro-stat">
+      <span class="eyebrow">On the App Store</span>
+      <div class="stat-row">
+        <span class="stat-number">{live.length}</span>
+        <span class="stat-label">live apps</span>
+      </div>
+    </div>
+
+    {inReview.length > 0 && (
+      <div class="tile intro-stat">
+        <span class="eyebrow">In App Review</span>
+        <div class="review-icons">
+          {inReview.map(p => p.icon && (
+            <img class="app-icon" src={p.icon} alt={p.name} width="56" height="56" />
+          ))}
+        </div>
+      </div>
+    )}
+  </section>
+
+  <section class="catalog" aria-labelledby="every-app">
+    <div class="catalog-head">
+      <h2 id="every-app">Every app</h2>
+      <div class="pill-bar" role="group" aria-label="Filter apps" data-filters hidden>
+        <button type="button" data-filter="all" aria-pressed="true">All {apps.length}</button>
+        <button type="button" data-filter="live" aria-pressed="false">Live {live.length}</button>
+        <button type="button" data-filter="soon" aria-pressed="false">Coming soon {soon.length}</button>
+      </div>
+    </div>
+
+    <ul class="app-list" role="list">
+      {apps.map(app => (
+        <li class="app-row" data-group={appGroup(app.status)}>
+          {app.icon && <img class="app-icon" src={app.icon} alt="" width="64" height="64" loading="lazy" />}
+          <div class="app-text">
+            <h3>
+              {app.url ? (
+                <a class="app-link" href={app.url} rel={isExternal(app.url) ? 'noopener' : undefined}>
+                  {app.name}{isExternal(app.url) && <span aria-hidden="true"> ↗</span>}
+                </a>
+              ) : app.name}
+            </h3>
+            <p>{app.tagline}</p>
+          </div>
+          <div class="app-meta">
+            <span class:list={['status', statusClass(app)]} title={statusLabel[app.status]}>{statusText(app)}</span>
+            {app.appStore && (
+              <a class="store-link" href={app.appStore} rel="noopener noreferrer">App Store ↗</a>
+            )}
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  {services.length > 0 && (
+    <section class="catalog" aria-labelledby="behind-the-apps">
+      <div class="catalog-head">
+        <h2 id="behind-the-apps">Behind the apps</h2>
+      </div>
+      <ul class="app-list" role="list">
+        {services.map(service => (
+          <li class="app-row">
+            {service.icon && <img class="app-icon" src={service.icon} alt="" width="64" height="64" loading="lazy" />}
+            <div class="app-text">
+              <h3>{service.url ? <a class="app-link" href={service.url}>{service.name}</a> : service.name}</h3>
+              <p>{service.tagline}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+</SiteLayout>
+
+<script>
+  const bar = document.querySelector<HTMLElement>('[data-filters]');
+  const rows = document.querySelectorAll<HTMLElement>('.app-row[data-group]');
+  if (bar) {
+    bar.hidden = false;
+    bar.addEventListener('click', event => {
+      const button = (event.target as HTMLElement).closest<HTMLButtonElement>('button[data-filter]');
+      if (!button) return;
+      const filter = button.dataset.filter;
+      bar.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+      rows.forEach(row => { row.hidden = filter !== 'all' && row.dataset.group !== filter; });
+    });
+  }
+</script>
+
+<style>
+  .intro {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-auto-rows: minmax(200px, auto);
+    gap: 20px;
+  }
+
+  .intro-hero {
+    grid-column: span 4;
+    grid-row: span 2;
+    padding: 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .intro-hero h1 {
+    margin: 0;
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    max-width: 14ch;
+  }
+
+  .intro-hero p { margin: 0; font-size: 18px; color: var(--muted); max-width: 540px; }
+
+  .intro-stat {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .stat-row { display: flex; align-items: baseline; gap: 12px; }
+  .stat-number { font-size: 64px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
+  .stat-label { font-size: 15px; color: var(--muted); }
+
+  .review-icons { display: flex; gap: 12px; flex-wrap: wrap; }
+  .review-icons .app-icon { width: 56px; height: 56px; }
+
+  .catalog { display: flex; flex-direction: column; gap: 32px; }
+
+  .catalog-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .catalog-head h2 { margin: 0; font-size: 56px; font-weight: 800; letter-spacing: -0.035em; line-height: 1; }
+  .catalog-head .pill-bar[hidden] { display: none; }
+
+  .app-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .app-row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 24px;
+    border-radius: var(--radius-row);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition: border-color 0.15s ease;
+  }
+  .app-row[hidden] { display: none; }
+  .app-row:has(.app-link:hover) { border-color: var(--subtle); }
+
+  .app-row .app-icon { width: 64px; height: 64px; }
+
+  .app-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+  .app-text h3 { margin: 0; font-size: 20px; font-weight: 600; line-height: 1.25; }
+  .app-text p { margin: 0; font-size: 15px; line-height: 1.4; color: var(--muted); }
+
+  /* The whole row opens the app page; the store link sits above it. */
+  .app-link { color: var(--text); }
+  .app-link:hover { color: var(--text); }
+  .app-link::after { content: ''; position: absolute; inset: 0; border-radius: inherit; }
+  .app-link:focus-visible { outline: none; }
+  .app-row:has(.app-link:focus-visible) { outline: 2px solid var(--link); outline-offset: 3px; }
+
+  .app-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+
+  .store-link {
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .store-link:hover { text-decoration: underline; }
+
+  @media (max-width: 1100px) {
+    .intro-hero { grid-column: 1 / -1; grid-row: auto; }
+    .intro-stat { grid-column: span 3; }
+    .app-list { grid-template-columns: minmax(0, 1fr); }
+  }
+
+  @media (max-width: 600px) {
+    .intro { grid-template-columns: minmax(0, 1fr); grid-auto-rows: auto; gap: 16px; }
+    .intro-hero, .intro-stat { grid-column: 1 / -1; }
+    .intro-hero { padding: 28px 24px; }
+    .intro-hero p { font-size: 17px; }
+    .stat-number { font-size: 52px; }
+    .catalog-head h2 { font-size: 40px; }
+    .catalog-head .pill-bar { width: 100%; justify-content: space-between; }
+    .app-row { padding: 16px; gap: 12px 14px; flex-wrap: wrap; align-items: flex-start; }
+    .app-row .app-icon { width: 56px; height: 56px; }
+    .app-text h3 { font-size: 18px; }
+    .app-meta { width: 100%; padding-left: 70px; flex-direction: row; align-items: center; gap: 16px; }
+  }
+</style>

@@ -1,0 +1,168 @@
+/* Home Screen design (concept B): bento tiles, lime accent, light + dark by system setting.
+   Pages opt in through SiteLayout; the older pages keep global.css until they move over. */
+
+:root {
+  color-scheme: light dark;
+
+  --bg: #F4F4F0;
+  --surface: #FFFFFF;
+  --border: #E2E2DB;
+  --text: #14161B;
+  --muted: #5B606B;
+  --subtle: #6B7079;
+  --link: #3F5C00;
+  --link-hover: #2A3D00;
+  --lime: #D4F56E;
+  --on-lime: #11140A;
+  --pill-review-bg: #FBEFC9;
+  --pill-review-fg: #6E5200;
+  --pill-soon-bg: #EEEEE8;
+  --pill-soon-fg: #4F545E;
+  --icon-edge: 0 0 0 1px rgba(20, 22, 27, 0.08), 0 6px 14px -8px rgba(20, 22, 27, 0.3);
+
+  --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
+  --radius-tile: 36px;
+  --radius-row: 28px;
+  --gutter: 80px;
+  --max-width: 1440px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0C0E13;
+    --surface: #161922;
+    --border: #252A36;
+    --text: #EDEEF2;
+    --muted: #B7BCC8;
+    --subtle: #9AA0AE;
+    --link: #D4F56E;
+    --link-hover: #E6FAA6;
+    --pill-review-bg: #3A3320;
+    --pill-review-fg: #F2D27A;
+    --pill-soon-bg: #252A36;
+    --pill-soon-fg: #B7BCC8;
+    --icon-edge: none;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-display);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover { color: var(--link-hover); }
+
+:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
+
+img { display: block; max-width: 100%; }
+
+.shell {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 40px var(--gutter) 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+}
+
+.shell > main { display: flex; flex-direction: column; gap: 96px; flex: 1; }
+
+/* Header */
+.shell-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.shell-logo { display: flex; align-items: center; gap: 12px; color: var(--text); font-weight: 600; font-size: 20px; }
+.shell-logo:hover { color: var(--text); }
+.shell-logo-dot { width: 12px; height: 12px; border-radius: 999px; background: var(--lime); }
+
+.pill-bar {
+  display: flex;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+.pill-bar > a, .pill-bar > button {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.pill-bar > a:hover, .pill-bar > button:hover { color: var(--text); }
+.pill-bar > [aria-current='page'], .pill-bar > [aria-pressed='true'] { background: var(--text); color: var(--bg); }
+
+/* Tiles */
+.tile {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-tile);
+  padding: 28px 32px;
+}
+.eyebrow { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--subtle); }
+
+/* Light: lime highlighter. Dark: lime text. */
+.accent { background: var(--lime); color: var(--on-lime); padding: 0 10px; border-radius: 12px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+@media (prefers-color-scheme: dark) {
+  .accent { background: none; color: var(--lime); padding: 0; }
+}
+
+.app-icon { border-radius: 22.5%; box-shadow: var(--icon-edge); flex-shrink: 0; }
+
+/* Status pills */
+.status {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.status-live { background: var(--lime); color: var(--on-lime); }
+.status-review { background: var(--pill-review-bg); color: var(--pill-review-fg); }
+.status-soon { background: var(--pill-soon-bg); color: var(--pill-soon-fg); }
+
+/* Footer */
+.shell-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--subtle);
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+}
+.shell-footer nav { display: flex; gap: 20px; flex-wrap: wrap; }
+.shell-footer a { color: var(--subtle); }
+.shell-footer a:hover { color: var(--text); }
+
+@media (max-width: 900px) {
+  :root { --gutter: 32px; }
+  .shell, .shell > main { gap: 64px; }
+}
+
+@media (max-width: 600px) {
+  :root { --gutter: 16px; --radius-tile: 28px; --radius-row: 22px; }
+  .shell { padding-top: 20px; gap: 48px; }
+  .shell > main { gap: 56px; }
+  .shell-header .pill-bar { width: 100%; justify-content: space-between; }
+  .pill-bar > a, .pill-bar > button { padding: 9px 12px; font-size: 13px; }
+  .tile { padding: 24px; }
+}

@@ -1,0 +1,69 @@
+---
+// Layout for the Home Screen redesign. Pages move here from BaseLayout one at a time.
+import Head from '../components/Head.astro';
+import '../styles/home-screen.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  canonicalURL?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+}
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/apps', label: 'Apps' },
+  { href: '/blog', label: 'Writing' },
+  { href: '/about', label: 'About' },
+];
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isCurrent = (href: string) =>
+  href === '/' ? currentPath === '/' : currentPath === href || currentPath.startsWith(`${href}/`);
+
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <Head {...Astro.props} />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Geist+Mono:wght@400;500&display=swap"
+    />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="shell-header">
+        <a href="/" class="shell-logo">
+          <span class="shell-logo-dot" aria-hidden="true"></span>mattdonders
+        </a>
+        <nav class="pill-bar" aria-label="Main navigation">
+          {navLinks.map(({ href, label }) => (
+            <a href={href} aria-current={isCurrent(href) ? 'page' : undefined}>{label}</a>
+          ))}
+        </nav>
+      </header>
+
+      <main>
+        <slot />
+      </main>
+
+      <footer class="shell-footer">
+        <span>&copy; {year} Matt Donders</span>
+        <nav aria-label="Elsewhere">
+          <a href="mailto:matt@mattdonders.com">matt@mattdonders.com</a>
+          <a href="https://github.com/mattdonders" rel="noopener noreferrer">GitHub</a>
+          <a href="https://twitter.com/mattdonders" rel="noopener noreferrer">X</a>
+          <a href="/rss.xml">RSS</a>
+        </nav>
+        <span>Built with Astro, hosted on Cloudflare</span>
+      </footer>
+    </div>
+  </body>
+</html>
