@@ -151,6 +151,10 @@ img { display: block; max-width: 100%; }
 .catalog-head h2 { margin: 0; font-size: 56px; font-weight: 800; letter-spacing: -0.035em; line-height: 1; }
 .catalog-head .pill-bar[hidden] { display: none; }
 
+.app-group { display: flex; flex-direction: column; gap: 16px; }
+.app-group[hidden] { display: none; }
+.app-group-heading { margin: 0; font-family: var(--font-mono); font-size: 13px; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: var(--subtle); }
+
 .app-list {
   list-style: none;
   margin: 0;
@@ -177,7 +181,7 @@ img { display: block; max-width: 100%; }
 .app-row .app-icon { width: 64px; height: 64px; }
 
 .app-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
-.app-text h3 { margin: 0; font-size: 20px; font-weight: 600; line-height: 1.25; }
+.app-text h3, .app-text h4 { margin: 0; font-size: 20px; font-weight: 600; line-height: 1.25; }
 .app-text p { margin: 0; font-size: 15px; line-height: 1.4; color: var(--muted); }
 
 /* The whole row opens the app page; the store link sits above it. */
@@ -312,6 +316,6 @@ img { display: block; max-width: 100%; }
   .catalog-head .pill-bar { width: 100%; justify-content: space-between; }
   .app-row { padding: 16px; gap: 12px 14px; flex-wrap: wrap; align-items: flex-start; }
   .app-row .app-icon { width: 56px; height: 56px; }
-  .app-text h3 { font-size: 18px; }
+  .app-text h3, .app-text h4 { font-size: 18px; }
   .app-meta { width: 100%; padding-left: 70px; flex-direction: row; align-items: center; gap: 16px; }
 }

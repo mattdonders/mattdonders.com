@@ -1,6 +1,6 @@
 ---
-// "Every app" list with Live / Coming soon filters. Shared by the homepage and /apps.
-import { appGroup, listedApps, statusLabel, type Project } from '../data/projects';
+// "Every app" list, grouped by category, with Live / Coming soon filters. Shared by the homepage and /apps.
+import { appGroup, appsByCategory, listedApps, statusLabel, type Project } from '../data/projects';
 import { catalog } from '../data/catalog';
 
 interface Props {
@@ -11,6 +11,7 @@ const { heading = 'Every app' } = Astro.props;
 const apps = listedApps(catalog);
 const liveCount = apps.filter(p => appGroup(p.status) === 'live').length;
 const soonCount = apps.length - liveCount;
+const groups = appsByCategory(apps);
 const headingId = `list-${heading.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
 
 const statusClass = (p: Project) =>
@@ -29,29 +30,34 @@ const isExternal = (url?: string) => !!url && /^https?:\/\//.test(url);
     </div>
   </div>
 
-  <ul class="app-list" role="list">
-    {apps.map(app => (
-      <li class="app-row" data-group={appGroup(app.status)}>
-        {app.icon && <img class="app-icon" src={app.icon} alt="" width="64" height="64" loading="lazy" />}
-        <div class="app-text">
-          <h3>
-            {app.url ? (
-              <a class="app-link" href={app.url} rel={isExternal(app.url) ? 'noopener' : undefined}>
-                {app.name}{isExternal(app.url) && <span aria-hidden="true"> ↗</span>}
-              </a>
-            ) : app.name}
-          </h3>
-          <p>{app.tagline}</p>
-        </div>
-        <div class="app-meta">
-          <span class:list={['status', statusClass(app)]} title={statusLabel[app.status]}>{statusText(app)}</span>
-          {app.status === 'live' && app.appStore && (
-            <a class="store-link" href={app.appStore} rel="noopener noreferrer">App Store ↗</a>
-          )}
-        </div>
-      </li>
-    ))}
-  </ul>
+  {groups.map(group => (
+    <div class="app-group" data-app-group>
+      <h3 class="app-group-heading">{group.category}</h3>
+      <ul class="app-list" role="list">
+        {group.apps.map(app => (
+          <li class="app-row" data-group={appGroup(app.status)}>
+            {app.icon && <img class="app-icon" src={app.icon} alt="" width="64" height="64" loading="lazy" />}
+            <div class="app-text">
+              <h4>
+                {app.url ? (
+                  <a class="app-link" href={app.url} rel={isExternal(app.url) ? 'noopener' : undefined}>
+                    {app.name}{isExternal(app.url) && <span aria-hidden="true"> ↗</span>}
+                  </a>
+                ) : app.name}
+              </h4>
+              <p>{app.tagline}</p>
+            </div>
+            <div class="app-meta">
+              <span class:list={['status', statusClass(app)]} title={statusLabel[app.status]}>{statusText(app)}</span>
+              {app.status === 'live' && app.appStore && (
+                <a class="store-link" href={app.appStore} rel="noopener noreferrer">App Store ↗</a>
+              )}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))}
 </section>
 
 <script>
@@ -66,6 +72,9 @@ const isExternal = (url?: string) => !!url && /^https?:\/\//.test(url);
       const filter = button.dataset.filter;
       bar.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b === button)));
       rows.forEach(row => { row.hidden = filter !== 'all' && row.dataset.group !== filter; });
+      list.querySelectorAll<HTMLElement>('[data-app-group]').forEach(group => {
+        group.hidden = !group.querySelector('.app-row:not([hidden])');
+      });
     });
   });
 </script>

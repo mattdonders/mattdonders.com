@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync } from 'node:fs';
-import { appGroup, listedApps, listedServices, projects, statusLabel, type Project } from '../src/data/projects.ts';
+import { appCategories, appGroup, appsByCategory, listedApps, listedServices, projects, statusLabel, type Project } from '../src/data/projects.ts';
 
 const app = (name: string, status: Project['status'], extra: Partial<Project> = {}): Project => ({
   name, status, tagline: '', description: '', platforms: ['iOS'], tags: [], ...extra,
@@ -114,4 +114,21 @@ test('every listed app with a local page has page content, and every page has an
     assert.ok(page.support.subject || page.support.url, `${page.slug} needs a support route`);
     if (!/^https?:/.test(page.privacy)) assert.ok(exists(`src/pages${page.privacy}.astro`), `${page.slug} privacy page missing`);
   }
+});
+
+test('every listed app sits in a category', () => {
+  for (const p of listedApps()) {
+    assert.ok(p.category && appCategories.includes(p.category), `${p.name} needs a category`);
+  }
+});
+
+test('appsByCategory keeps category order, keeps list order inside a group, and drops empty groups', () => {
+  const apps = [
+    app('Boat', 'review', { category: 'Outdoors' }),
+    app('Calc', 'live', { category: 'Everyday tools' }),
+    app('Timer', 'review', { category: 'Everyday tools' }),
+  ];
+  const groups = appsByCategory(apps);
+  assert.deepEqual(groups.map(g => g.category), ['Everyday tools', 'Outdoors']);
+  assert.deepEqual(groups[0].apps.map(p => p.name), ['Calc', 'Timer']);
 });

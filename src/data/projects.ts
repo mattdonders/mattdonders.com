@@ -1,6 +1,10 @@
 export type ProjectStatus = 'live' | 'review' | 'beta' | 'development' | 'planned';
 export type Platform = 'iOS' | 'Android' | 'Web' | 'macOS' | 'tvOS';
 
+/** Sections of the app list, in display order. */
+export const appCategories = ['Everyday tools', 'Home & family', 'Hockey', 'Outdoors'] as const;
+export type AppCategory = (typeof appCategories)[number];
+
 export interface Project {
   name: string;
   tagline: string;
@@ -16,6 +20,8 @@ export interface Project {
   draft?: boolean;
   /** App icon under public/, shown on /apps. */
   icon?: string;
+  /** Section of the app list this app sits in. Every listed app needs one. */
+  category?: AppCategory;
   /** 'service' entries (bots, APIs) sit apart from the app list on /apps. */
   kind?: 'app' | 'service';
   /** App Store Connect app ID. The build asks Apple whether it is live yet (src/data/store-status.ts). */
@@ -39,6 +45,7 @@ export const projects: Project[] = [
   },
   {
     name: 'Home Stretch',
+    category: 'Home & family',
     tagline: 'A timeline-based moving checklist built around your move date.',
     description: 'Set your move date and get every task organized into 6 phases — from 8 weeks out through after the move. Custom tasks, PDF export, progress tracking, and zero internet required.',
     status: 'live',
@@ -53,6 +60,7 @@ export const projects: Project[] = [
   },
   {
     name: 'Tooth Fairy Tracker',
+    category: 'Home & family',
     tagline: 'Track every lost tooth, every visit, and every payout.',
     description: 'A family app for recording lost teeth with an interactive mouth diagram, visit history, customizable payouts, and support for multiple children. No account, no internet, no subscriptions.',
     status: 'live',
@@ -67,6 +75,7 @@ export const projects: Project[] = [
   },
   {
     name: 'Below',
+    category: 'Everyday tools',
     tagline: 'Shrink a video to fit under the file size you choose.',
     description: 'A private, on-device iPhone and iPad utility that compresses a video to fit under a maximum file size you choose.',
     status: 'live',
@@ -79,6 +88,7 @@ export const projects: Project[] = [
   },
   {
     name: 'Better Buy Calculator',
+    category: 'Everyday tools',
     tagline: 'Compare two prices and sizes to see which is the better value.',
     description: 'Enter two package prices and quantities and see which one is actually cheaper per unit.',
     status: 'live',
@@ -91,6 +101,7 @@ export const projects: Project[] = [
   },
   {
     name: 'Worked',
+    category: 'Everyday tools',
     tagline: 'Add up shifts, unpaid breaks, and weekly hours.',
     description: 'A private, offline iPhone utility for adding up shifts, unpaid breaks, and weekly hours.',
     status: 'live',
@@ -103,6 +114,7 @@ export const projects: Project[] = [
   },
   {
     name: 'Interval',
+    category: 'Everyday tools',
     tagline: 'Evenly space shelves, frames, and anything else across a wall.',
     description: 'A native iPhone utility for evenly spacing repeated objects across a measured span and getting exact mark positions.',
     status: 'live',
@@ -115,6 +127,7 @@ export const projects: Project[] = [
   },
   {
     name: 'Puck Passport',
+    category: 'Hockey',
     tagline: 'Proof you were there. A personal record of every NHL game you attend.',
     description: 'Log every NHL game you attend and build a passport of rinks visited, teams seen, and your record in the building. Runs on the Hockey Game Bot API.',
     status: 'review',
@@ -127,6 +140,7 @@ export const projects: Project[] = [
   },
   {
     name: 'Quiz Parade',
+    category: 'Home & family',
     tagline: 'Family trivia with a new Daily Quiz every morning.',
     description: 'A family-friendly trivia game for iPhone with a new Daily Quiz every morning, themed question packs, and Game Center leaderboards.',
     status: 'review',
@@ -138,6 +152,7 @@ export const projects: Project[] = [
   },
   {
     name: 'Good Trim',
+    category: 'Outdoors',
     tagline: 'Know what boat maintenance is due. Keep the service record.',
     description: 'An offline iPhone maintenance log for boat owners. Track calendar and engine-hour intervals, preserve service history and attachments, and back up or export your records.',
     status: 'review',
@@ -149,6 +164,7 @@ export const projects: Project[] = [
   },
   {
     name: 'Clear North: Aurora Alerts',
+    category: 'Outdoors',
     tagline: 'Only when you can see it.',
     description: 'An iPhone aurora alert app that pings you only when it is dark, clear, and the aurora is strong enough for your latitude. Coming soon to the App Store.',
     status: 'development',
@@ -220,6 +236,13 @@ export function listedApps(all: Project[] = projects): Project[] {
   return all
     .filter(p => !p.draft && p.kind !== 'service')
     .sort((a, b) => appStatusOrder.indexOf(a.status) - appStatusOrder.indexOf(b.status));
+}
+
+/** Listed apps split into their categories, in category order, skipping empty ones. */
+export function appsByCategory(apps: Project[]): { category: AppCategory; apps: Project[] }[] {
+  return appCategories
+    .map(category => ({ category, apps: apps.filter(p => p.category === category) }))
+    .filter(group => group.apps.length > 0);
 }
 
 export function listedServices(all: Project[] = projects): Project[] {
