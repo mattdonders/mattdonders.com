@@ -44,7 +44,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
       <p>Purchases are handled by Apple. Refund requests go through <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
 
       <h3>How do I delete my data?</h3>
-      <p>Turn alerts off in the app, or use &ldquo;Delete my alert registration&rdquo; (works without Pro), and your device record is removed immediately. If you uninstalled the app, the record is removed automatically after 90 days. Email cannot delete it because nothing on our server identifies you, so we cannot tell which record is yours. See the <a href="/apps/clear-north/privacy/">privacy policy</a>.</p>
+      <p>Turn alerts off in the app, or use &ldquo;Delete my alert registration&rdquo; (works without Pro), and your device record is removed as soon as the request reaches our server (if you are offline, the app retries the next time you open it). If you uninstalled the app, the record is removed automatically after 90 days. Email cannot delete it because our server holds no name, email or account, so we cannot tell which record is yours. Only the push token held on your device points to it. See the <a href="/apps/clear-north/privacy/">privacy policy</a>.</p>
 
       <h2>Data sources</h2>
       <p>Cloud forecasts: <a href="https://api.met.no/">MET Norway</a>, licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Geomagnetic data: <a href="https://www.swpc.noaa.gov/">NOAA Space Weather Prediction Center</a>.</p>

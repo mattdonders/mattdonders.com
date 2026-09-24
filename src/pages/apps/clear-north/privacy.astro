@@ -13,25 +13,25 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
   <div class="container section">
     <span class="section-label">// clear north</span>
     <h1>Privacy Policy</h1>
-    <p class="last-updated">Last Updated: September 25, 2026</p>
+    <p class="last-updated">Last Updated: September 24, 2026</p>
 
     <div class="prose privacy-prose">
       <div class="highlight-box">
-        <strong>Summary:</strong> Clear North has no account, no tracking, no ads, and no analytics. To send alerts, our server stores an anonymous push token, an approximate 0.5&deg; grid cell, and your alert preferences. It never receives your precise location, and the data is never sold or linked to your identity.
+        <strong>Summary:</strong> Clear North has no account, no tracking, no ads, and no analytics. To send alerts, our server stores your device&rsquo;s push token together with an approximate 0.5&deg; grid cell and your alert preferences, so that data is tied to your device. There is no name, email, account or precise location, the data is never sold, nothing is used for tracking, and it is deleted when you turn alerts off.
       </div>
 
       <h2>What Our Server Stores</h2>
       <p>To deliver alerts, our server keeps one record per device with exactly these columns, and nothing else:</p>
       <ul>
         <li><strong>platform:</strong> always &ldquo;ios&rdquo;.</li>
-        <li><strong>token:</strong> the anonymous push (APNs) token. Apple issues it so we can send a notification to your device. It does not identify you.</li>
+        <li><strong>token:</strong> the push (APNs) token. Apple issues it so we can send a notification to your device. It is a persistent identifier for your device, and everything else in the record is tied to it. It carries no name, email or account.</li>
         <li><strong>cell:</strong> a 0.5&deg; grid-cell centre, an area roughly 55 km by 40&ndash;55 km. It is never a precise location. The app rounds your location to this cell on your device and never sends precise coordinates.</li>
         <li><strong>env:</strong> whether the token is an Apple &ldquo;sandbox&rdquo; (test) or &ldquo;production&rdquo; token.</li>
         <li><strong>prefs:</strong> your alert preferences: nightly limit, quiet hours (on/off, start, end), the major-storm toggle, the dusk toggle, and your time zone.</li>
         <li><strong>created_at</strong> and <strong>updated_at:</strong> when the record was first created and when the app last registered (the app refreshes this whenever it registers).</li>
       </ul>
       <p>We also keep a short send log so the nightly limit and once-per-night rules work. Each row holds the push token, the local date of the night, the alert type (aurora, storm, or dusk), and the time it was sent. Log rows are deleted after 72 hours, and when your device record is deleted.</p>
-      <p>These two per-device records (the device record and the send log) are the only places our server holds anything tied to a device. In the App Store privacy details and in the app&rsquo;s privacy manifest they are declared as: Coarse Location (the grid cell), Device ID (the push token), and Other Data (your notification preferences and the send history). None is linked to your identity and none is used for tracking.</p>
+      <p>These two per-device records (the device record and the send log) are the only places our server holds anything tied to a device. In the App Store privacy details and in the app&rsquo;s privacy manifest they are declared as: Coarse Location (the grid cell), Device ID (the push token), and Other Data (your notification preferences and the send history). Because all of it is keyed to your device&rsquo;s push token, we declare all three as data linked to you. None of it is used for tracking.</p>
       <p>Our server also keeps operational tables that hold <strong>no device or user data</strong>: cached space-weather data, cached cloud forecasts keyed by grid cell, and health records that note whether each data source was fetched successfully. They are keyed by data source or grid cell, never by device, and contain nothing that can be traced to you.</p>
       <p>Our server does not store your name, email, account, IP address, precise location, or any analytics. Cloudflare&rsquo;s rate limiter uses the connecting IP address only as a temporary counter to stop abuse; we do not store it.</p>
 
@@ -40,13 +40,13 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
       <p>When you use your current location, the app asks Apple&rsquo;s geocoding service for a place name using the rounded 0.5&deg; cell centre, never your precise position.</p>
 
       <h2>Account, Tracking, Ads, and Analytics</h2>
-      <p>There is no account and no sign-in. Clear North has no tracking, no advertising, and no analytics SDKs. Your data is never sold, and it is never linked to your identity.</p>
+      <p>There is no account and no sign-in. Clear North has no tracking, no advertising, and no analytics SDKs. Your data is never sold. The only identifier is your device&rsquo;s push token; there is no name, email or account.</p>
 
       <h2>Data Sources</h2>
       <p>Cloud forecasts come from <a href="https://api.met.no/">MET Norway</a> (licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>). Geomagnetic data comes from the <a href="https://www.swpc.noaa.gov/">NOAA Space Weather Prediction Center</a>. Clear North is not endorsed by MET Norway or NOAA.</p>
 
       <h2>Retention</h2>
-      <p>A device record is deleted as soon as the deletion request reaches our server when you turn alerts off in the app or use &ldquo;Delete my alert registration&rdquo; in the app (available without Pro), and when Apple reports the push token as invalid. If your phone is offline at that moment, the app remembers the request and retries the next time you open it, so deletion is not instant in that case. If iOS gives the app a new push token, the old token&rsquo;s record is deleted too. If you uninstall the app, the record is removed automatically after 90 days without the app registering. Send-log rows are deleted after 72 hours.</p>
+      <p>A device record is deleted as soon as the deletion request reaches our server when you turn alerts off in the app or use &ldquo;Delete my alert registration&rdquo; in the app (available without Pro), and when Apple reports the push token as invalid. If your phone is offline at that moment, the app remembers the request and retries the next time you open it, so deletion is not instant in that case. If iOS gives the app a new push token, the app registers the new token and then deletes the old token&rsquo;s record, retrying on later launches until that succeeds. If you uninstall the app, the record is removed automatically after 90 days without the app registering. Send-log rows are deleted after 72 hours.</p>
 
       <h2>Deleting Your Data</h2>
       <p>Turn off alerts in the app, or use &ldquo;Delete my alert registration&rdquo;, and your device record is removed as soon as the request reaches our server (if you are offline, the app retries when you next open it). If you have uninstalled the app, the record is removed automatically after 90 days. Email cannot be used to delete a record: nothing on our server identifies you (no name, email or account), so we have no way to tell which record is yours. Only the push token held on your device can point to it.</p>
