@@ -20,7 +20,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
       <h2>Common questions</h2>
 
       <h3>Why did I get an alert?</h3>
-      <p>Clear North alerts only when three things are true at once for your area: it is astronomical darkness, cloud cover is under 40% (MET Norway), and the Kp index is high enough for your latitude (NOAA SWPC), for example Kp 6+ at 45&deg;N. If you turned on &ldquo;wake me for major storms,&rdquo; a Kp 7+ storm can also come through as a time-sensitive notification.</p>
+      <p>Clear North alerts only when three things are true at once for your area: it is astronomical darkness, cloud cover is under 40% (MET Norway), and the Kp index is high enough for your latitude (NOAA SWPC), for example Kp 6+ at 45&deg;N. Every alert requires all three, and it must still be dark when it is sent. If you turned on &ldquo;wake me for major storms,&rdquo; a Kp 7+ storm can also come through as a time-sensitive notification even during quiet hours or after your nightly limit, but it still needs darkness, under 40% cloud and fresh data. If you turned on the optional dusk heads-up, you may get one note around sunset on a night whose forecast looks good; it is a forecast for after dark, not a report that aurora is visible.</p>
 
       <h3>Why did I not get an alert when the aurora was out?</h3>
       <p>Usually one of the three conditions was not met: it was not fully dark yet, the forecast showed 40% cloud or more, or Kp was below your latitude&rsquo;s threshold. Your nightly limit (default 2) may already have been used, and quiet hours suppress ordinary alerts. Also check that alerts are on, that you have Clear North Pro, and that notifications are allowed for the app. Forecasts can be wrong, and the aurora sometimes shows when the numbers say it should not; Clear North is a guide, not a guarantee.</p>
@@ -44,7 +44,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
       <p>Purchases are handled by Apple. Refund requests go through <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
 
       <h3>How do I delete my data?</h3>
-      <p>Turn alerts off in the app, which deletes your device record from our server. You can also email us and we will delete it. See the <a href="/apps/clear-north/privacy/">privacy policy</a>.</p>
+      <p>Turn alerts off in the app, or use &ldquo;Delete my alert registration&rdquo; (works without Pro), and your device record is removed as soon as the request reaches our server (if you are offline, the app retries the next time you open it). If you uninstalled the app, the record is removed automatically after 90 days. Email cannot delete it because our server holds no name, email or account, so we cannot tell which record is yours. Only the push token held on your device points to it. See the <a href="/apps/clear-north/privacy/">privacy policy</a>.</p>
 
       <h2>Data sources</h2>
       <p>Cloud forecasts: <a href="https://api.met.no/">MET Norway</a>, licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Geomagnetic data: <a href="https://www.swpc.noaa.gov/">NOAA Space Weather Prediction Center</a>.</p>
