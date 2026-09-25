@@ -1,0 +1,60 @@
+<!doctype html>
+<!-- Source for public/og-default.png (1200x630). To regenerate, open this file in a
+     1200x630 viewport and screenshot it, e.g. with Playwright:
+     page.setViewportSize({width:1200,height:630}); page.goto('file://…/og-default.html');
+     page.screenshot({path:'public/og-default.png'}) -->
+<html>
+<head>
+<meta charset="utf-8" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    background: #F4F4F0; color: #14161B; font-family: 'Bricolage Grotesque', sans-serif;
+    padding: 40px; display: grid; grid-template-columns: 1fr 400px; gap: 20px;
+  }
+  .tile { border-radius: 36px; padding: 40px 44px; display: flex; flex-direction: column; justify-content: space-between; }
+  .main { background: #fff; border: 1px solid #E2E2DB; }
+  .logo { display: flex; align-items: center; gap: 12px; font-size: 26px; font-weight: 600; }
+  .dot { width: 14px; height: 14px; border-radius: 999px; background: #D4F56E; }
+  h1 { margin: 0; font-size: 76px; line-height: 1; font-weight: 800; letter-spacing: -0.035em; }
+  .accent { background: #D4F56E; color: #11140A; padding: 0 12px; border-radius: 14px; -webkit-box-decoration-break: clone; }
+  .foot { display: flex; align-items: center; justify-content: space-between; }
+  .icons { display: flex; gap: 12px; }
+  .icons img { width: 56px; height: 56px; border-radius: 22.5%; box-shadow: 0 0 0 1px rgba(20,22,27,.08), 0 6px 14px -8px rgba(20,22,27,.3); }
+  .url { font-family: 'Geist Mono', monospace; font-size: 18px; color: #6B7079; }
+  .pp { background: #D4F56E; color: #11140A; }
+  .eyebrow { font-family: 'Geist Mono', monospace; font-size: 15px; letter-spacing: .06em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+  .eyebrow::before { content: ''; width: 10px; height: 10px; border-radius: 999px; background: #11140A; }
+  .pp img { width: 96px; height: 96px; border-radius: 22.5%; margin-bottom: 18px; }
+  .pp h2 { margin: 0 0 12px; font-size: 44px; line-height: 1; font-weight: 800; letter-spacing: -0.03em; }
+  .pp p { margin: 0; font-size: 22px; line-height: 1.35; }
+</style>
+</head>
+<body>
+  <div class="tile main">
+    <div class="logo"><span class="dot"></span>mattdonders</div>
+    <h1>Small apps for <span class="accent">ordinary jobs.</span></h1>
+    <div class="foot">
+      <div class="icons">
+        <img src="../../public/apps/icons/below.png" alt="" />
+        <img src="../../public/apps/icons/better-buy.png" alt="" />
+        <img src="../../public/apps/icons/worked.png" alt="" />
+        <img src="../../public/apps/icons/interval.png" alt="" />
+        <img src="../../public/apps/icons/home-stretch.png" alt="" />
+        <img src="../../public/apps/icons/tooth-fairy.png" alt="" />
+      </div>
+      <span class="url">mattdonders.com</span>
+    </div>
+  </div>
+  <div class="tile pp">
+    <span class="eyebrow">For hockey lovers</span>
+    <div>
+      <img src="../../public/apps/icons/puck-passport.png" alt="" />
+      <h2>Puck Passport</h2>
+      <p>Proof you were there. A record of every NHL game you go to.</p>
+    </div>
+  </div>
+</body>
+</html>
