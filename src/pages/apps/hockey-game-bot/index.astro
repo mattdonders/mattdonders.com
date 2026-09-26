@@ -1,452 +1,247 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+// Hockey Game Bot is a service, not an app, so it has its own page rather than an
+// app-pages.ts entry. Same Home Screen tiles as the app pages.
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+
+const coverage = [
+  { title: 'Goals', body: 'Instant goal alerts with scorer, assists, time, period, and updated score. Animated goal GIFs generated and attached automatically.' },
+  { title: 'Penalties', body: 'Every penalty posted with player, infraction type, duration, and team. Power play and shorthanded situations tracked in real time.' },
+  { title: 'Period Updates', body: 'End-of-period summaries with shots, score, and key stats. Overtime and shootout coverage included.' },
+  { title: 'Pre-game & Recaps', body: 'Pre-game lineups and matchup cards before puck drop. Final score recaps with stats posted when the game ends.' },
+  { title: 'Animated GIFs', body: 'Goal GIFs generated with FFmpeg and posted alongside every goal alert. Visual scoring summaries that stand out in any feed.' },
+  { title: 'Milestones', body: 'Notable milestones flagged automatically — hat tricks, shutouts, career goals, and other significant moments.' },
+];
+
+const platformGroups = [
+  {
+    label: 'Real-time during games',
+    body: 'Goals, penalties, period updates, and GIFs posted live as they happen.',
+    platforms: ['X / Twitter', 'Bluesky', 'Discord'],
+    live: true,
+  },
+  {
+    label: 'Recap videos, linked from X & Bluesky',
+    body: 'Game recap videos posted after each game, with links shared back to the live feeds.',
+    platforms: ['YouTube', 'TikTok', 'Instagram'],
+    live: false,
+  },
+];
+
+const steps = [
+  { title: 'Poll the NHL API', body: 'The Python bot polls the NHL Stats API every 5 seconds during live games, detecting new play-by-play events as they happen.' },
+  { title: 'Generate assets', body: 'For goal events, animated GIFs are generated with FFmpeg and uploaded to Backblaze B2 storage for attachment to posts.' },
+  { title: 'Publish in real time', body: 'Goal and penalty posts go out simultaneously to X, Bluesky, and Discord via their respective APIs. Recap videos are posted separately to YouTube, TikTok, and Instagram, then linked from the live feeds.' },
+  { title: 'Feed the apps', body: 'Events are also published to a Cloudflare Workers API backed by D1, powering companion iOS and Android apps with live push notifications.' },
+];
+
+const stack = [
+  { layer: 'Bot', tech: 'Python 3.11 on DigitalOcean' },
+  { layer: 'API', tech: 'Cloudflare Workers + D1' },
+  { layer: 'Media', tech: 'FFmpeg + Backblaze B2' },
+  { layer: 'Push', tech: 'Firebase Cloud Messaging' },
+  { layer: 'iOS', tech: 'SwiftUI + Combine' },
+  { layer: 'Android', tech: 'Kotlin + Jetpack Compose' },
+];
+
+const follow = [
+  { href: 'https://hockeygamebot.com', hero: 'Visit hockeygamebot.com', cta: 'hockeygamebot.com' },
+  { href: 'https://bsky.app/profile/hockeygamebot.bsky.social', hero: 'Follow on Bluesky', cta: 'Bluesky' },
+  { href: 'https://x.com/hockey_gamebot', hero: 'Follow on X', cta: 'X / Twitter' },
+];
+
+const pad = (i: number) => String(i + 1).padStart(2, '0');
 ---
 
-<BaseLayout
+<SiteLayout
   title="Hockey Game Bot"
   description="Real-time NHL game updates on X and Bluesky during every live game — goals, penalties, animated GIFs — plus recap videos posted to YouTube, TikTok, and Instagram."
 >
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container hero-content">
-      <span class="section-label">// hockey game bot</span>
-      <h1>Live on X & Bluesky.<br />Recaps everywhere else.</h1>
-      <p class="hero-sub">
+  <a class="back-link" href="/apps">← All apps</a>
+
+  <section class="hgb-hero" aria-labelledby="hgb-title">
+    <div class="tile hero-main">
+      <div class="hero-id">
+        <img class="app-icon" src="/apps/icons/hgb.png" alt="" width="88" height="88" />
+        <div class="hero-id-text">
+          <span class="eyebrow">Hockey Game Bot</span>
+          <span class="status status-live">Live</span>
+        </div>
+      </div>
+      <h1 id="hgb-title">Live on X &amp; Bluesky. Recaps everywhere else.</h1>
+      <p class="hero-intro">
         A production bot that monitors every live NHL game and posts goals, penalties,
         and animated GIFs to X and Bluesky in real time — then publishes recap videos
         to YouTube, TikTok, and Instagram, linked back from both feeds.
       </p>
       <div class="hero-actions">
-        <a href="https://hockeygamebot.com" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
-          Visit hockeygamebot.com
-        </a>
-        <a href="https://bsky.app/profile/hockeygamebot.bsky.social" class="btn btn-outline btn-lg" target="_blank" rel="noopener noreferrer">
-          Follow on Bluesky
-        </a>
-        <a href="https://x.com/hockey_gamebot" class="btn btn-outline btn-lg" target="_blank" rel="noopener noreferrer">
-          Follow on X
-        </a>
+        {follow.map((link, i) => (
+          <a class:list={['btn', i === 0 ? 'btn-primary' : 'btn-outline']} href={link.href} rel="noopener noreferrer">{link.hero}</a>
+        ))}
       </div>
     </div>
+
+    <dl class="tile hero-facts">
+      <div>
+        <dt class="eyebrow">Covers</dt>
+        <dd>Every NHL game</dd>
+      </div>
+      <div>
+        <dt class="eyebrow">Live on</dt>
+        <dd>X, Bluesky, Discord</dd>
+      </div>
+      <div>
+        <dt class="eyebrow">Recaps on</dt>
+        <dd>YouTube, TikTok, Instagram</dd>
+      </div>
+    </dl>
   </section>
 
-  <!-- What it posts -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">// coverage</span>
-        <h2>Every moment, every game</h2>
-        <p class="section-sub">
-          The bot watches every NHL game simultaneously and posts automatically — no manual intervention required.
-        </p>
-      </div>
-
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">🚨</div>
-          <h3>Goals</h3>
-          <p>
-            Instant goal alerts with scorer, assists, time, period, and updated score.
-            Animated goal GIFs generated and attached automatically.
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">🟨</div>
-          <h3>Penalties</h3>
-          <p>
-            Every penalty posted with player, infraction type, duration, and team.
-            Power play and shorthanded situations tracked in real time.
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">🏒</div>
-          <h3>Period Updates</h3>
-          <p>
-            End-of-period summaries with shots, score, and key stats.
-            Overtime and shootout coverage included.
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">📊</div>
-          <h3>Pre-game & Recaps</h3>
-          <p>
-            Pre-game lineups and matchup cards before puck drop.
-            Final score recaps with stats posted when the game ends.
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">🎬</div>
-          <h3>Animated GIFs</h3>
-          <p>
-            Goal GIFs generated with FFmpeg and posted alongside every goal alert.
-            Visual scoring summaries that stand out in any feed.
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">🔔</div>
-          <h3>Milestones</h3>
-          <p>
-            Notable milestones flagged automatically — hat tricks, shutouts,
-            career goals, and other significant moments.
-          </p>
-        </div>
-      </div>
+  <section class="hgb-section" aria-labelledby="coverage-title">
+    <div class="section-head">
+      <h2 id="coverage-title" class="section-title">Every moment, every game</h2>
+      <p>The bot watches every NHL game simultaneously and posts automatically — no manual intervention required.</p>
     </div>
+    <ul class="grid grid-3" role="list">
+      {coverage.map((item, i) => (
+        <li class="tile card">
+          <span class="eyebrow">{pad(i)}</span>
+          <h3>{item.title}</h3>
+          <p>{item.body}</p>
+        </li>
+      ))}
+    </ul>
   </section>
 
-  <!-- Platforms -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">// platforms</span>
-        <h2>Two types of coverage</h2>
-        <p class="section-sub">Real-time updates during the game, recap videos after — all automated.</p>
-      </div>
-
-      <div class="platform-groups">
-        <div class="platform-group">
-          <h3 class="platform-group-label">Real-time during games</h3>
-          <p class="platform-group-desc">Goals, penalties, period updates, and GIFs posted live as they happen.</p>
-          <div class="platforms-grid">
-            <div class="platform-chip platform-chip-live">𝕏 &nbsp;X / Twitter</div>
-            <div class="platform-chip platform-chip-live">🦋 &nbsp;Bluesky</div>
-            <div class="platform-chip platform-chip-live">💬 &nbsp;Discord</div>
-          </div>
-        </div>
-
-        <div class="platform-group">
-          <h3 class="platform-group-label">Recap videos, linked from X & Bluesky</h3>
-          <p class="platform-group-desc">Game recap videos posted after each game, with links shared back to the live feeds.</p>
-          <div class="platforms-grid">
-            <div class="platform-chip">▶️ &nbsp;YouTube</div>
-            <div class="platform-chip">🎵 &nbsp;TikTok</div>
-            <div class="platform-chip">📸 &nbsp;Instagram</div>
-          </div>
-        </div>
-      </div>
+  <section class="hgb-section" aria-labelledby="platforms-title">
+    <div class="section-head">
+      <h2 id="platforms-title" class="section-title">Two types of coverage</h2>
+      <p>Real-time updates during the game, recap videos after — all automated.</p>
     </div>
+    <ul class="grid grid-2" role="list">
+      {platformGroups.map(group => (
+        <li class="tile card">
+          <h3>{group.label}</h3>
+          <p>{group.body}</p>
+          <ul class="tag-list" role="list">
+            {group.platforms.map(name => <li class:list={['tag', { 'tag-live': group.live }]}>{name}</li>)}
+          </ul>
+        </li>
+      ))}
+    </ul>
   </section>
 
-  <!-- How it works -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">// how it works</span>
-        <h2>Built to run unattended</h2>
-      </div>
-
-      <div class="how-grid">
-        <div class="how-step">
-          <div class="step-num">01</div>
-          <div class="step-content">
-            <h3>Poll the NHL API</h3>
-            <p>The Python bot polls the NHL Stats API every 5 seconds during live games, detecting new play-by-play events as they happen.</p>
-          </div>
-        </div>
-        <div class="how-step">
-          <div class="step-num">02</div>
-          <div class="step-content">
-            <h3>Generate assets</h3>
-            <p>For goal events, animated GIFs are generated with FFmpeg and uploaded to Backblaze B2 storage for attachment to posts.</p>
-          </div>
-        </div>
-        <div class="how-step">
-          <div class="step-num">03</div>
-          <div class="step-content">
-            <h3>Publish in real time</h3>
-            <p>Goal and penalty posts go out simultaneously to X, Bluesky, and Discord via their respective APIs. Recap videos are posted separately to YouTube, TikTok, and Instagram, then linked from the live feeds.</p>
-          </div>
-        </div>
-        <div class="how-step">
-          <div class="step-num">04</div>
-          <div class="step-content">
-            <h3>Feed the apps</h3>
-            <p>Events are also published to a Cloudflare Workers API backed by D1, powering companion iOS and Android apps with live push notifications.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+  <section class="hgb-section" aria-labelledby="how-title">
+    <h2 id="how-title" class="section-title">Built to run unattended</h2>
+    <ol class="grid grid-2" role="list">
+      {steps.map((step, i) => (
+        <li class="tile card">
+          <span class="eyebrow">{pad(i)}</span>
+          <h3>{step.title}</h3>
+          <p>{step.body}</p>
+        </li>
+      ))}
+    </ol>
   </section>
 
-  <!-- Stack -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">// tech stack</span>
-        <h2>What's under the hood</h2>
-      </div>
-
-      <div class="stack-grid">
-        <div class="stack-item">
-          <span class="stack-layer">Bot</span>
-          <span class="stack-tech">Python 3.11 on DigitalOcean</span>
+  <section class="hgb-section" aria-labelledby="stack-title">
+    <h2 id="stack-title" class="section-title">What's under the hood</h2>
+    <dl class="grid grid-3 stack">
+      {stack.map(item => (
+        <div class="tile stack-item">
+          <dt class="eyebrow">{item.layer}</dt>
+          <dd>{item.tech}</dd>
         </div>
-        <div class="stack-item">
-          <span class="stack-layer">API</span>
-          <span class="stack-tech">Cloudflare Workers + D1</span>
-        </div>
-        <div class="stack-item">
-          <span class="stack-layer">Media</span>
-          <span class="stack-tech">FFmpeg + Backblaze B2</span>
-        </div>
-        <div class="stack-item">
-          <span class="stack-layer">Push</span>
-          <span class="stack-tech">Firebase Cloud Messaging</span>
-        </div>
-        <div class="stack-item">
-          <span class="stack-layer">iOS</span>
-          <span class="stack-tech">SwiftUI + Combine</span>
-        </div>
-        <div class="stack-item">
-          <span class="stack-layer">Android</span>
-          <span class="stack-tech">Kotlin + Jetpack Compose</span>
-        </div>
-      </div>
-    </div>
+      ))}
+    </dl>
   </section>
 
-  <!-- Bottom CTA -->
-  <section class="section">
-    <div class="container bottom-cta">
-      <h2>Follow the bot</h2>
+  <section class="tile follow-tile" aria-labelledby="follow-title">
+    <div>
+      <h2 id="follow-title">Follow the bot</h2>
       <p>Pick your platform — updates are posted to all of them.</p>
-      <div class="cta-links">
-        <a href="https://hockeygamebot.com" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
-          hockeygamebot.com
-        </a>
-        <a href="https://bsky.app/profile/hockeygamebot.bsky.social" class="btn btn-outline btn-lg" target="_blank" rel="noopener noreferrer">
-          Bluesky
-        </a>
-        <a href="https://x.com/hockey_gamebot" class="btn btn-outline btn-lg" target="_blank" rel="noopener noreferrer">
-          X / Twitter
-        </a>
-      </div>
+    </div>
+    <div class="follow-actions">
+      {follow.map((link, i) => (
+        <a class:list={['btn', i === 0 ? 'btn-follow' : 'btn-follow-outline']} href={link.href} rel="noopener noreferrer">{link.cta}</a>
+      ))}
     </div>
   </section>
-</BaseLayout>
+</SiteLayout>
 
 <style>
-  /* Hero */
-  .hero {
-    padding: 6rem 0 5rem;
-    border-bottom: 1px solid var(--border);
-  }
+  .back-link { margin-bottom: -64px; }
 
-  .hero-content {
-    max-width: 720px;
-  }
+  .hgb-hero { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 20px; }
+  .hero-main { grid-column: span 4; padding: 44px; display: flex; flex-direction: column; gap: 24px; }
+  .hero-id { display: flex; align-items: center; gap: 20px; }
+  .hero-id .app-icon { width: 88px; height: 88px; }
+  .hero-id-text { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+  .hero-main h1 { margin: 0; font-size: clamp(40px, 5vw, 64px); line-height: 1; font-weight: 800; letter-spacing: -0.035em; max-width: 16ch; }
+  .hero-intro { margin: 0; font-size: 18px; color: var(--muted); max-width: 600px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
 
-  .hero h1 {
-    margin-bottom: 1.25rem;
-  }
+  .hero-facts { grid-column: span 2; margin: 0; display: flex; flex-direction: column; gap: 28px; }
+  .hero-facts div { display: flex; flex-direction: column; gap: 6px; }
+  .hero-facts dd { margin: 0; font-size: 18px; font-weight: 600; }
 
-  .hero-sub {
-    font-size: 1.1rem;
-    max-width: 55ch;
-    margin-bottom: 2rem;
-    line-height: 1.7;
-  }
+  .hgb-section { display: flex; flex-direction: column; gap: 32px; }
+  .section-head { display: flex; flex-direction: column; gap: 12px; }
+  .section-head p { margin: 0; font-size: 18px; color: var(--muted); max-width: 640px; }
+  .section-title { margin: 0; font-size: 56px; font-weight: 800; letter-spacing: -0.035em; line-height: 1; }
 
-  .hero-actions {
+  .grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 20px; }
+  .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .card { display: flex; flex-direction: column; gap: 10px; }
+  .card h3 { margin: 0; font-size: 22px; font-weight: 600; line-height: 1.25; }
+  .card .eyebrow + h3 { margin-top: 12px; }
+  .card p { margin: 0; font-size: 16px; line-height: 1.5; color: var(--muted); }
+  .card .tag-list { margin-top: 8px; }
+  .tag-live { background: var(--lime); border-color: var(--lime); color: var(--on-lime); }
+
+  .stack-item { display: flex; flex-direction: column; gap: 6px; padding: 24px 28px; }
+  .stack-item dd { margin: 0; font-size: 18px; font-weight: 600; }
+
+  .follow-tile {
+    background: var(--lime);
+    border-color: var(--lime);
+    color: var(--on-lime);
+    padding: 44px;
     display: flex;
-    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
     flex-wrap: wrap;
+    gap: 24px;
+  }
+  .follow-tile h2 { margin: 0 0 8px; font-size: 40px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; }
+  .follow-tile p { margin: 0; font-size: 18px; }
+  .follow-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn-follow, .btn-follow:hover { background: var(--on-lime); color: var(--lime); }
+  .btn-follow:hover { opacity: 0.88; }
+  .btn-follow-outline { background: transparent; color: var(--on-lime); border-color: var(--on-lime); }
+  .btn-follow-outline:hover { color: var(--on-lime); opacity: 0.75; }
+  .follow-tile :focus-visible { outline-color: var(--on-lime); }
+
+  @media (max-width: 1100px) {
+    .hero-main { grid-column: 1 / -1; }
+    .hero-facts { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; gap: 20px 48px; }
+    .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 
-  .btn-lg {
-    padding: 0.75rem 1.75rem;
-    font-size: 1rem;
+  @media (max-width: 900px) {
+    .back-link { margin-bottom: -40px; }
   }
 
-  .section-sub {
-    font-size: 1rem;
-    max-width: 52ch;
-    margin-top: 0.5rem;
-  }
-
-  /* Section alt */
-  .section-alt {
-    background: var(--surface);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
-
-  /* Features */
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
-  }
-
-  .feature-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 1.5rem;
-    transition: border-color 0.15s ease, transform 0.15s ease;
-  }
-
-  .feature-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
-  }
-
-  .feature-icon {
-    font-size: 1.5rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .feature-card h3 {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .feature-card p {
-    font-size: 0.875rem;
-    line-height: 1.6;
-  }
-
-  /* Platforms */
-  .platform-groups {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-  }
-
-  .platform-group-label {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 0.4rem;
-  }
-
-  .platform-group-desc {
-    font-size: 0.825rem;
-    color: var(--text-muted);
-    margin-bottom: 1rem;
-  }
-
-  .platforms-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-  }
-
-  .platform-chip {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    padding: 0.45rem 1rem;
-    font-size: 0.85rem;
-    color: var(--text);
-    font-family: var(--font-mono);
-  }
-
-  .platform-chip-live {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: var(--accent-dim);
-  }
-
-  /* How it works */
-  .how-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-
-  .how-step {
-    display: flex;
-    gap: 1.25rem;
-    align-items: flex-start;
-  }
-
-  .step-num {
-    font-family: var(--font-mono);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--accent);
-    flex-shrink: 0;
-    line-height: 1;
-    padding-top: 0.2rem;
-  }
-
-  .step-content h3 {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .step-content p {
-    font-size: 0.875rem;
-    line-height: 1.6;
-  }
-
-  /* Stack */
-  .stack-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-  }
-
-  .stack-item {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1rem 1.25rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-
-  .stack-layer {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--accent);
-  }
-
-  .stack-tech {
-    font-size: 0.9rem;
-    color: var(--text);
-  }
-
-  /* Bottom CTA */
-  .bottom-cta {
-    text-align: center;
-  }
-
-  .bottom-cta h2 {
-    margin-bottom: 0.75rem;
-  }
-
-  .bottom-cta p {
-    margin-bottom: 1.75rem;
-  }
-
-  .cta-links {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  /* Mobile */
   @media (max-width: 600px) {
-    .hero { padding: 3rem 0 3rem; }
-    .features-grid { grid-template-columns: 1fr; }
-    .how-grid { grid-template-columns: 1fr; }
-    .stack-grid { grid-template-columns: repeat(2, 1fr); }
-    .platform-groups { grid-template-columns: 1fr; gap: 2rem; }
-  }
-
-  @media (max-width: 860px) {
-    .features-grid { grid-template-columns: repeat(2, 1fr); }
-    .stack-grid { grid-template-columns: repeat(2, 1fr); }
+    .back-link { margin-bottom: -32px; }
+    .hgb-hero { gap: 16px; }
+    .hero-main, .follow-tile { padding: 28px 24px; }
+    .hero-id .app-icon { width: 72px; height: 72px; }
+    .hero-intro { font-size: 17px; }
+    .hero-actions .btn, .follow-actions, .follow-actions .btn { width: 100%; }
+    .hero-facts { flex-direction: column; }
+    .section-title { font-size: 40px; }
+    .grid-3, .grid-2 { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+    .follow-tile h2 { font-size: 30px; }
   }
 </style>

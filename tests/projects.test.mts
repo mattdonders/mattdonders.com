@@ -136,3 +136,17 @@ test('appsByCategory keeps category order, keeps list order inside a group, and 
 test('Puck Passport tops the app list', () => {
   assert.equal(appsByCategory(listedApps())[0].apps[0].name, 'Puck Passport');
 });
+
+test('tierPrice shows a promo until its end date, then the regular price', async () => {
+  const { tierPrice } = await import('../src/data/app-pages.ts');
+  const tier = { name: 'Pro', price: '$24.99', items: [], promo: { price: '$19.99', label: 'Launch price', until: '2026-10-25' } };
+  assert.deepEqual(tierPrice(tier, '2026-09-25'), { price: '$19.99', was: '$24.99', note: 'Launch price until October 25' });
+  assert.deepEqual(tierPrice(tier, '2026-10-24'), { price: '$19.99', was: '$24.99', note: 'Launch price until October 25' });
+  assert.deepEqual(tierPrice(tier, '2026-10-25'), { price: '$24.99' });
+  assert.deepEqual(tierPrice({ name: 'Free', price: '$0', items: [] }, '2026-09-25'), { price: '$0' });
+});
+
+test('buildDay is the UTC calendar date', async () => {
+  const { buildDay } = await import('../src/data/app-pages.ts');
+  assert.equal(buildDay(new Date('2026-10-25T03:00:00Z')), '2026-10-25');
+});

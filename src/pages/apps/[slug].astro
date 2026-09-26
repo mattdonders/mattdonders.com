@@ -2,7 +2,7 @@
 // The standard app page. Content lives in src/data/app-pages.ts; name, icon, status and
 // App Store link come from src/data/projects.ts.
 import SiteLayout from '../../layouts/SiteLayout.astro';
-import { appPages, type AppPage } from '../../data/app-pages';
+import { appPages, tierPrice, type AppPage } from '../../data/app-pages';
 import { projectForSlug, statusLabel, type Project } from '../../data/projects';
 import { catalog } from '../../data/catalog';
 
@@ -22,7 +22,7 @@ const statusClass = app.status === 'live' ? 'status-live' : app.status === 'revi
 const supportHref = page.support.url ?? `mailto:matt@mattdonders.com?subject=${encodeURIComponent(page.support.subject ?? `${app.name} Support`)}`;
 const platforms = app.platforms.map(p => (p === 'iOS' ? 'iPhone' : p)).join(', ');
 const priceSummary = page.price
-  ?? page.pricing?.tiers.map(t => `${t.price}${t.cadence ? ` ${t.cadence}` : ''}`).join(' · ');
+  ?? page.pricing?.tiers.map(t => `${tierPrice(t).price}${t.cadence ? ` ${t.cadence}` : ''}`).join(' · ');
 
 const appleIcon = 'M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z';
 const playIcon = 'M3.18 23.76c.3.17.65.19.97.08l11.53-6.66-2.45-2.45-10.05 9.03zM.5 1.12C.18 1.46 0 1.96 0 2.6v18.8c0 .64.18 1.14.51 1.48l.08.07L10.46 12 .58 1.05.5 1.12zM19.37 10.2L16.8 8.7 14.06 11.5l2.75 2.75 2.58-1.49c.74-.42.74-1.12-.02-1.56zM4.15.25L15.67 6.9l-2.45 2.45L3.18.32a1.16 1.16 0 01-.03-.07z';
@@ -132,15 +132,23 @@ const storeSoonText = app.status === 'review' ? 'App Store: launching soon' : 'C
         {page.pricing.intro && <p>{page.pricing.intro}</p>}
       </div>
       <ul class="price-grid" role="list">
-        {page.pricing.tiers.map(tier => (
+        {page.pricing.tiers.map(tier => {
+          const shown = tierPrice(tier);
+          return (
           <li class:list={['tile', 'price-tier', { 'price-highlight': tier.highlight }]}>
             <span class="eyebrow">{tier.name}</span>
-            <p class="price"><span>{tier.price}</span>{tier.cadence && <span class="price-cadence">{tier.cadence}</span>}</p>
+            <p class="price">
+              <span>{shown.price}</span>
+              {shown.was && <s class="price-was"><span class="visually-hidden">Regular price </span>{shown.was}</s>}
+              {tier.cadence && <span class="price-cadence">{tier.cadence}</span>}
+            </p>
+            {shown.note && <span class="price-promo">{shown.note}</span>}
             <ul role="list">
               {tier.items.map(item => <li>{item}</li>)}
             </ul>
           </li>
-        ))}
+          );
+        })}
       </ul>
       {page.pricing.footnote && <p class="price-footnote">{page.pricing.footnote}</p>}
     </section>
@@ -285,6 +293,9 @@ const storeSoonText = app.status === 'review' ? 'App Store: launching soon' : 'C
   .price { margin: 0; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
   .price > span:first-child { font-size: 48px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
   .price-cadence { font-size: 15px; color: var(--muted); }
+  .price-was { font-size: 22px; font-weight: 600; color: var(--subtle); }
+  .price-promo { align-self: flex-start; font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; background: var(--lime); color: var(--on-lime); }
+  .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .price-tier ul { display: flex; flex-direction: column; gap: 8px; }
   .price-tier li { font-size: 16px; color: var(--muted); padding-left: 22px; position: relative; }
   .price-tier li::before { content: '✓'; position: absolute; left: 0; color: var(--text); font-weight: 600; }

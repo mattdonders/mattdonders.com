@@ -16,6 +16,21 @@ export interface PriceTier {
   items: string[];
   /** The paid tier: drawn with the lime accent. */
   highlight?: boolean;
+  /** A temporary price, shown with the regular price struck through until `until`. Mirror the
+      App Store Connect price schedule. The site rebuilds daily, so the promo drops off on its own. */
+  promo?: { price: string; label: string; until: string };
+}
+
+/** YYYY-MM-DD in UTC, the date the build runs on. */
+export const buildDay = (now: Date = new Date()) => now.toISOString().slice(0, 10);
+
+/** The price to show for a tier on a given day: the promo while it runs, else the regular price. */
+export function tierPrice(tier: PriceTier, day: string = buildDay()): { price: string; was?: string; note?: string } {
+  if (tier.promo && day < tier.promo.until) {
+    const until = new Date(`${tier.promo.until}T00:00:00Z`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', timeZone: 'UTC' });
+    return { price: tier.promo.price, was: tier.price, note: `${tier.promo.label} until ${until}` };
+  }
+  return { price: tier.price };
 }
 
 export interface AppPage {
@@ -245,7 +260,7 @@ export const appPages: AppPage[] = [
       intro: 'Good Trim is free to download. Boat Pro is one lifetime purchase, with no subscription.',
       tiers: [
         { name: 'Good Trim Free', price: '$0', items: ['One vessel', 'Unlimited equipment, schedules, and service records', 'Calendar and engine-hour intervals', 'Ten attachments', 'Backup, restore, and CSV export'] },
-        { name: 'Boat Pro', price: '$24.99', cadence: 'one-time in the US', highlight: true, items: ['Unlimited vessels', 'Unlimited attachments', 'PDF maintenance reports', 'Richer history filters', 'No subscription'] },
+        { name: 'Boat Pro', price: '$24.99', cadence: 'one-time in the US', highlight: true, promo: { price: '$19.99', label: 'Launch price', until: '2026-10-25' }, items: ['Unlimited vessels', 'Unlimited attachments', 'PDF maintenance reports', 'Richer history filters', 'No subscription'] },
       ],
     },
     support: {
