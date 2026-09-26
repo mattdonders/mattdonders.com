@@ -1,0 +1,12 @@
+# Rebuilds mattdonders.com once a day so build-time data stays current without a push:
+# App Store status (src/data/store-status.ts) and dated promos (tierPrice in src/data/app-pages.ts).
+# Deploy: npx wrangler deploy --config workers/daily-rebuild/wrangler.toml
+# The Pages deploy hook URL is a secret: npx wrangler secret put DEPLOY_HOOK_URL --config workers/daily-rebuild/wrangler.toml
+name = "mattdonders-com-daily-rebuild"
+main = "src/index.ts"
+compatibility_date = "2026-09-01"
+workers_dev = false
+
+[triggers]
+# 08:00 UTC, after the UTC date flips, so a promo ending on a date is gone that morning.
+crons = ["0 8 * * *"]
