@@ -15,12 +15,13 @@ interface Props {
   lede?: string;
   tags?: string[];
   back?: { href: string; label: string };
+  noindex?: boolean;
 }
 
-const { title, description, ogType, eyebrow, heading, meta, lede, tags = [], back } = Astro.props;
+const { title, description, ogType, eyebrow, heading, meta, lede, tags = [], back, noindex } = Astro.props;
 ---
 
-<SiteLayout title={title} description={description} ogType={ogType}>
+<SiteLayout title={title} description={description} ogType={ogType} noindex={noindex}>
   <article class="doc">
     <header class="doc-head">
       {back && <a class="back-link" href={back.href}>← {back.label}</a>}

@@ -9,6 +9,8 @@ interface Props {
   canonicalURL?: string;
   ogImage?: string;
   ogType?: 'website' | 'article';
+  /** Keep this page out of search results (unlisted pages). */
+  noindex?: boolean;
 }
 
 const navLinks = [
@@ -29,6 +31,7 @@ const year = new Date().getFullYear();
 <html lang="en">
   <head>
     <Head {...Astro.props} />
+    {Astro.props.noindex && <meta name="robots" content="noindex, nofollow" />}
     <meta name="color-scheme" content="light dark" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

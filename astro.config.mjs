@@ -4,5 +4,6 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   output: 'static',
   site: 'https://mattdonders.com',
-  integrations: [sitemap()],
+  // Unlisted pages (e.g. OAuth-required privacy policies) stay out of the sitemap.
+  integrations: [sitemap({ filter: (page) => !page.includes('/apps/littleappco/') })],
 });
