@@ -189,7 +189,7 @@ export const appPages: AppPage[] = [
     features: {
       heading: 'Everything for a calmer move',
       items: [
-        { title: 'Timeline phases', body: 'Tasks sit in six phases: 8 weeks out, 6 weeks out, 4 weeks out, 2 weeks out, moving day, and after the move.' },
+        { title: 'Timeline phases', body: 'Tasks sit in six phases: 8 weeks out, 6 weeks out, 4 weeks out, 2 weeks out, moving day, and after the move. Every task comes with a short, practical tip.' },
         { title: 'Built on your move date', body: 'Set your move date once. The app opens the phase you are in, so the right part of the checklist is always in view.' },
         { title: 'Progress you can see', body: 'Check off tasks with a little haptic tap and watch each phase fill up.' },
         { title: 'Your own tasks', body: 'Add, edit, and remove your own tasks in any phase. Every move is different.' },
