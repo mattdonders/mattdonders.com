@@ -141,7 +141,7 @@ export const appPages: AppPage[] = [
   {
     slug: 'below',
     title: 'Below - Video Compressor',
-    description: 'Below is a private, on-device iPhone and iPad utility that compresses a video to fit under a maximum file size you choose.',
+    description: 'Below is a private, on-device utility for iPhone, iPad and Android that compresses a video to fit under a maximum file size you choose.',
     headline: 'Pick the limit. Below makes it fit.',
     intro: 'Enter a maximum file size in megabytes. Below picks the resolution, frame rate, and bitrate for you, then checks the finished file byte for byte. No bitrate math and no quality sliders, just a number.',
     features: {
@@ -160,19 +160,19 @@ export const appPages: AppPage[] = [
       intro: 'No subscription, ever.',
       tiers: [
         { name: 'Free', price: '$0', items: ['Three compressions', 'Full quality, no watermark', 'All presets and My Sizes', 'Share Sheet and Shortcuts'] },
-        { name: 'Below Pro', price: '$9.99', cadence: 'one-time', highlight: true, items: ['Unlimited compressions', 'No subscription', 'No ads, no accounts', 'Restores on your Apple Account'] },
+        { name: 'Below Pro', price: '$9.99', cadence: 'one-time', highlight: true, items: ['Unlimited compressions', 'No subscription', 'No ads, no accounts', 'Restores on your Apple or Google account'] },
       ],
     },
-    android: { status: 'review' },
+    android: { status: 'live', url: 'https://play.google.com/store/apps/details?id=com.mattdonders.below' },
     support: {
       subject: 'Below Support',
-      note: 'Send a note with your device model, iOS version, and what you were trying to compress. That is usually enough to work out what happened.',
+      note: 'Send a note with your device model, iOS or Android version, and what you were trying to compress. That is usually enough to work out what happened.',
     },
     faq: [
       { q: 'My video will not go under the limit I asked for.', a: 'Very short clips and very small limits sometimes leave no room for a watchable result. Below tells you when that happens instead of producing something unusable. Raise the limit slightly and try again.' },
       { q: 'Below says my video is already small enough.', a: 'If the original is already under your limit, Below keeps the original quality and tells you so rather than re-encoding it for no reason.' },
       { q: 'The result is a different size than I expected.', a: 'Sizes use decimal megabytes, where 1 MB is 1,000,000 bytes. That is the same unit Photos and most messaging and email services use. Below measures the real output file after encoding, so the size it reports is the size on disk.' },
-      { q: 'I bought Below Pro and it is not unlocked.', a: 'Open Below, reach the Below Pro screen, and tap <strong>Restore Purchases</strong>. Make sure you are signed in to the same Apple Account you used for the purchase. Below Pro is a one-time purchase, so it restores on any device signed in to that account.' },
+      { q: 'I bought Below Pro and it is not unlocked.', a: 'Open Below, reach the Below Pro screen, and tap <strong>Restore Purchases</strong>. Make sure you are signed in to the same Apple Account you used for the purchase. Below Pro is a one-time purchase, so it restores on any device signed in to that account. On Android, open the same Below Pro screen and tap <strong>Restore purchases</strong> while signed in to the same Google Play account you used to buy it. Pro also comes back on its own when the app opens.' },
       { q: 'How many free compressions do I get?', a: 'The first three successful compressions are free, at full quality and with no watermark. After that, Below Pro unlocks unlimited compressions for a single one-time purchase.' },
       { q: 'Where did my original video go?', a: 'Nowhere. Below never changes or deletes your original. It writes a new, smaller file and leaves the source untouched.' },
       { q: 'Can I use Below from Photos, Files, or Shortcuts?', a: 'Yes. Share a video from Photos or Files and choose Below to compress inside the share sheet. In Shortcuts, use the <strong>Compress Video Below Size</strong> action with a video and a target in megabytes.' },
@@ -370,6 +370,7 @@ export const appPages: AppPage[] = [
     },
     links: [{ label: 'Visit puckpassport.app', href: 'https://puckpassport.app' }],
     support: { url: 'https://puckpassport.app/support' },
+    android: { status: 'live', url: 'https://play.google.com/store/apps/details?id=com.mattdonders.puckpassport' },
     privacy: 'https://puckpassport.app/privacy',
   },
 ];

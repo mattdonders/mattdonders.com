@@ -84,6 +84,7 @@ export const projects: Project[] = [
     url: '/apps/below',
     appStore: 'https://apps.apple.com/app/id6813295177',
     appStoreId: '6813295177',
+    playStore: 'https://play.google.com/store/apps/details?id=com.mattdonders.below',
     icon: '/apps/icons/below.png',
   },
   {
@@ -135,6 +136,7 @@ export const projects: Project[] = [
     tags: ['SwiftUI', 'React Router', 'Cloudflare Workers'],
     url: '/apps/puck-passport',
     appStoreId: '6811217979',
+    playStore: 'https://play.google.com/store/apps/details?id=com.mattdonders.puckpassport',
     icon: '/apps/icons/puck-passport.png',
     spotlight: 'Proof you were there. Log every NHL game you attend: rinks visited, teams seen, your record in the building.',
   },

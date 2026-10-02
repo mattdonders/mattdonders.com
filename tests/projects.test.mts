@@ -150,3 +150,12 @@ test('buildDay is the UTC calendar date', async () => {
   const { buildDay } = await import('../src/data/app-pages.ts');
   assert.equal(buildDay(new Date('2026-10-25T03:00:00Z')), '2026-10-25');
 });
+
+test('Below and Puck Passport link to their Google Play listings, matching the app pages', async () => {
+  const { appPageFor } = await import('../src/data/app-pages.ts');
+  for (const [name, slug, id] of [['Below', 'below', 'com.mattdonders.below'], ['Puck Passport', 'puck-passport', 'com.mattdonders.puckpassport']]) {
+    const url = `https://play.google.com/store/apps/details?id=${id}`;
+    assert.equal(projects.find(p => p.name === name)?.playStore, url);
+    assert.deepEqual(appPageFor(slug)?.android, { status: 'live', url });
+  }
+});
