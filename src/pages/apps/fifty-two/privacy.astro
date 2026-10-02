@@ -30,7 +30,7 @@ import DocLayout from '../../../layouts/DocLayout.astro';
   <h2>Who Receives It</h2>
   <ul>
     <li><strong>Our order server, hosted on Cloudflare.</strong> It stores the order record in a Cloudflare database, the book's page files in Cloudflare storage, and sends order emails through Cloudflare Email Sending. Cloudflare Workers logs may record order ids and error messages; those error messages can occasionally include request content such as an address or email.</li>
-    <li><strong>Lulu, our printer.</strong> Lulu receives the book's page files and, to ship the book, your name, street address, city, state, postcode, country, phone number, and email address.</li>
+    <li><strong>Lulu, our printer.</strong> Lulu receives the book's page files and, to ship the book, your name, street address, city, state, postcode, country and phone number. Lulu does not receive your email address; we give Lulu our own address, and order updates come from us.</li>
     <li><strong>Stripe, our payment processor.</strong> Stripe receives your name, email, phone number, shipping and billing address, card details, and the order's line items, including the book's title.</li>
     <li><strong>The shipping carrier</strong> receives what it needs to deliver the package.</li>
   </ul>
@@ -61,5 +61,5 @@ import DocLayout from '../../../layouts/DocLayout.astro';
   <p>Any future changes to this policy will be posted on this page with an updated date.</p>
 
   <h2>Contact</h2>
-  <p>Questions about this policy can be sent to <a href="mailto:matt@mattdonders.com?subject=Fifty-Two%20Privacy">matt@mattdonders.com</a>.</p>
+  <p>Questions about this policy can be sent to <a href="mailto:fiftytwo@mattdonders.com?subject=Fifty-Two%20Privacy">fiftytwo@mattdonders.com</a>.</p>
 </DocLayout>

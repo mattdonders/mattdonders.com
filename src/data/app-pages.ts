@@ -193,11 +193,12 @@ export const appPages: AppPage[] = [
         { title: 'Catch up on the year', body: 'Missed a few weeks? Review the year so far and fill in the gaps.' },
         { title: 'Every week becomes a page', body: 'Preview the book as you go: your photos as you framed them, with your captions and a name on the cover.' },
         { title: 'Printed as a hardcover book', body: 'When you are ready, order the year as a hardcover book. Payment is taken by Stripe on a secure page, and the book is printed and shipped by Lulu.' },
-        { title: 'Follow your order', body: 'Check the status of your order in the app and follow it to your door.' },
+        { title: 'Follow your order', body: 'Check your order status in the app and use carrier tracking once it ships.' },
         { title: 'No account, no tracking', body: 'There is no sign-in, no advertising and no tracking. Your photos stay on your iPhone until you order.' },
       ],
     },
     support: {
+      url: 'mailto:fiftytwo@mattdonders.com?subject=Fifty-Two%20Support',
       subject: 'Fifty-Two Support',
       note: 'Send a note with your iPhone model, iOS version, and what you were doing. If your message is about an order, include the email address you ordered with.',
     },
