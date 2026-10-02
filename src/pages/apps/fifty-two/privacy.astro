@@ -1,0 +1,65 @@
+---
+import DocLayout from '../../../layouts/DocLayout.astro';
+---
+
+<DocLayout
+  title="Privacy Policy · Fifty-Two"
+  description="Privacy Policy for Fifty-Two: A Year in Photos, the iPhone app that prints one photo a week as a hardcover book."
+  eyebrow="Fifty-Two"
+  heading="Privacy Policy"
+  meta="Last updated: October 2, 2026"
+  back={{ href: '/apps/fifty-two', label: 'Fifty-Two' }}
+>
+  <div class="callout">
+    <strong>Summary:</strong> Your photos stay on your iPhone until you order a book. When you order, the finished pages of the book are uploaded to our server and sent to our printer, Lulu, only to print and ship it. Stripe takes the payment. There is no account, no advertising and no tracking.
+  </div>
+
+  <h2>Before You Order</h2>
+  <p>
+    Fifty-Two reads your photo library on your iPhone to suggest a photo for each week. Until you order, nothing is uploaded: your photos, captions and framing never leave your iPhone. The app has no sign-in, no advertising and no tracking.
+  </p>
+
+  <h2>What Is Sent When You Order</h2>
+  <ul>
+    <li><strong>The book's pages.</strong> The photos you chose, as you framed them, with your captions and the name on the cover, are uploaded as the book's interior and cover files. Nothing else from your library is sent.</li>
+    <li><strong>Delivery details.</strong> To deliver your book we receive your name, email address, phone number and shipping address, and the order itself (copies, amount, status, and the book's title).</li>
+    <li><strong>Payment.</strong> Payment is handled by Stripe on its own secure page. Your card details are entered only with Stripe; the app and our server never see them.</li>
+  </ul>
+  <p>The pages are used only to print and ship your book. We do not use them for anything else and never sell them.</p>
+
+  <h2>Who Receives It</h2>
+  <ul>
+    <li><strong>Our order server, hosted on Cloudflare.</strong> It stores the order record in a Cloudflare database, the book's page files in Cloudflare storage, and sends order emails through Cloudflare Email Sending. Cloudflare Workers logs may record order ids and error messages; those error messages can occasionally include request content such as an address or email.</li>
+    <li><strong>Lulu, our printer.</strong> Lulu receives the book's page files and, to ship the book, your name, street address, city, state, postcode, country, phone number, and email address.</li>
+    <li><strong>Stripe, our payment processor.</strong> Stripe receives your name, email, phone number, shipping and billing address, card details, and the order's line items, including the book's title.</li>
+    <li><strong>The shipping carrier</strong> receives what it needs to deliver the package.</li>
+  </ul>
+  <p>Stripe, Lulu and the carrier each keep data under their own retention and privacy policies, which we do not control from our server.</p>
+
+  <h2>How Long We Keep It</h2>
+  <ul>
+    <li><strong>The book's page files</strong> (your photos, captions and the name on the cover) are deleted 30 days after your book ships or an order is canceled, so a reprint or reorder is possible during that time. If an order is never paid, the files are deleted 7 days after it was created.</li>
+    <li><strong>Order records</strong> (your name, email, shipping address and phone number, the book's title, the amount, dates, status and tracking) are kept for support, accounting and dispute purposes. We have not set a period after which the name, email and address are removed automatically, so at present they are kept until removed. Removing them does not remove Stripe's or Lulu's copies.</li>
+    <li><strong>Order emails</strong> are sent to the address you gave at checkout. Records of those emails are kept with the order.</li>
+    <li><strong>Server logs</strong> are kept for the period set by Cloudflare for our account.</li>
+  </ul>
+
+  <h2>Tracking, Analytics, and Advertising</h2>
+  <p>
+    Fifty-Two has no account, no advertising and no tracking. It does not collect your location, contacts, device identifiers, usage data or diagnostics.
+  </p>
+
+  <h2>Access and Deletion</h2>
+  <p>
+    To ask about, correct or delete the data held for an order, email the address below with the email address you ordered with. Deleting data on our server does not delete what Stripe and Lulu hold; those requests go to them.
+  </p>
+
+  <h2>Children</h2>
+  <p>Fifty-Two is not directed at children. Books are ordered by an adult, and a child's name or photos appear only if the person ordering chooses to include them.</p>
+
+  <h2>Changes to This Policy</h2>
+  <p>Any future changes to this policy will be posted on this page with an updated date.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this policy can be sent to <a href="mailto:matt@mattdonders.com?subject=Fifty-Two%20Privacy">matt@mattdonders.com</a>.</p>
+</DocLayout>

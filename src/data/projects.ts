@@ -88,6 +88,19 @@ export const projects: Project[] = [
     icon: '/apps/icons/below.png',
   },
   {
+    name: 'Fifty-Two',
+    category: 'Everyday tools',
+    tagline: 'One photo a week. One book.',
+    description: 'Pick one photo a week for a year, then print the year as a hardcover book. An iPhone app.',
+    status: 'development',
+    platforms: ['iOS'],
+    tags: ['SwiftUI'],
+    url: '/apps/fifty-two',
+    // Unlisted until launch: the page and privacy policy resolve, but /apps and the homepage skip it.
+    // Remove `draft` (and add icon, appStore, appStoreId) when the app is submitted.
+    draft: true,
+  },
+  {
     name: 'Better Buy Calculator',
     category: 'Everyday tools',
     tagline: 'Compare two prices and sizes to see which is the better value.',

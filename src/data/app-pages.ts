@@ -181,6 +181,33 @@ export const appPages: AppPage[] = [
     privacy: '/apps/below/privacy',
   },
   {
+    slug: 'fifty-two',
+    title: 'Fifty-Two: A Year in Photos',
+    description: 'Fifty-Two is an iPhone app for choosing one photo a week across a year and printing the year as a hardcover book.',
+    headline: 'One photo a week. One book.',
+    intro: 'Fifty-Two suggests a photo from your library for each week of the year. Choose your favorite, add a caption, and at the end of the year order the whole thing as a printed hardcover book.',
+    features: {
+      heading: 'A year, one week at a time',
+      items: [
+        { title: 'One photo a week', body: 'Fifty-Two reads your photo library on the phone to suggest a photo for each week. You pick the one that stays.' },
+        { title: 'Catch up on the year', body: 'Missed a few weeks? Review the year so far and fill in the gaps.' },
+        { title: 'Every week becomes a page', body: 'Preview the book as you go: your photos as you framed them, with your captions and a name on the cover.' },
+        { title: 'Printed as a hardcover book', body: 'When you are ready, order the year as a hardcover book. Payment is taken by Stripe on a secure page, and the book is printed and shipped by Lulu.' },
+        { title: 'Follow your order', body: 'Check the status of your order in the app and follow it to your door.' },
+        { title: 'No account, no tracking', body: 'There is no sign-in, no advertising and no tracking. Your photos stay on your iPhone until you order.' },
+      ],
+    },
+    support: {
+      subject: 'Fifty-Two Support',
+      note: 'Send a note with your iPhone model, iOS version, and what you were doing. If your message is about an order, include the email address you ordered with.',
+    },
+    faq: [
+      { q: 'Do my photos leave my iPhone?', a: 'Not until you order. When you order, the finished pages of your book (the photos you chose as you framed them, with your captions and the name on the cover) are uploaded and sent to the printer, only to print your book. The <a href="/apps/fifty-two/privacy">privacy policy</a> has the details.' },
+      { q: 'Where do you ship?', a: 'The app currently ships to US addresses only.' },
+    ],
+    privacy: '/apps/fifty-two/privacy',
+  },
+  {
     slug: 'home-stretch',
     title: 'Home Stretch: Moving Checklist',
     description: 'A timeline-based moving checklist built around your move date. No ads, no account, no bloat.',
