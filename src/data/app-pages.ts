@@ -176,7 +176,7 @@ export const appPages: AppPage[] = [
       { q: 'How many free compressions do I get?', a: 'The first three successful compressions are free, at full quality and with no watermark. After that, Below Pro unlocks unlimited compressions for a single one-time purchase.' },
       { q: 'Where did my original video go?', a: 'Nowhere. Below never changes or deletes your original. It writes a new, smaller file and leaves the source untouched.' },
       { q: 'Can I use Below from Photos, Files, or Shortcuts?', a: 'Yes. Share a video from Photos or Files and choose Below to compress inside the share sheet. In Shortcuts, use the <strong>Compress Video Below Size</strong> action with a video and a target in megabytes.' },
-      { q: 'How do refunds work?', a: 'Purchases are handled by Apple. Refund requests go through <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.' },
+      { q: 'How do refunds work?', a: 'Purchases are handled by Apple or Google Play, depending on where you bought. On iPhone or iPad, request a refund at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>. On Android, request it through Google Play (<a href="https://play.google.com/store/account/orderhistory">order history</a>).' },
     ],
     privacy: '/apps/below/privacy',
   },
