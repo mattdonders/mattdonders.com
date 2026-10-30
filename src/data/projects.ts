@@ -130,6 +130,20 @@ export const projects: Project[] = [
     draft: true,
   },
   {
+    name: 'OpenVSD',
+    category: 'Everyday tools',
+    tagline: 'Open Visio diagrams on your Mac.',
+    description: 'A Mac app that opens VSD and VSDX diagrams, previews every page free, and exports to PDF, PNG and SVG with a one-time unlock.',
+    status: 'development',
+    platforms: ['macOS'],
+    tags: ['SwiftUI', 'libvisio'],
+    url: '/apps/openvsd',
+    icon: '/apps/icons/openvsd.png',
+    // Unlisted until launch: the support page and privacy policy resolve, but /apps and the homepage skip it.
+    // Remove `draft` (and add appStore, appStoreId) when the app is released.
+    draft: true,
+  },
+  {
     name: 'Fifty-Two',
     category: 'Everyday tools',
     tagline: 'One photo a week. One book.',
