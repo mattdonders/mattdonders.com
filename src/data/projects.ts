@@ -116,6 +116,20 @@ export const projects: Project[] = [
     draft: true,
   },
   {
+    name: 'RetroDocs',
+    category: 'Everyday tools',
+    tagline: 'Open your old documents on Mac.',
+    description: 'A Mac app that opens old Mac and Microsoft Works documents, previews them free, and converts whole folders with a one-time unlock.',
+    status: 'development',
+    platforms: ['macOS'],
+    tags: ['SwiftUI', 'libmwaw'],
+    url: '/apps/retrodocs',
+    icon: '/apps/icons/retrodocs.png',
+    // Unlisted until launch: the support page and privacy policy resolve, but /apps and the homepage skip it.
+    // Remove `draft` (and add appStore, appStoreId) when the app is released.
+    draft: true,
+  },
+  {
     name: 'Fifty-Two',
     category: 'Everyday tools',
     tagline: 'One photo a week. One book.',
