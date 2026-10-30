@@ -290,7 +290,7 @@ export const appPages: AppPage[] = [
       { q: 'What does the unlock do?', a: 'Previewing is free. The one-time unlock adds batch conversion (DOCX, RTF, PDF, XLSX, CSV and PNG) and printing.' },
       { q: 'My file has no extension.', a: 'That is normal for classic Mac files. Drop it or its folder on RetroDocs and it looks at what is inside, not at the name.' },
       { q: 'Will the result look exactly like the original?', a: 'Formats from the 1980s and 1990s were never standardized. Complex layouts can differ from the original, so look over important files after converting.' },
-      { q: 'How do I restore my purchase?', a: 'Sign in with the same Apple Account, open RetroDocs, and choose <strong>Restore Purchase</strong>.' },
+      { q: 'How do I restore my purchase?', a: 'Sign in with the same Apple Account, open RetroDocs, and choose <strong>Restore Purchases</strong> on the unlock screen.' },
       { q: 'How do I get a refund?', a: 'Refunds are handled by Apple. Go to <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a> and report the purchase.' },
       { q: 'Does it upload my files?', a: 'No. RetroDocs has no network access. Your files are read and converted on your Mac.' },
       { q: 'What does it need?', a: 'macOS 13 or later, on Apple silicon or Intel. RetroDocs is not affiliated with Apple or Microsoft.' },
