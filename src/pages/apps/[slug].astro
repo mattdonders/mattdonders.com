@@ -24,6 +24,31 @@ const platforms = app.platforms.map(p => (p === 'iOS' ? 'iPhone' : p)).join(', '
 const priceSummary = page.price
   ?? page.pricing?.tiers.map(t => `${tierPrice(t).price}${t.cadence ? ` ${t.cadence}` : ''}`).join(' · ');
 
+const stripTags = (html: string) => html.replace(/<[^>]*>/g, '');
+const schemaJson = page.schema
+  ? JSON.stringify([
+      {
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: app.name,
+        description: page.description,
+        applicationCategory: 'MultimediaApplication',
+        operatingSystem: platforms,
+        url: Astro.url.href,
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: (page.faq ?? []).map(f => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: stripTags(f.a) },
+        })),
+      },
+    ])
+  : '';
+
 const appleIcon = 'M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z';
 const playIcon = 'M3.18 23.76c.3.17.65.19.97.08l11.53-6.66-2.45-2.45-10.05 9.03zM.5 1.12C.18 1.46 0 1.96 0 2.6v18.8c0 .64.18 1.14.51 1.48l.08.07L10.46 12 .58 1.05.5 1.12zM19.37 10.2L16.8 8.7 14.06 11.5l2.75 2.75 2.58-1.49c.74-.42.74-1.12-.02-1.56zM4.15.25L15.67 6.9l-2.45 2.45L3.18.32a1.16 1.16 0 01-.03-.07z';
 const storeSoonText = app.status === 'review' ? 'App Store: launching soon' : 'Coming to the App Store';
@@ -125,6 +150,24 @@ const storeSoonText = app.status === 'review' ? 'App Store: launching soon' : 'C
     </section>
   )}
 
+  {page.limits && (
+    <section class="app-section" aria-labelledby="limits-title">
+      <h2 id="limits-title" class="section-title">{page.limits.heading}</h2>
+      {page.limits.intro && <p class="limits-intro">{page.limits.intro}</p>}
+      <div class="tile limits-tile">
+        <table class="limits-table">
+          <thead><tr><th scope="col">Where</th><th scope="col">Limit</th><th scope="col">Good to know</th></tr></thead>
+          <tbody>
+            {page.limits.rows.map(row => (
+              <tr><th scope="row">{row.where}</th><td>{row.limit}</td><td set:html={row.note ?? ''} /></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {page.limits.footnote && <p class="price-footnote">{page.limits.footnote}</p>}
+    </section>
+  )}
+
   {page.pricing && (
     <section class="app-section" aria-labelledby="pricing-title">
       <div class="section-head">
@@ -182,10 +225,21 @@ const storeSoonText = app.status === 'review' ? 'App Store: launching soon' : 'C
     </section>
   )}
 
+  {schemaJson && <script type="application/ld+json" set:html={schemaJson} />}
+
   {page.credits && <p class="credits" set:html={page.credits} />}
 </SiteLayout>
 
 <style>
+  .limits-intro { margin: 0 0 16px; color: var(--muted); max-width: 760px; }
+  .limits-tile { padding: 8px 24px; overflow-x: auto; }
+  .limits-table { width: 100%; border-collapse: collapse; font-size: 16px; line-height: 1.5; }
+  .limits-table th, .limits-table td { text-align: left; padding: 14px 12px 14px 0; vertical-align: top; border-bottom: 1px solid var(--line, rgba(128,128,128,.25)); }
+  .limits-table tbody tr:last-child th, .limits-table tbody tr:last-child td { border-bottom: 0; }
+  .limits-table thead th { font-size: 13px; font-weight: 500; color: var(--muted); }
+  .limits-table tbody th { font-weight: 600; white-space: nowrap; }
+  .limits-table td:nth-child(2) { white-space: nowrap; font-weight: 600; }
+  .limits-table td:last-child { color: var(--muted); }
   .back-link { margin-bottom: -64px; }
 
   .app-hero {

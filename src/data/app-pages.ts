@@ -58,6 +58,10 @@ export interface AppPage {
     url?: string;
     note?: string;
   };
+  /** Size limits worth targeting, shown as a table after the features. `note` may contain inline HTML. */
+  limits?: { heading: string; intro?: string; rows: { where: string; limit: string; note?: string }[]; footnote?: string };
+  /** Emit FAQPage + SoftwareApplication JSON-LD for this page. */
+  schema?: boolean;
   /** Common questions, shown after support. Answers may contain inline HTML (links, <strong>). */
   faq?: { q: string; a: string }[];
   /** Privacy policy path or URL. */
@@ -140,14 +144,14 @@ export const appPages: AppPage[] = [
   },
   {
     slug: 'below',
-    title: 'Below - Video Compressor',
-    description: 'Below is a private, on-device utility for iPhone, iPad and Android that compresses a video to fit under a maximum file size you choose.',
+    title: 'Below - Compress a Video to an Exact Size (MB)',
+    description: 'Compress a video to an exact file size in MB on iPhone and Android. Enter the limit for email, Discord or a text message and Below picks the settings, then checks the finished file. Private and on-device.',
     headline: 'Pick the limit. Below makes it fit.',
     intro: 'Enter a maximum file size in megabytes. Below picks the resolution, frame rate, and bitrate for you, then checks the finished file byte for byte. No bitrate math and no quality sliders, just a number.',
     features: {
       heading: 'One number in, a video that fits',
       items: [
-        { title: 'Target size, not guesswork', body: 'Tell Below the limit you care about: 10 MB for an email, 25 MB for a chat app. It works out every encoding setting for you.' },
+        { title: 'Target size, not guesswork', body: 'Tell Below the limit you care about, like 20 MB for Discord or about 18 MB for an email that keeps getting rejected. It works out every encoding setting for you.' },
         { title: 'Presets and My Sizes', body: '10, 25, 50 and 100 MB are one tap away, plus three custom slots for the limits you hit again and again.' },
         { title: 'Checked byte for byte', body: 'Below measures the real output file after encoding, in decimal megabytes, the same unit Photos, email and messaging apps use.' },
         { title: 'Private by design', body: 'Everything happens on your iPhone. No account, no upload, no analytics, no ads. Your video never leaves the device.' },
@@ -155,6 +159,18 @@ export const appPages: AppPage[] = [
         { title: 'Your original is untouched', body: 'Below writes a new, smaller file and never modifies or deletes the source video.' },
       ],
     },
+    limits: {
+      heading: 'Common video size limits',
+      intro: 'Type the limit into Below and it does the rest. These are the ones people hit most, as of October 2026.',
+      rows: [
+        { where: 'Discord (free)', limit: '20 MB', note: 'Raised from 10 MB in August 2026. Nitro tiers are higher.' },
+        { where: 'Gmail, Outlook.com, Yahoo Mail', limit: '25 MB', note: 'Email encodes attachments, which adds about a third, so a 25 MB file can still be refused. Aim for about 18 MB.' },
+        { where: 'iCloud Mail', limit: '20 MB', note: 'Mail Drop sends bigger files as a link when you use Apple Mail or iCloud.com.' },
+        { where: 'Text message (MMS)', limit: 'about 1 to 5 MB', note: 'Depends on the carrier. iMessage between iPhones has no published limit.' },
+      ],
+      footnote: 'Limits change and work or school accounts can differ. If a service tells you a different number, use that one.',
+    },
+    schema: true,
     pricing: {
       heading: 'Try it free. Unlock it once.',
       intro: 'No subscription, ever.',
@@ -169,6 +185,11 @@ export const appPages: AppPage[] = [
       note: 'Send a note with your device model, iOS or Android version, and what you were trying to compress. That is usually enough to work out what happened.',
     },
     faq: [
+      { q: 'How do I compress a video to under 25 MB on iPhone?', a: 'Open Below, pick the video, choose the 25 MB preset and tap compress. Below sets the resolution, frame rate and bitrate itself, then measures the finished file so you know it fits. For email, a lower target such as 18 MB is safer, because email adds overhead to attachments.' },
+      { q: 'How do I make a video small enough for Discord?', a: 'Discord lets free accounts upload files up to 20 MB. Enter 20 MB (or a little less, such as 19) in Below, compress, and upload the new file. Your original stays untouched.' },
+      { q: 'My email says the video is too large. What do I do?', a: 'Most email services cap attachments at 20 to 25 MB, and the real limit is lower because attachments grow when email encodes them. Compress the video to about 18 MB in Below and attach the smaller copy.' },
+      { q: 'How do I compress a video to an exact size?', a: 'Enter the maximum size in megabytes. Below works out the encoding settings, compresses, then checks the real file on disk. You never touch a quality slider or do bitrate math.' },
+      { q: 'Will compressing to a size ruin my video?', a: 'Below keeps as much quality as the limit allows by choosing resolution and frame rate for you. Very short clips and very small limits can leave too little room, and Below tells you instead of producing something unwatchable.' },
       { q: 'My video will not go under the limit I asked for.', a: 'Very short clips and very small limits sometimes leave no room for a watchable result. Below tells you when that happens instead of producing something unusable. Raise the limit slightly and try again.' },
       { q: 'Below says my video is already small enough.', a: 'If the original is already under your limit, Below keeps the original quality and tells you so rather than re-encoding it for no reason.' },
       { q: 'The result is a different size than I expected.', a: 'Sizes use decimal megabytes, where 1 MB is 1,000,000 bytes. That is the same unit Photos and most messaging and email services use. Below measures the real output file after encoding, so the size it reports is the size on disk.' },
