@@ -1,0 +1,35 @@
+---
+import DocLayout from '../../../layouts/DocLayout.astro';
+---
+
+<DocLayout
+  title="Privacy Policy · Auto Refresh & Page Monitor"
+  description="Privacy Policy for Auto Refresh & Page Monitor, the Safari extension for Mac that reloads tabs and alerts you when a page changes."
+  eyebrow="Auto Refresh & Page Monitor"
+  heading="Privacy Policy"
+  meta="Last updated: October 29, 2026"
+  back={{ href: '/apps/auto-refresh', label: 'Auto Refresh & Page Monitor' }}
+>
+  <div class="callout">
+    <strong>Summary:</strong> Auto Refresh collects no data. Everything it keeps stays in Safari on your Mac, and nothing is sent to us or anyone else.
+  </div>
+
+  <h2>What It Collects</h2>
+  <p>
+    Nothing. There is no account, no analytics, no advertising and no tracking. The extension makes no network requests of its own; it only reloads the tabs you choose.
+  </p>
+
+  <h2>What Stays on Your Mac</h2>
+  <ul>
+    <li><strong>Your settings</strong> for each tab (interval, keywords, the element you picked) are stored locally in Safari and cleared when you close the tab.</li>
+    <li><strong>Watched pages.</strong> To notice a change, the extension reads the text of pages you chose to watch and compares it on your Mac. It keeps only a short excerpt and a fingerprint (hash) of that text, locally in Safari, so the next reload can be compared. Both are deleted when you close the tab.</li>
+  </ul>
+
+  <h2>Permissions</h2>
+  <p>
+    Access to websites (to reload and watch the tabs you turn on), tabs, local storage, and messaging with the Auto Refresh app on your Mac, used only to show a Mac notification.
+  </p>
+
+  <h2>Contact</h2>
+  <p>Questions: <a href="mailto:matt@mattdonders.com">matt@mattdonders.com</a></p>
+</DocLayout>

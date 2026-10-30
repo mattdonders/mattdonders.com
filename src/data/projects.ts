@@ -88,6 +88,20 @@ export const projects: Project[] = [
     icon: '/apps/icons/below.png',
   },
   {
+    name: 'Auto Refresh & Page Monitor',
+    category: 'Everyday tools',
+    tagline: 'Reload any tab. Know when it changes.',
+    description: 'A Safari extension for Mac that reloads tabs on any interval and alerts you when a page changes or a phrase appears.',
+    status: 'development',
+    platforms: ['macOS'],
+    tags: ['Safari Web Extension', 'SwiftUI'],
+    url: '/apps/auto-refresh',
+    icon: '/apps/icons/auto-refresh.png',
+    // Unlisted until launch: the support page and privacy policy resolve, but /apps and the homepage skip it.
+    // Remove `draft` (and add appStore, appStoreId) when the app is released.
+    draft: true,
+  },
+  {
     name: 'Fifty-Two',
     category: 'Everyday tools',
     tagline: 'One photo a week. One book.',
