@@ -234,6 +234,37 @@ export const appPages: AppPage[] = [
     privacy: '/apps/auto-refresh/privacy',
   },
   {
+    slug: 'openpub',
+    title: 'OpenPub - PUB to PDF Converter',
+    description: 'OpenPub opens Publisher .pub files on your Mac. Preview every page free, then export to PDF or PNG with a one-time unlock.',
+    headline: 'Open your .pub files on Mac.',
+    intro: 'OpenPub reads Publisher .pub files right on your Mac. Look through every page for free, then unlock PDF and PNG export, batch conversion and printing with one purchase. Your files never leave your Mac.',
+    features: {
+      heading: 'Get your Publisher files back',
+      items: [
+        { title: 'Free preview of every page', body: 'Open any .pub file and browse all of its pages before you pay anything.' },
+        { title: 'One-time price', body: 'A single purchase unlocks export. No subscription, no account.' },
+        { title: 'Files stay on your Mac', body: 'No upload and no network access at all. Conversion happens on your Mac.' },
+        { title: 'Multi-page and batch export', body: 'Every page goes into the PDF, in order. Convert a whole folder of .pub files in one go, with a status for each file.' },
+        { title: 'Quick Look and thumbnails', body: 'Press the space bar on a .pub file in Finder to preview it, and see the first page as its icon.' },
+        { title: 'PNG and print', body: 'Export one PNG per page at 2x resolution, or print straight from the app.' },
+      ],
+    },
+    support: {
+      subject: 'OpenPub Support',
+      note: 'Send a note with your macOS version and what happened. If a file does not look right, say which page, and attach the .pub file if you are comfortable sharing it.',
+    },
+    faq: [
+      { q: 'Is the preview really free?', a: 'Yes. You can open any .pub file and view every page without paying. The one-time unlock adds PDF and PNG export, batch conversion and printing.' },
+      { q: 'Will the PDF look exactly like it did in Publisher?', a: 'OpenPub reads the text, images and layout of your files, including the Windows drawings many of them contain. Complex documents can differ from the original, for example in decorative fonts or the position of some images, so look over the result before you rely on it.' },
+      { q: 'A file will not open.', a: 'Some .pub files are damaged, password-protected, or saved in a format OpenPub cannot read yet. Send us a note and we will take a look. In a batch, one file that fails never stops the others.' },
+      { q: 'How do I restore my purchase on another Mac?', a: 'Sign in with the same Apple Account, open OpenPub, and choose <strong>Restore Purchase</strong>.' },
+      { q: 'Does it upload my files?', a: 'No. OpenPub has no network access. Your files are read and converted on your Mac.' },
+      { q: 'What does it need?', a: 'macOS 13 or later, on Apple silicon or Intel.' },
+    ],
+    privacy: '/apps/openpub/privacy',
+  },
+  {
     slug: 'fifty-two',
     title: 'Fifty-Two: A Year in Photos',
     description: 'Fifty-Two is an iPhone app for choosing one photo a week across a year and printing the year as a hardcover book.',

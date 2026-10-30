@@ -102,6 +102,20 @@ export const projects: Project[] = [
     draft: true,
   },
   {
+    name: 'OpenPub',
+    category: 'Everyday tools',
+    tagline: 'Open your .pub files on Mac.',
+    description: 'A Mac app that opens Publisher .pub files, previews every page free, and exports PDF and PNG with a one-time unlock.',
+    status: 'development',
+    platforms: ['macOS'],
+    tags: ['SwiftUI', 'libmspub'],
+    url: '/apps/openpub',
+    icon: '/apps/icons/openpub.png',
+    // Unlisted until launch: the support page and privacy policy resolve, but /apps and the homepage skip it.
+    // Remove `draft` (and add appStore, appStoreId) when the app is released.
+    draft: true,
+  },
+  {
     name: 'Fifty-Two',
     category: 'Everyday tools',
     tagline: 'One photo a week. One book.',
