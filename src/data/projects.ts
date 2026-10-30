@@ -88,10 +88,10 @@ export const projects: Project[] = [
     icon: '/apps/icons/below.png',
   },
   {
-    name: 'Auto Refresh & Page Monitor',
+    name: 'ReloadAlert',
     category: 'Everyday tools',
-    tagline: 'Reload any tab. Know when it changes.',
-    description: 'A Safari extension for Mac that reloads tabs on any interval and alerts you when a page changes or a phrase appears.',
+    tagline: 'Know the moment a page changes.',
+    description: 'A Safari extension for Mac that alerts you when a page changes or a phrase appears, and reloads tabs on any interval.',
     status: 'development',
     platforms: ['macOS'],
     tags: ['Safari Web Extension', 'SwiftUI'],
