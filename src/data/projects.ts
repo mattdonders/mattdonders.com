@@ -144,6 +144,20 @@ export const projects: Project[] = [
     draft: true,
   },
   {
+    name: 'OpenMDB',
+    category: 'Everyday tools',
+    tagline: 'Open Access databases on your Mac.',
+    description: 'A Mac app that opens .mdb and .accdb databases, browses every table free, and runs SQL and exports to Excel, CSV, SQLite and JSON with a one-time unlock.',
+    status: 'development',
+    platforms: ['macOS'],
+    tags: ['SwiftUI', 'SQLite'],
+    url: '/apps/openmdb',
+    icon: '/apps/icons/openmdb.png',
+    // Unlisted until launch: the support page and privacy policy resolve, but /apps and the homepage skip it.
+    // Remove `draft` (and add appStore, appStoreId) when the app is released.
+    draft: true,
+  },
+  {
     name: 'Fifty-Two',
     category: 'Everyday tools',
     tagline: 'One photo a week. One book.',
