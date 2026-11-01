@@ -1,0 +1,51 @@
+---
+import DocLayout from '../../../../layouts/DocLayout.astro';
+---
+
+<DocLayout
+  title="OpenPub for Windows · Support"
+  description="Support for OpenPub - PUB to PDF Converter, the Windows app that opens Publisher .pub files and exports them to PDF."
+  eyebrow="OpenPub for Windows"
+  heading="OpenPub - PUB to PDF Converter"
+  lede="Open your Publisher .pub files on Windows 10 and Windows 11. View every page free. A one-time in-app unlock adds PDF and PNG export, batch export and printing."
+  back={{ href: '/apps/openpub', label: 'OpenPub' }}
+>
+  <h2>What it does</h2>
+  <p>
+    OpenPub opens Publisher .pub files on Windows 10 (version 1809 or later) and Windows 11. You can look through every page for free. A one-time unlock inside the app adds export to PDF and PNG, batch export of files and folders, and printing. There is no subscription and no account. Your files are opened and converted on your PC and never leave it.
+  </p>
+
+  <h2>How to open a file</h2>
+  <ul>
+    <li>Choose <strong>File &gt; Open</strong> and pick a .pub file.</li>
+    <li>Drag one or more .pub files (or folders) onto the OpenPub window.</li>
+    <li>Right-click a .pub file in File Explorer and choose <strong>Open with</strong> &gt; OpenPub.</li>
+  </ul>
+
+  <h2>Restore your purchase</h2>
+  <p>
+    On a new PC, or after reinstalling, sign in to Windows with the same Microsoft account you bought with, open OpenPub, open the unlock dialog and choose <strong>Restore purchase</strong>.
+  </p>
+
+  <h2>Common problems</h2>
+  <h3>"This isn't a Publisher file"</h3>
+  <p>
+    Other things use the .pub extension too. SSH public keys are the common one. OpenPub only opens Publisher documents, so a key file or other .pub file that is not from Publisher is reported this way.
+  </p>
+  <h3>A file will not open</h3>
+  <p>
+    Some Publisher files are damaged, password-protected, or saved in a format OpenPub cannot read yet. OpenPub tells you instead of crashing, and in a batch one file that fails never stops the others. Send us a note and we will take a look.
+  </p>
+  <h3>Text looks different from the original</h3>
+  <p>
+    OpenPub uses the fonts installed on your PC first. When a font is missing it uses a bundled font with matching letter widths for the common Office families, or the closest available font otherwise. Complex documents can differ from the original, so look over the result before you rely on it.
+  </p>
+
+  <h2>Contact</h2>
+  <p>
+    <a href="mailto:matt@mattdonders.com?subject=OpenPub%20Support">matt@mattdonders.com</a>. Tell us your Windows version and what happened. If a file does not look right, say which page, and attach the .pub file if you are comfortable sharing it.
+  </p>
+  <p>See also the <a href="/apps/openpub/windows/privacy">Privacy Policy</a>.</p>
+
+  <p><small>OpenPub is not affiliated with or endorsed by Microsoft. Microsoft Publisher is a trademark of Microsoft Corporation, referenced only to describe the file format this app opens.</small></p>
+</DocLayout>
