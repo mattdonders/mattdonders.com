@@ -155,7 +155,18 @@ test('Below and Puck Passport link to their Google Play listings, matching the a
   const { appPageFor } = await import('../src/data/app-pages.ts');
   for (const [name, slug, id] of [['Below', 'below', 'com.mattdonders.below'], ['Puck Passport', 'puck-passport', 'com.mattdonders.puckpassport']]) {
     const url = `https://play.google.com/store/apps/details?id=${id}`;
-    assert.equal(projects.find(p => p.name === name)?.playStore, url);
-    assert.deepEqual(appPageFor(slug)?.android, { status: 'live', url });
+    // Below's links carry a Play `referrer` UTM tag so Play Console can attribute site traffic.
+    const tagged = (u: string | undefined) => u === url || u?.startsWith(`${url}&referrer=utm_source%3Dmattdonders.com%26utm_medium%3Dweb%26utm_campaign%3D`);
+    assert.ok(tagged(projects.find(p => p.name === name)?.playStore));
+    const android = appPageFor(slug)?.android;
+    assert.equal(android?.status, 'live');
+    assert.ok(tagged(android?.url));
   }
+});
+
+test('Below Play links are UTM-tagged with distinct campaigns for the page and the app list', async () => {
+  const { appPageFor } = await import('../src/data/app-pages.ts');
+  const base = 'https://play.google.com/store/apps/details?id=com.mattdonders.below&referrer=utm_source%3Dmattdonders.com%26utm_medium%3Dweb%26utm_campaign%3D';
+  assert.equal(appPageFor('below')?.android.url, `${base}below_page`);
+  assert.equal(projects.find(p => p.name === 'Below')?.playStore, `${base}below_list`);
 });

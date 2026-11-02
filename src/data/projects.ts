@@ -84,7 +84,7 @@ export const projects: Project[] = [
     url: '/apps/below',
     appStore: 'https://apps.apple.com/app/id6813295177',
     appStoreId: '6813295177',
-    playStore: 'https://play.google.com/store/apps/details?id=com.mattdonders.below',
+    playStore: 'https://play.google.com/store/apps/details?id=com.mattdonders.below&referrer=utm_source%3Dmattdonders.com%26utm_medium%3Dweb%26utm_campaign%3Dbelow_list',
     icon: '/apps/icons/below.png',
   },
   {

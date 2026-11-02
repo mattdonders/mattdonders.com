@@ -179,7 +179,7 @@ export const appPages: AppPage[] = [
         { name: 'Below Pro', price: '$9.99', cadence: 'one-time', highlight: true, items: ['Unlimited compressions', 'No subscription', 'No ads, no accounts', 'Restores on your Apple or Google account'] },
       ],
     },
-    android: { status: 'live', url: 'https://play.google.com/store/apps/details?id=com.mattdonders.below' },
+    android: { status: 'live', url: 'https://play.google.com/store/apps/details?id=com.mattdonders.below&referrer=utm_source%3Dmattdonders.com%26utm_medium%3Dweb%26utm_campaign%3Dbelow_page' },
     support: {
       subject: 'Below Support',
       note: 'Send a note with your device model, iOS or Android version, and what you were trying to compress. That is usually enough to work out what happened.',
