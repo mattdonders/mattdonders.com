@@ -225,6 +225,16 @@ const storeSoonText = app.status === 'review' ? 'App Store: launching soon' : 'C
     </section>
   )}
 
+  <script>
+    import { visitSource, withPlaySource } from '../../lib/play-referrer';
+    const source = visitSource(location.search, document.referrer, location.hostname);
+    if (source) {
+      document.querySelectorAll<HTMLAnchorElement>('a[href^="https://play.google.com/store/apps/details"]').forEach((a) => {
+        a.href = withPlaySource(a.href, source);
+      });
+    }
+  </script>
+
   {schemaJson && <script type="application/ld+json" set:html={schemaJson} />}
 
   {page.credits && <p class="credits" set:html={page.credits} />}

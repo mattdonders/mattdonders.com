@@ -170,3 +170,27 @@ test('Below Play links are UTM-tagged with distinct campaigns for the page and t
   assert.equal(appPageFor('below')?.android.url, `${base}below_page`);
   assert.equal(projects.find(p => p.name === 'Below')?.playStore, `${base}below_list`);
 });
+
+test('play-referrer: origin comes from utm_source, else an external referrer host, never our own', async () => {
+  const { visitSource } = await import('../src/lib/play-referrer.ts');
+  assert.equal(visitSource('?utm_source=chatgpt.com', '', 'mattdonders.com'), 'chatgpt.com');
+  assert.equal(visitSource('', 'https://www.google.com/search?q=x', 'mattdonders.com'), 'google.com');
+  assert.equal(visitSource('', 'https://mattdonders.com/apps', 'mattdonders.com'), '');
+  assert.equal(visitSource('?utm_source=A<b>&x', '', 'mattdonders.com'), 'ab');
+  assert.equal(visitSource('', 'not a url', 'mattdonders.com'), '');
+  assert.equal(visitSource('', '', 'mattdonders.com'), '');
+});
+
+test('play-referrer: swaps utm_source inside the Play referrer, leaves other links alone', async () => {
+  const { withPlaySource } = await import('../src/lib/play-referrer.ts');
+  const u = 'https://play.google.com/store/apps/details?id=com.mattdonders.below&referrer=utm_source%3Dmattdonders.com%26utm_medium%3Dweb%26utm_campaign%3Dbelow_page';
+  const out = new URL(withPlaySource(u, 'chatgpt.com'));
+  assert.equal(out.searchParams.get('id'), 'com.mattdonders.below');
+  const inner = new URLSearchParams(out.searchParams.get('referrer')!);
+  assert.equal(inner.get('utm_source'), 'chatgpt.com');
+  assert.equal(inner.get('utm_medium'), 'web');
+  assert.equal(inner.get('utm_campaign'), 'below_page');
+  assert.equal(withPlaySource(u, ''), u);
+  const bare = 'https://play.google.com/store/apps/details?id=com.toothfairytracker';
+  assert.equal(withPlaySource(bare, 'chatgpt.com'), bare);
+});
