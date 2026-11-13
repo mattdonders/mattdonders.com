@@ -1,0 +1,177 @@
+{
+  "checked": "2026-11-12",
+  "destinations": [
+    {
+      "id": "discord-free",
+      "name": "Discord",
+      "detail": "Free account upload",
+      "appliesTo": [
+        "video",
+        "photo",
+        "pdf"
+      ],
+      "limitBytes": 20000000,
+      "recommendedBytes": null,
+      "statedText": "For non-Nitro subscribers, the maximum file upload is 20MB.",
+      "sourceURL": "https://support.discord.com/hc/en-us/articles/25444343291031-File-Attachments-FAQ",
+      "checked": "2026-11-12",
+      "note": "Raised from 10MB in August 2026 per the same page. Discord checks size before compression."
+    },
+    {
+      "id": "discord-nitro-basic",
+      "name": "Discord Nitro Basic",
+      "detail": "Nitro Basic upload",
+      "appliesTo": [
+        "video",
+        "photo",
+        "pdf"
+      ],
+      "limitBytes": 50000000,
+      "recommendedBytes": null,
+      "statedText": "If you need more room regularly, Nitro Basic offers 50MB and Nitro offers up to 1GB.",
+      "sourceURL": "https://support.discord.com/hc/en-us/articles/25444343291031-File-Attachments-FAQ",
+      "checked": "2026-11-12",
+      "note": null
+    },
+    {
+      "id": "gmail",
+      "name": "Gmail",
+      "detail": "Personal account attachment",
+      "appliesTo": [
+        "video",
+        "photo",
+        "pdf"
+      ],
+      "limitBytes": 25000000,
+      "recommendedBytes": 18000000,
+      "statedText": "For personal Gmail accounts, the limit is 25 MB.",
+      "sourceURL": "https://support.google.com/mail/answer/6584?hl=en",
+      "checked": "2026-11-12",
+      "note": "This is the provider's stated cap. Email attachments are base64-encoded when sent, which adds about a third to their size, so recommendedBytes is 72% of the cap. The provider's page does not mention encoding; the 72% figure is our own conservative allowance, not a provider number."
+    },
+    {
+      "id": "yahoo-mail",
+      "name": "Yahoo Mail",
+      "detail": "Attachments per message",
+      "appliesTo": [
+        "video",
+        "photo",
+        "pdf"
+      ],
+      "limitBytes": 25000000,
+      "recommendedBytes": 18000000,
+      "statedText": "The sum of all attached files in a single message, both for incoming and outgoing email, must not exceed 25MB in total file size.",
+      "sourceURL": "https://help.yahoo.com/kb/SLN5673.html",
+      "checked": "2026-11-12",
+      "note": "This is the provider's stated cap. Email attachments are base64-encoded when sent, which adds about a third to their size, so recommendedBytes is 72% of the cap. The provider's page does not mention encoding; the 72% figure is our own conservative allowance, not a provider number."
+    },
+    {
+      "id": "icloud-mail",
+      "name": "iCloud Mail",
+      "detail": "Without Mail Drop",
+      "appliesTo": [
+        "video",
+        "photo",
+        "pdf"
+      ],
+      "limitBytes": 20000000,
+      "recommendedBytes": 14400000,
+      "statedText": "The size of incoming and outgoing messages (20MB, up to 5GB with Mail Drop turned on)",
+      "sourceURL": "https://support.apple.com/en-us/102198",
+      "checked": "2026-11-12",
+      "note": "This is the provider's stated cap. Email attachments are base64-encoded when sent, which adds about a third to their size, so recommendedBytes is 72% of the cap. The provider's page does not mention encoding; the 72% figure is our own conservative allowance, not a provider number."
+    },
+    {
+      "id": "whatsapp-document",
+      "name": "WhatsApp",
+      "detail": "Sent as a document",
+      "appliesTo": [
+        "video",
+        "photo",
+        "pdf"
+      ],
+      "limitBytes": 2000000000,
+      "recommendedBytes": null,
+      "statedText": "For documents, the maximum file size allowed is 2 GB.",
+      "sourceURL": "https://faq.whatsapp.com/453914586839706/?cms_platform=iphone&locale=en_US",
+      "checked": "2026-11-12",
+      "note": "Applies only when the file is attached as a document. Videos sent as media have a different, connection-dependent limit that is not included here."
+    },
+    {
+      "id": "github-media",
+      "name": "GitHub",
+      "detail": "Image or video, free plan",
+      "appliesTo": [
+        "video",
+        "photo"
+      ],
+      "limitBytes": 10000000,
+      "recommendedBytes": null,
+      "statedText": "The maximum file size is: 10MB for images and gifs; 10MB for videos uploaded to a repository owned by a user or organization on a free GitHub plan",
+      "sourceURL": "https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/attaching-files",
+      "checked": "2026-11-12",
+      "note": "Issue, pull request and comment attachments. Videos in repositories on a paid plan are allowed 100MB."
+    },
+    {
+      "id": "github-file",
+      "name": "GitHub",
+      "detail": "Other attached files",
+      "appliesTo": [
+        "pdf"
+      ],
+      "limitBytes": 25000000,
+      "recommendedBytes": null,
+      "statedText": "The maximum file size is: 25MB for all other files",
+      "sourceURL": "https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/attaching-files",
+      "checked": "2026-11-12",
+      "note": "Issue, pull request and comment attachments."
+    },
+    {
+      "id": "linkedin-document",
+      "name": "LinkedIn",
+      "detail": "Document on a post",
+      "appliesTo": [
+        "pdf"
+      ],
+      "limitBytes": 100000000,
+      "recommendedBytes": null,
+      "statedText": "The file size cannot exceed 100 MB.",
+      "sourceURL": "https://www.linkedin.com/help/linkedin/answer/a564109",
+      "checked": "2026-11-12",
+      "note": "The page lists this under a general note for supported media files; applied here to documents only."
+    },
+    {
+      "id": "slack",
+      "name": "Slack",
+      "detail": "File upload",
+      "appliesTo": [
+        "video",
+        "photo",
+        "pdf"
+      ],
+      "limitBytes": 1000000000,
+      "recommendedBytes": null,
+      "statedText": "Members and guests can add files up to 1GB in size.",
+      "sourceURL": "https://slack.com/help/articles/201330736-Add-files-to-Slack",
+      "checked": "2026-11-12",
+      "note": null
+    },
+    {
+      "id": "telegram",
+      "name": "Telegram",
+      "detail": "File, without Premium",
+      "appliesTo": [
+        "video",
+        "photo",
+        "pdf"
+      ],
+      "limitBytes": 2000000000,
+      "recommendedBytes": null,
+      "statedText": "Send and receive files of any type, up to 2 GB in size each (or 4 GB with Premium), access them instantly on your other devices.",
+      "sourceURL": "https://telegram.org/faq",
+      "checked": "2026-11-12",
+      "note": null
+    }
+  ],
+  "photoForms": []
+}
