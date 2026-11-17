@@ -1,0 +1,62 @@
+---
+import DocLayout from '../../layouts/DocLayout.astro';
+
+const store = 'https://apps.microsoft.com/detail/9N92FVZ0DTJC?cid=mdguide-pub';
+---
+
+<DocLayout
+  title="How to open a .pub file without Publisher"
+  description="Four ways to open a Microsoft Publisher .pub file on Windows when you no longer have Publisher: ask for a PDF, LibreOffice, an old Publisher license, or OpenPub."
+  eyebrow="Guide"
+  heading="How to open a .pub file without Publisher"
+  lede="A .pub file is a Microsoft Publisher document. If Publisher is gone from your PC, you still have options. Here they are, free ones first."
+  meta="Last updated: November 16, 2026"
+>
+  <h2>First: is it really a Publisher file?</h2>
+  <p>
+    Publisher documents end in <code>.pub</code>, but so do SSH public keys. If the file came from a server or a developer and is a few lines of text, it is a key, not a document. Everything below is about Publisher documents: newsletters, flyers, brochures, cards.
+  </p>
+
+  <h2>Option 1: Ask for a PDF</h2>
+  <p>
+    If someone sent you the file, ask them to export it as a PDF from Publisher (<strong>File &gt; Export &gt; Create PDF/XPS</strong>). It is the most faithful result and costs nothing. This only works if they still have Publisher and are around to ask.
+  </p>
+
+  <h2>Option 2: LibreOffice Draw (free)</h2>
+  <p>
+    <a href="https://www.libreoffice.org/" rel="noopener">LibreOffice</a> can import .pub files. Right-click the file and choose <strong>Open with &gt; LibreOffice Draw</strong>, or open Draw and use <strong>File &gt; Open</strong>. You can then save the pages as PDF.
+  </p>
+  <p>
+    It is free and worth trying first. Expect rough edges on complex layouts: shifted text, missing or misplaced images, and substituted fonts. Newer Publisher files and files with heavy graphics are the most likely to come out wrong.
+  </p>
+
+  <h2>Option 3: An old Publisher license</h2>
+  <p>
+    Publisher 2010, 2013, 2016, 2019 and 2021 bought as a one-time purchase keep working on the PC they are installed on, and they open .pub files exactly. If you have an old install disc or license key, or an older PC that still has Publisher, that is the most accurate way to open and edit a file. It does not help if you never had a perpetual copy, since Publisher is no longer sold in Microsoft 365.
+  </p>
+
+  <h2>Option 4: OpenPub for Windows</h2>
+  <p>
+    <a href={store}>OpenPub - PUB to PDF Converter</a> is a Microsoft Store app I make for exactly this situation.
+  </p>
+  <ul>
+    <li><strong>Preview is free.</strong> Open a .pub file and browse every page before paying anything, so you know it reads correctly.</li>
+    <li><strong>One purchase, no subscription.</strong> A one-time unlock adds export to PDF and PNG, batch conversion of whole folders, and printing.</li>
+    <li><strong>Private.</strong> Files are converted on your PC. The app does not use the internet and nothing is uploaded.</li>
+    <li><strong>Windows 10 (1809 or later) and Windows 11</strong>, on Intel/AMD and Arm PCs.</li>
+  </ul>
+  <p>
+    It reads the text, images and layout of your files, but complex documents can differ from the original. That is why the preview is free: check the pages before you convert.
+  </p>
+  <p><a class="btn btn-primary" href={store}>Get OpenPub from the Microsoft Store</a></p>
+
+  <h2>Which one should you use?</h2>
+  <ul>
+    <li><strong>One file, and someone can send a PDF:</strong> ask for the PDF.</li>
+    <li><strong>One simple file:</strong> try LibreOffice first.</li>
+    <li><strong>You need exact output and have an old license:</strong> use Publisher.</li>
+    <li><strong>A lot of files, or LibreOffice got them wrong:</strong> try OpenPub's free preview and see.</li>
+  </ul>
+
+  <p><small>OpenPub is not affiliated with or endorsed by Microsoft. Microsoft Publisher is a trademark of Microsoft Corporation, referenced only to describe the file format. Support: <a href="/apps/openpub/windows">OpenPub for Windows</a>.</small></p>
+</DocLayout>
