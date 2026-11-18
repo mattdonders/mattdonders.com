@@ -4,27 +4,31 @@ import DocLayout from '../../../layouts/DocLayout.astro';
 
 <DocLayout
   title="Privacy Policy · Below"
-  description="Privacy Policy for Below, the video compressor for iPhone, iPad and Android."
+  description="Privacy Policy for Below, which makes videos, photos and PDFs fit under a size limit on iPhone and iPad, and videos on Android."
   eyebrow="Below"
   heading="Privacy Policy"
-  meta="Last updated: September 18, 2026"
+  meta="Last updated: November 18, 2026"
   back={{ href: '/apps/below', label: 'Below' }}
 >
   <div class="callout">
-    <strong>Summary:</strong> Below compresses your videos entirely on your device. It has no account, no server, and no video upload, and it does not collect, transmit, or share your information.
+    <strong>Summary:</strong> Below shrinks your files entirely on your device. Your videos, photos and PDFs are never uploaded. There is no account, and Below does not collect, transmit, or share your information. On iPhone and iPad, Below downloads a small public list of size limits from our website once a day; that request carries no information about you.
   </div>
 
   <h2>Information We Collect</h2>
   <p><strong>None.</strong> Below does not require an account, does not ask you to sign in, and does not collect personal information or other user data.</p>
 
-  <h2>Your Videos</h2>
+  <h2>Your Videos, Photos and PDFs</h2>
   <p>
-    Every video Below reads and every video Below writes stays on your device. Compression runs locally using the video framework built into iOS. Below operates no server and performs no upload, so your video is never sent to us or to anyone else.
+    Every file Below reads and every file Below writes stays on your device. Videos are compressed with the video framework built into iOS or Android, and photos and PDFs (iPhone and iPad only) with the image and PDF frameworks built into iOS. Below performs no upload, so your files are never sent to us or to anyone else.
   </p>
   <p>
-    Below never modifies or deletes your original video. It writes a new, smaller file alongside it.
+    Below never modifies or deletes your original. It writes a new, smaller copy. When you choose to remove personal details from a photo, Below leaves location, camera and other descriptive information out of the copy; that choice is made on your device and nothing is sent anywhere.
   </p>
 
+  <h2>Size-Limit List</h2>
+  <p>
+    On iPhone and iPad, Below version 2.0 and later keeps an up-to-date list of common upload and attachment limits (for example, Discord or Gmail). At most once a day it downloads that list, a public file, from <code>mattdonders.com</code>. The request includes no account, device identifier, advertising identifier, file information, or anything you have done in the app. As with any web request, our hosting provider (Cloudflare) sees the network address the request comes from; we do not use it to identify you or for anything else. If the download fails, Below uses the list built into the app. The Android app does not download this list.
+  </p>
   <h2>Tracking, Analytics, and Advertising</h2>
   <p>
     Below does not use analytics, crash-reporting services, advertising, tracking, third-party SDKs, or third-party services. It does not track you across apps or websites. Because Below does not collect your information, it does not sell or share it.
@@ -37,10 +41,10 @@ import DocLayout from '../../../layouts/DocLayout.astro';
 
   <h2>Device Access and Data Management</h2>
   <p>
-    Below asks for permission to add a video to your photo library only when you choose to save a result. Choosing a video through the system photo picker or the system file picker requires no permission, because those pickers hand Below only the single item you select.
+    Below asks for permission to add a video or photo to your photo library only when you choose to save a result. Choosing a file through the system photo picker or the system file picker requires no permission, because those pickers hand Below only the single item you select.
   </p>
   <p>
-    Below stores a small amount of information on your device: the sizes you save for reuse, a count of how many free compressions you have used, and whether Below Pro is unlocked. That information is shared only between Below, its share extension, and its Shortcuts action on the same device. You can remove it by deleting the app.
+    Below stores a small amount of information on your device: the sizes you save for reuse, a count of how many free uses you have used, whether Below Pro is unlocked, and the most recent size-limit list. That information is shared only between Below, its share extension, and its Shortcuts action on the same device. You can remove it by deleting the app.
   </p>
 
   <h2>Children</h2>

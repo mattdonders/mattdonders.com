@@ -76,8 +76,8 @@ export const projects: Project[] = [
   {
     name: 'Below',
     category: 'Everyday tools',
-    tagline: 'Shrink a video to fit under the file size you choose.',
-    description: 'A private, on-device iPhone and iPad utility that compresses a video to fit under a maximum file size you choose.',
+    tagline: 'Shrink a video, photo or PDF to fit under the file size you choose.',
+    description: 'A private, on-device iPhone and iPad utility that makes a video, photo or PDF fit under a maximum file size you choose.',
     status: 'live',
     platforms: ['iOS'],
     tags: ['SwiftUI', 'AVFoundation'],
