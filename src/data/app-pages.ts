@@ -154,7 +154,7 @@ export const appPages: AppPage[] = [
         { title: 'Video, photo and PDF', body: 'On iPhone and iPad, Below fits all three under your limit. Trim a video or drop its audio first if you only need part of it. Android fits videos.' },
         { title: 'Target size, not guesswork', body: 'Tell Below the limit you care about, like 20 MB for Discord or about 18 MB for an email that keeps getting rejected. Common limits are one tap away, plus sizes you save yourself.' },
         { title: 'Checked byte for byte', body: 'Below measures the real output file, in the same decimal KB and MB that Photos, email and messaging apps use. A file Below calls done really is under your limit.' },
-        { title: 'Private by design', body: 'Everything happens on your device. No account, no upload, no analytics, no ads. Below can leave location and camera details out of a photo copy.' },
+        { title: 'Private by design', body: 'Everything happens on your device. No account, no upload, no analytics, no ads. Photo copies leave out location and camera details.' },
         { title: 'Photos, Files, Share Sheet, Shortcuts', body: 'Fit a file from wherever it lives. Shortcuts actions let it run inside your own automations.' },
         { title: 'Your original is untouched', body: 'Below writes a new, smaller copy and never modifies or deletes the original.' },
       ],
