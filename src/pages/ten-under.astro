@@ -1,0 +1,85 @@
+---
+import DocLayout from '../layouts/DocLayout.astro';
+// Unlisted on purpose (POC-W002): this page is the website named in the eBay Partner Network
+// application for the Ten Under Magic deal feed. Nothing on the site links here, it is excluded from
+// the sitemap, and it carries noindex. It shows no live eBay data: the sample cards below are
+// illustrations. The live feed stays private until EPN approval and eBay's written OK under the
+// API License Agreement.
+const samples = [
+  { card: 'Grave Pact', set: 'WOT', num: '29', finish: 'Non-foil', price: 25.0, market: 32.4 },
+  { card: 'Arid Mesa', set: 'MM3', num: '229', finish: 'Non-foil', price: 27.0, market: 31.2 },
+  { card: 'Narcomoeba', set: 'FUT', num: '54', finish: 'Foil', price: 19.99, market: 28.23 },
+];
+const under = (s: { price: number; market: number }) => Math.round((1 - s.price / s.market) * 100);
+---
+
+<DocLayout
+  title="Ten Under · Magic singles under market"
+  description="Ten Under lists Magic: The Gathering singles on eBay priced at least 10% under market, matched to the exact printing."
+  eyebrow="Ten Under"
+  heading="Magic singles at least 10% under market"
+  lede="A deal feed for Magic: The Gathering players and collectors. It finds single cards for sale on eBay priced at least 10% below the TCGplayer market price, matched to the exact printing."
+  meta="In development · launching after eBay Partner Network approval"
+  noindex
+>
+  <h2>What it does</h2>
+  <p>
+    Every 15 minutes, Ten Under checks newly listed Buy It Now Magic singles from US sellers on eBay.
+    It keeps a listing only when it can tell exactly which card it is. The card name, set, collector
+    number, finish (foil or non-foil), language (English) and condition (near mint, ungraded) must
+    all agree. Listings that could be more than one printing, lots, playsets and graded cards are left out.
+  </p>
+  <p>
+    The matched card's price, with shipping, is compared with the TCGplayer market price for that
+    exact printing and finish. If it is at least 10% lower, the listing appears in the feed with a
+    link to it on eBay. Listings are re-checked and removed when they end.
+  </p>
+
+  <h2>What a deal looks like</h2>
+  <p>These are examples to show the format, not live listings.</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Card</th><th>Printing</th><th>Finish</th><th>eBay, shipped</th><th>Market</th><th>Under</th></tr>
+      </thead>
+      <tbody>
+        {samples.map((s) => (
+          <tr>
+            <td>{s.card}</td>
+            <td class="mono">{s.set} {s.num}</td>
+            <td>{s.finish}</td>
+            <td class="num">${s.price.toFixed(2)}</td>
+            <td class="num">${s.market.toFixed(2)}</td>
+            <td class="num">{under(s)}%</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <h2>How it makes money</h2>
+  <p>
+    Links to eBay listings are eBay Partner Network affiliate links. When someone buys through one,
+    eBay may pay a commission. There are no paid placements, rewards, coupons or software to install,
+    and every link says it goes to eBay.
+  </p>
+
+  <h2>Where the prices come from</h2>
+  <ul>
+    <li><strong>Listings:</strong> the eBay Browse API.</li>
+    <li><strong>Market prices:</strong> TCGplayer prices, via MTGJSON's daily price file.</li>
+    <li><strong>Card catalog:</strong> Scryfall, used to identify exact printings.</li>
+  </ul>
+
+  <h2>Contact</h2>
+  <p>Matt Donders · <a href="mailto:matt@mattdonders.com">matt@mattdonders.com</a></p>
+</DocLayout>
+
+<style>
+  .table-wrap { overflow-x: auto; margin: 8px 0 16px; }
+  table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; padding: 8px 12px 8px 0; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  th { font-size: 13px; color: var(--muted); font-weight: 600; }
+  .num { text-align: right; }
+  .mono { font-family: var(--font-mono); font-size: 14px; }
+</style>
