@@ -395,6 +395,34 @@ export const appPages: AppPage[] = [
     privacy: '/apps/fifty-two/privacy',
   },
   {
+    slug: 'pass-the-giggle',
+    title: 'Pass the Giggle: Family Game',
+    description: 'A silly act-it-out party game for kids and families. Pass the phone, act out the card. Offline, no ads, no account.',
+    headline: 'Pass the phone. Act it out!',
+    intro: 'A kid-safe party game for the whole family. Each player gets a silly card to act, sound out, pose or say, then passes the phone along. Works offline, with no ads and no account.',
+    features: {
+      heading: 'Giggles for everyone',
+      items: [
+        { title: 'Four silly decks', body: 'Over 300 prompt cards across Starter Silly, Animal Party, Winter & Holiday Fun and Road Trip.' },
+        { title: 'Quick-fire turns', body: 'Do as many cards as you can before the timer runs out, then pass to the next player.' },
+        { title: 'Road Trip mode', body: 'Passengers only: one reader holds the phone and reads each card aloud. Every card can be done sitting down.' },
+        { title: 'Your own cards', body: "Write cards about your family's own jokes, pets and grandparents." },
+        { title: 'Made for kids', body: 'Every card is safe and kind for young kids. Purchases sit behind a grown-up check.' },
+        { title: 'Private by design', body: 'No account and no internet needed. No analytics, no tracking, no ads.' },
+      ],
+    },
+    pricing: {
+      heading: 'Start free. Upgrade once.',
+      intro: 'The Starter deck is free. One purchase unlocks the rest.',
+      tiers: [
+        { name: 'Free', price: '$0', items: ['Starter Silly deck (50+ cards)', 'Up to 4 players', '30-second timer'] },
+        { name: 'Unlock More Giggles', price: '$3.99', cadence: 'one-time', highlight: true, items: ['Three bonus decks', 'Your own cards', 'Unlimited players and all timer settings', 'Family Sharing, no subscription'] },
+      ],
+    },
+    support: { subject: 'Pass the Giggle Support' },
+    privacy: '/apps/pass-the-giggle/privacy',
+  },
+  {
     slug: 'home-stretch',
     title: 'Home Stretch: Moving Checklist',
     description: 'A timeline-based moving checklist built around your move date. No ads, no account, no bloat.',

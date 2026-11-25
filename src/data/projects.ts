@@ -74,6 +74,18 @@ export const projects: Project[] = [
     icon: '/apps/icons/tooth-fairy.png',
   },
   {
+    name: 'Pass the Giggle',
+    category: 'Home & family',
+    tagline: 'A silly act-it-out party game you pass around the room.',
+    description: 'A kid-safe pass-the-phone family game: act, sound, pose and say silly prompt cards. Works offline, no account, no ads.',
+    status: 'review',
+    platforms: ['iOS'],
+    tags: ['SwiftUI', 'SwiftData', 'StoreKit 2'],
+    url: '/apps/pass-the-giggle',
+    appStoreId: '6838344164',
+    icon: '/apps/icons/pass-the-giggle.png',
+  },
+  {
     name: 'Below',
     category: 'Everyday tools',
     tagline: 'Shrink a video, photo or PDF to fit under the file size you choose.',
