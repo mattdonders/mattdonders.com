@@ -395,6 +395,34 @@ export const appPages: AppPage[] = [
     privacy: '/apps/fifty-two/privacy',
   },
   {
+    slug: 'flipside',
+    title: 'Flipside - Daily Tile Puzzle',
+    description: 'A calm daily tile-flip puzzle. Tap a tile to flip it and its corner neighbors, and turn every tile gold. Offline, no ads, no account.',
+    headline: 'Turn every tile gold.',
+    intro: 'A calm daily logic puzzle. Tap a tile to flip it and its four corner neighbors, and turn the whole board gold in as few moves as you can. Everyone gets the same board each day.',
+    features: {
+      heading: 'One small puzzle a day',
+      items: [
+        { title: 'A new board every day', body: 'Everyone gets the same 4×4 puzzle each day. It starts easy on Monday and gets trickier through Sunday.' },
+        { title: 'Beat par', body: 'Every board has a par: the fewest moves that solve it. Solve it, then try again for a better score.' },
+        { title: 'Hints that teach', body: 'Stuck? A hint shows the next tap and exactly which tiles it will flip.' },
+        { title: 'Streaks and stats', body: 'Keep your daily streak going and watch your perfect solves add up.' },
+        { title: 'More to play', body: 'The archive of past dailies, 5×5 and 6×6 boards, Endless mode and tile color themes.' },
+        { title: 'Private by design', body: 'No account and no internet needed. No analytics, no tracking, no ads.' },
+      ],
+    },
+    pricing: {
+      heading: 'Start free. Upgrade once.',
+      intro: "Today's puzzle is always free. One purchase unlocks the rest.",
+      tiers: [
+        { name: 'Free', price: '$0', items: ["Today's 4×4 daily puzzle", 'Hints, streak and stats', 'Guided tutorial'] },
+        { name: 'Unlock Everything', price: '$2.99', cadence: 'one-time', highlight: true, items: ['Archive of past dailies', '5×5 and 6×6 daily boards', 'Endless mode and tile themes', 'Family Sharing, no subscription'] },
+      ],
+    },
+    support: { subject: 'Flipside Support' },
+    privacy: '/apps/flipside/privacy',
+  },
+  {
     slug: 'pass-the-giggle',
     title: 'Pass the Giggle: Family Game',
     description: 'A silly act-it-out party game for kids and families. Pass the phone, act out the card. Offline, no ads, no account.',

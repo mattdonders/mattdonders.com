@@ -86,6 +86,18 @@ export const projects: Project[] = [
     icon: '/apps/icons/pass-the-giggle.png',
   },
   {
+    name: 'Flipside',
+    category: 'Games',
+    tagline: 'A calm daily tile-flip puzzle. Turn every tile gold.',
+    description: 'A daily logic puzzle: tap a tile to flip it and its corner neighbors, and turn the whole board gold in as few moves as you can. Offline, no account, no ads.',
+    status: 'development',
+    platforms: ['iOS'],
+    tags: ['SwiftUI', 'SwiftData', 'StoreKit 2'],
+    url: '/apps/flipside',
+    appStoreId: '6839219291',
+    icon: '/apps/icons/flipside.png',
+  },
+  {
     name: 'Below',
     category: 'Everyday tools',
     tagline: 'Shrink a video, photo or PDF to fit under the file size you choose.',
